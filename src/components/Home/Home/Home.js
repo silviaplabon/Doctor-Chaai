@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import NavBar from '../NavBar/NavBar';
 import OurService from '../OurService/OurService';
 import TakeAppointment from '../TakeAppointment/TakeAppointment';
+import TalentedStaff from '../TalentedStaff/TalentedStaff';
 
 const Home = () => {
     return (
@@ -13,9 +14,9 @@ const Home = () => {
             <FindDoctor/>
             <Features />
             <TakeAppointment/>
+            <TalentedStaff />
             <OurService/>
             <Footer/>
-
         </div>
     );
 };
