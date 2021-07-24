@@ -1,4 +1,5 @@
 import React from 'react';
+import Features from '../Features/Features';
 import FindDoctor from '../FindDoctor/FindDoctor';
 import Footer from '../Footer/Footer';
 import NavBar from '../NavBar/NavBar';
@@ -10,9 +11,11 @@ const Home = () => {
         <div>
             <NavBar/>
             <FindDoctor/>
+            <Features />
             <TakeAppointment/>
             <OurService/>
             <Footer/>
+
         </div>
     );
 };
