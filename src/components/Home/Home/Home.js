@@ -1,4 +1,5 @@
 import React from 'react';
+import Department from '../Department/Department';
 import Features from '../Features/Features';
 import FindDoctor from '../FindDoctor/FindDoctor';
 import Footer from '../Footer/Footer';
@@ -14,6 +15,7 @@ const Home = () => {
             <FindDoctor/>
             <Features />
             <TakeAppointment/>
+            <Department/>
             <TalentedStaff />
             <OurService/>
             <Footer/>
