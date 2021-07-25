@@ -1,54 +1,52 @@
-.first{
-    background-color: #67c8ff;
+.first {
+  background-color: #67c8ff;
 }
-.second{
-    background-color: #38b0de;
+.second {
+  background-color: #38b0de;
 }
-.third{
-    background-color: #4d4dff;
+.third {
+  background-color: #4d4dff;
 }
-.card{
-    color: #fff;
-    border: none;
-    height: 60vh;
-    margin-left: -5px;  
-}
-
-.feature-btn{
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: 1;
-    display: inline-block;
-    padding: 10px 20px;
-    transition: 0.5s;
-    color: #fff;
-    border: 1px solid #fff;
-    text-decoration: none;
+.card {
+  border: none;
+  height: 100%;
+  margin-left: -5px;
 }
 
-.feature-btn:hover{
-    background-color: #fff;
-    color: #67c8ff;
+.feature-btn {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1;
+  display: inline-block;
+  padding: 10px 20px;
+  transition: 0.5s;
+  color: #fff;
+  border: 1px solid #fff;
+  text-decoration: none;
 }
 
-.features{
-    padding: 30px 35px;
+.feature-btn:hover {
+  background-color: #fff;
+  color: #67c8ff;
 }
 
-.table{
-    color: #fff;
-    border-bottom: 1px solid #dee2e6;
+.features {
+  padding: 30px 35px;
 }
 
-.card-title{
-    padding: 10px 20px;
+.table {
+  color: #fff;
+  border-bottom: 1px solid #dee2e6;
 }
 
-.card-text{
-    padding: 10px 20px;
+.card-title {
+  padding: 10px 20px;
 }
 
-.tableData{
-    padding: 10px 20px;
+.card-text {
+  padding: 10px 20px;
+}
 
+.tableData {
+  padding: 10px 20px;
 }

@@ -5,9 +5,9 @@ import './Features.scss';
 const Features = () => {
     return (
         <div className="container">
-            <div className="row">
+            <div className="row text-white">
                 <div className="col-md-4 col-sm-6 mx-auto p-0">
-                    <div className="card first">
+                    <div className="card rounded-0 first">
                         <div className="card-body">
                             <h4 className="card-title">Top Doctors</h4>
                             <p className="card-text">Cum sociis natoque penatibus et magnis dis parturient montesmus. Pro vel nibh et elit mollis commodo et nec augue tristique sed volutpat.</p>
@@ -18,7 +18,7 @@ const Features = () => {
                     </div>
                 </div>
                 <div className="col-md-4 col-sm-6 mx-auto p-0">
-                    <div className="card second">
+                    <div className="card rounded-0 second">
                         <div className="card-body">
                             <h4 className="card-title">24 Hours Service</h4>
                             <p className="card-text">Cum sociis natoque penatibus et magnis dis parturient montesmus. Pro vel nibh et elit mollis commodo et nec augue tristique sed volutpat.</p>
@@ -29,7 +29,7 @@ const Features = () => {
                     </div>
                 </div>
                 <div className="col-md-4 col-sm-12 mx-auto p-0">
-                    <div className="card third">
+                    <div className="card rounded-0 third">
                         <div className="card-body">
                             <h4 className="card-title">Opening Hours</h4>
                             <div className="tableData">
