@@ -1,0 +1,109 @@
+$btn-color: #050546;
+$text-color: #ffffff;
+$paragraph-color: #666666;
+
+.department{
+    height: auto;
+    background-color: #f1f6fa;
+
+    h5{
+        color: $btn-color;
+        text-transform: capitalize;
+        font-weight: bold;
+        font-size: 17px;
+    }
+    h2{
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    .dept-container {
+        background-color: $text-color;
+        width: 30%;
+        margin-left: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        cursor: pointer;
+        border-radius: 10px;
+
+        &:hover > img{
+            opacity: 0.8;
+        }
+
+        img{
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: 0.3s;
+        }
+        h4{
+            text-transform: capitalize;
+            font-weight: 600;
+        }
+        p{
+            color: $paragraph-color;
+        }
+        button{
+            outline: none;
+            background-color: $btn-color;
+            color: $text-color;
+            text-transform: capitalize;
+            border: 2px solid $btn-color;
+            padding: 8px 20px;
+            &:hover{
+                background-color: $text-color;
+                color: $btn-color;
+            }
+        }
+        
+    }
+}
+
+.custom-container{
+    width: 75%;
+    margin: 0 auto;
+}
+
+
+/* responsive */
+
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 576px;
+$breakpoint-desktop: 992px;
+
+@media (max-width: $breakpoint-phone) {
+    .department{
+        
+        .dept-container{
+            width: 95%;
+            margin-top: 20px;
+
+            img{
+                height: 200px;
+            }
+        }
+    }
+}
+
+@media (min-width: $breakpoint-tablet) {
+    .department{
+        
+        .dept-container{
+            width: 45%;
+            margin-top: 20px;
+        }
+    }
+}
+
+@media (min-width: $breakpoint-desktop) {
+    .department{
+        
+        .dept-container{
+            width: 30%;
+            margin-top: 20px;
+        }
+    }
+}
+
