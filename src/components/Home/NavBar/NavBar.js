@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.scss';
+import logo from "../../../images/doctor-logo.png"
 
 const NavBar = () => {
     const [expand,setExpand] = useState(true);
@@ -15,7 +16,7 @@ const NavBar = () => {
                     <div className="d-lg-flex justify-content-between align-items-center">
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="navbar-brand">
-                                <img className="logoImg" src="https://i.ibb.co/kJCGyts/doctorschaai.png" />
+                                <img className="logoImg" src={logo} alt="doctors-chaai"/>
                             </div>
                             <button onClick={()=>setExpand(!expand)} className="navbar-toggler togglerBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 { expand ? <FontAwesomeIcon icon={faGripLines}/> : <FontAwesomeIcon icon={faTimes}/> }
@@ -37,6 +38,9 @@ const NavBar = () => {
                                 </li>
                             </ul>
                             <ul className="navbar-nav align-items-center ms-lg-auto mb-2 mb-lg-0 navbarBtnItem">
+                                {/* <li className="nav-item ">
+                                    <Link className="nav-link logInBtn" aria-current="page" to="/home">LogIn</Link>
+                                </li> */}
                                 <li className="nav-item ">
                                     <Link className="logInBtn" aria-current="page" to="/home">LogIn</Link>
                                 </li>
