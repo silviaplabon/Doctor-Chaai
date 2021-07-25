@@ -4,6 +4,8 @@ import './Features.scss';
 
 const Features = () => {
     return (
+        <div className="container custom-container py-5">
+            <div className="row">
         <div className="container">
             <div className="row text-white">
                 <div className="col-md-4 col-sm-6 mx-auto p-0">
