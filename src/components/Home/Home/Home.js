@@ -1,4 +1,5 @@
 import React from 'react';
+import AppointmentBooking from '../Booking/AppointmentBooking/AppointmentBooking';
 import FindDoctor from '../FindDoctor/FindDoctor';
 import Footer from '../Footer/Footer';
 import NavBar from '../NavBar/NavBar';
@@ -10,6 +11,7 @@ const Home = () => {
             <NavBar/>
             <FindDoctor/>
             <TakeAppointment/>
+            <AppointmentBooking></AppointmentBooking>
             <Footer/>
         </div>
     );
