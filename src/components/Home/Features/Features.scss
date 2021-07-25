@@ -1,0 +1,47 @@
+.first {
+  background-color: #67c8ff;
+}
+.second {
+  background-color: #38b0de;
+}
+.third {
+  background-color: #4d4dff;
+}
+
+.feature-btn {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1;
+  display: inline-block;
+  padding: 10px 20px;
+  transition: 0.5s;
+  color: #fff;
+  border: 1px solid #fff;
+  text-decoration: none;
+}
+
+.feature-btn:hover {
+  background-color: #fff;
+  color: #67c8ff;
+}
+
+.features {
+  padding: 30px 35px;
+}
+
+.table {
+  color: #fff;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.card-title {
+  padding: 10px 20px;
+}
+
+.card-text {
+  padding: 10px 20px;
+}
+
+.tableData {
+  padding: 10px 20px;
+}

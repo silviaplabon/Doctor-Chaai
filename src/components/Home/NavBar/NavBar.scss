@@ -4,20 +4,24 @@
 .signUpBtn {
   background-color: #050546;
   transition: all 0.3s;
-  color: white !important;
-  padding: 8px 15px !important;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
   &:hover {
     background-color: #212192;
     color: white;
   }
 }
 .logInBtn {
-  padding: 8px 15px !important;
+  padding: 8px 15px;
   border-radius: 5px;
   transition: all 0.3s;
   margin-right: 8px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.55);
   &:hover {
     background-color: rgb(223, 223, 223);
+    color: rgba(0, 0, 0, 0.767);
   }
 }
 .nav-item {
@@ -53,4 +57,15 @@
   background: #e2e2e2;
   box-shadow: none !important;
   outline: none !important;
+}
+
+@media (max-width: 576px) {
+  .signUpBtn {
+    padding: 6px 11px;
+    font-size: 1.09rem;
+  }
+  .logInBtn {
+    padding: 6px 11px;
+    font-size: 1.1rem;
+  }
 }

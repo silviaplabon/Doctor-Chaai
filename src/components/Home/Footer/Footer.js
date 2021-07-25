@@ -6,7 +6,7 @@ import './Footer.scss';
 const Footer = () => {
     return (
         <div>
-            <div className="container-sm">
+            <div className="container-sm py-5">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 footerContent">
                     <div className="col mt-3">
                         <h4>DoctorsChaai</h4>

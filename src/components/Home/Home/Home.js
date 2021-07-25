@@ -1,17 +1,25 @@
 import React from 'react';
 import AppointmentBooking from '../Booking/AppointmentBooking/AppointmentBooking';
+import Department from '../Department/Department';
+import Features from '../Features/Features';
 import FindDoctor from '../FindDoctor/FindDoctor';
 import Footer from '../Footer/Footer';
 import NavBar from '../NavBar/NavBar';
+import OurService from '../OurService/OurService';
 import TakeAppointment from '../TakeAppointment/TakeAppointment';
+import TalentedStaff from '../TalentedStaff/TalentedStaff';
 
 const Home = () => {
     return (
         <div>
             <NavBar/>
             <FindDoctor/>
+            <Features />
             <TakeAppointment/>
-            <AppointmentBooking></AppointmentBooking>
+            <AppointmentBooking/>
+            <Department/>
+            <TalentedStaff />
+            <OurService/>
             <Footer/>
         </div>
     );
