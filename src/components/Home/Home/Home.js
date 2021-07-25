@@ -14,13 +14,9 @@ const Home = () => {
             <FindDoctor/>
             <Features />
             <TakeAppointment/>
-<<<<<<< HEAD
             <TalentedStaff />
-=======
             <OurService/>
->>>>>>> 7ce9e7c26e2635259cdb494796209a1a5d29dbc0
             <Footer/>
-
         </div>
     );
 };

@@ -43,7 +43,7 @@ const TalentedStaff = () => {
           <div className="card">
             <img src={doc3} class="card-img-top" alt="..." />
             <div class="card-body">
-              <h3>DR. DONALD TOMASH</h3>
+              <h3>DR. DONALD TOMASH </h3>
               <p className="text-secondary">Pediatrist</p>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
