@@ -1,6 +1,6 @@
 import React from 'react';
-import "./Department.scss";
 import DeptData from "../../../FakeData/DepartmentData.json";
+import "./Department.scss";
 
 const Department = () => {
     return (
@@ -12,7 +12,7 @@ const Department = () => {
                 </div>
                 <div className="row py-5 px-2">
                     {DeptData.map(item => 
-                        <div className="col-md-4 col-12 dept-container">
+                        <div className="col-md-4 my-2 m-auto col-12 dept-container">
                             <img src={item.image} alt={item.title} />
                             <div className="px-4 py-5 text-center">
                                 <h4>{item.title}</h4>

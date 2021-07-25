@@ -4,7 +4,7 @@ import './FindDoctor.scss';
 const FindDoctor = () => {
     return (
         <div className="container-sm py-4">
-            <div className="row row-cols-1 row-cols-sm-2 g-4">
+            <div className="row row-cols-1 row-cols-md-2 g-4">
                 <div className="cols p-4" >
                     <div className="findImg">
                         <img src="https://i.ibb.co/YXR0G01/portrait-doctor1.jpg" alt="find doctor"/>
