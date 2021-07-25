@@ -41,8 +41,11 @@ const NavBar = () => {
                                 {/* <li className="nav-item ">
                                     <Link className="nav-link logInBtn" aria-current="page" to="/home">LogIn</Link>
                                 </li> */}
+                                <li className="nav-item ">
+                                    <Link className="logInBtn" aria-current="page" to="/home">LogIn</Link>
+                                </li>
                                 <li className="nav-item mt-3 mt-lg-0">
-                                    <Link className="nav-link signUpBtn rounded-pill" aria-current="page" to="/home">SignUp</Link>
+                                    <Link className="signUpBtn rounded-pill" aria-current="page" to="/home">SignUp</Link>
                                 </li>
                             </ul>
                         </div>
