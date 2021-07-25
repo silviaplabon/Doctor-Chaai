@@ -3,7 +3,7 @@ import './FindDoctor.scss';
 
 const FindDoctor = () => {
     return (
-        <div className="container-sm py-4">
+        <div className="container-sm py-4 find-doctor-section">
             <div className="row row-cols-1 row-cols-sm-2 g-4">
                 <div className="cols p-4" >
                     <div className="findImg">

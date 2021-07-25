@@ -6,9 +6,11 @@ import doc3 from "../../../images/doc_3.jpg";
 
 const TalentedStaff = () => {
   return (
-    <div className="container mt-5 mb-5">
-      <h5 className="text-center primaryText">Meet The Crew</h5>
-      <h3 className="text-center ">Our Talented Staff</h3>
+    <div className="container mt-5 mb-5 custom-container">
+      <div className="py-5">
+        <h5 className="text-center primaryText">Meet The Crew</h5>
+        <h3 className="text-center ">Our Talented Staff</h3>
+      </div>
 
       <div className="text-center row row-cols-1 row-cols-md-2 row-cols-lg-3">
         <div class="col m-auto">
