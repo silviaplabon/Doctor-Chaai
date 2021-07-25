@@ -41,6 +41,11 @@ const TalentedStaff = () => {
           </div>
         </div>
 
+        <div class="col m-auto">
+          <div className="card">
+            <img src={doc3} class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h3>DR. DONALD TOMASH </h3>
         <div className="col py-4 m-auto">
           <div className="card text-black shadow">
             <img src={doc3} className="card-img-top" alt="..." />
