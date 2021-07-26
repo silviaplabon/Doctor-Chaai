@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap");
+
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 320px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  filter: blur(3px);
+  background: linear-gradient(25deg, #ffc4df 1%, #ffeabc 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.swiper-slide-active {
+  filter: blur(0px);
+  background: #fff;
+}
+
+.testimonialCard {
+  position: relative;
+  width: 100%;
+  padding: 40px;
+  padding-top: 90px;
+  color: #5d5d5d;
+  .quote {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    opacity: 0.3;
+    font-size: 2rem;
+  }
+  .testimonialImg {
+    width: 4rem;
+  }
+  h4 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #2196f3;
+    margin: 0;
+    font-family: "Caveat", cursive;
+  }
+}
+.swiper-container-3d {
+  .swiper-slide-shadow-left,
+  .swiper-slide-shadow-right {
+    background-image: none;
+  }
+}

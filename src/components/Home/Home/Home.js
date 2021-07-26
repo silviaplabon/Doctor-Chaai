@@ -9,6 +9,7 @@ import NavBar from '../NavBar/NavBar';
 import OurService from '../OurService/OurService';
 import TakeAppointment from '../TakeAppointment/TakeAppointment';
 import TalentedStaff from '../TalentedStaff/TalentedStaff';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -22,6 +23,7 @@ const Home = () => {
             <Department/>
             <TalentedStaff />
             <OurService/>
+            <Testimonial/>
             <Footer/>
         </div>
     );

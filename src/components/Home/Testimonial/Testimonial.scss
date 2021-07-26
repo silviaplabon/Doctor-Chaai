@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+
+.testimonialParent {
+  position: relative;
+  background: rgb(255, 80, 160);
+  background: linear-gradient(
+    25deg,
+    rgba(255, 80, 160, 1) 1%,
+    rgba(255, 196, 70, 1) 100%
+  );
+  .testimonialTitle {
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 3rem;
+    font-family: "Dancing Script", cursive;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonialTitle {
+    font-size: 2.2rem !important;
+  }
+}
