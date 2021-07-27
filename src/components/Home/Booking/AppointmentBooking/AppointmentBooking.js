@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useContext } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import FAQ from '../FAQ/FAQ'
-import './AppointmentBooking.scss'
+import FAQ from '../FAQ/FAQ';
+import './AppointmentBooking.scss';
 
 const AppointmentBooking = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -21,7 +20,7 @@ const AppointmentBooking = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className="">
                         <div className="row">
                             <div className="col-lg-6 col-sm-12 ">
-                                <select class="form-select form-select-sm  mt-1 mb-1 text-white " aria-label=".form-select-lg example" ref={register} name="category" style={{ backgroundColor: '#02021f', color:'white'}}>
+                                <select className="form-select form-select-sm  mt-1 mb-1 text-white " aria-label=".form-select-lg example" ref={register} name="category" style={{ backgroundColor: '#02021f', color:'white'}}>
                                     <option selected>Select Departments</option>
                                     <option value="1">Outpatient Surgery</option>
                                     <option value="2">Cardiac Clinic</option>
@@ -32,7 +31,7 @@ const AppointmentBooking = () => {
                                 </select>
                             </div>
                             <div className="col-lg-6 col-sm-12 mt-1 mb-1  ps-lg-0 ">
-                                <select class="form-select form-select-sm text-white " aria-label=".form-select-lg example" ref={register} name="category" style={{ backgroundColor: '#02021f' }} >
+                                <select className="form-select form-select-sm text-white " aria-label=".form-select-lg example" ref={register} name="category" style={{ backgroundColor: '#02021f' }} >
                                     <option selected>Select Doctors</option>
                                     <option value="Dr. Michael Lindon">Dr. Michael Lindon</option>
                                     <option value="Dr. Amy Adams">Dr. Amy Adams</option>

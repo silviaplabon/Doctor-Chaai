@@ -2,8 +2,8 @@ import React from "react";
 import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
+
 import Login from "./components/Authentication/Login/Login";
-import AppointmentBooking from "./components/Home/Booking/AppointmentBooking/AppointmentBooking";
 import Home from "./components/Home/Home/Home";
 
 function App() {
