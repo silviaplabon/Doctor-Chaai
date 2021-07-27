@@ -9,9 +9,6 @@ const AppointmentBooking = () => {
 
     const onSubmit = data => {
     }
-
-
-
     return (
         <div className="container mb-5">
             <div className="row mx-auto">
