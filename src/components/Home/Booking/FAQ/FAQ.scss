@@ -39,7 +39,33 @@
     opacity:1
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width:3000px) {
+@media only screen and (min-device-width:0px) and (max-device-width:575px) {
+    .faqContainer{
+         width:90%;
+    }
+    .accordionButtonStyle{
+        font-size: 16px;
+        padding:10px!important;
+    }
+    .accordionBodyStyle{
+        margin:10px!important;
+        font-size:14px;
+    }
+}
+
+@media only screen and (min-device-width:768px) and (max-device-width:991px) {
+    .faqContainer{
+         width:75%;
+    }
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width:1199px) {
+    .faqContainer{
+         width:70%;
+    }
+}
+
+@media only screen and (min-device-width: 1200px) and (max-device-width:4000px) {
     .faqContainer{
          width:57%;
     }
