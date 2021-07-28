@@ -17,7 +17,14 @@
     animation-name: imgAnimation;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
+    transition: 1.5s ease;
+    filter: grayscale(50%);
+    &:hover{
+      transition: 1.5s ease;
+      filter: grayscale(0%);
+    }
   }
+  
 }
 
 // @keyframes imgAnimation {
@@ -25,10 +32,10 @@
 //     border-radius: 0 35px 0 35px;
 //   }
 //   50% {
-//     border-radius: 35px 0 35px 0;
+//     border-radius: 0px 0 0px 0;
 //   }
 //   100% {
-//     border-radius: 0 35px 0 35px;
+//     border-radius: 0 0px 0 0px;
 //   }
 // }
 
