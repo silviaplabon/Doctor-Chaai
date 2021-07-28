@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import NavBar from '../NavBar/NavBar';
 import OurService from '../OurService/OurService';
+import Subscribe from '../Subscribe/Subscribe';
 import TakeAppointment from '../TakeAppointment/TakeAppointment';
 import TalentedStaff from '../TalentedStaff/TalentedStaff';
 
@@ -22,6 +23,7 @@ const Home = () => {
             <Department/>
             <TalentedStaff />
             <OurService/>
+            <Subscribe />
             <Footer/>
         </div>
     );
