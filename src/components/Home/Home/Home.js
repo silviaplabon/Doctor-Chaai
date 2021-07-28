@@ -1,5 +1,5 @@
 import React from 'react';
-import AppointmentBooking from '../Booking/AppointmentBooking/AppointmentBooking';
+import FAQ from '../Booking/FAQ/FAQ';
 import Department from '../Department/Department';
 import Features from '../Features/Features';
 import FindDoctor from '../FindDoctor/FindDoctor';
@@ -19,7 +19,7 @@ const Home = () => {
             <FindDoctor/>
             <Features />
             <TakeAppointment/>
-            <AppointmentBooking/>
+            <FAQ></FAQ>
             <Department/>
             <TalentedStaff />
             <OurService/>
