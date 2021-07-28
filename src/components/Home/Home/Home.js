@@ -1,4 +1,5 @@
 import React from 'react';
+import About from '../About/About';
 import FAQ from '../Booking/FAQ/FAQ';
 import Department from '../Department/Department';
 import Features from '../Features/Features';
@@ -9,7 +10,7 @@ import NavBar from '../NavBar/NavBar';
 import OurService from '../OurService/OurService';
 import Subscribe from '../Subscribe/Subscribe';
 import TakeAppointment from '../TakeAppointment/TakeAppointment';
-import TalentedStaff from '../TalentedStaff/TalentedStaff';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -20,9 +21,10 @@ const Home = () => {
             <Features />
             <FAQ></FAQ>
             <Department/>
-            <TalentedStaff />
+            <About/>
             <OurService/>
             <TakeAppointment/>
+            <Testimonial/>
             <Subscribe />
             <Footer/>
         </div>

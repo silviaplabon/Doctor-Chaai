@@ -1,40 +1,88 @@
 .serviceBg {
-  background-image: url(https://i.ibb.co/jhf2tDp/pexels-tara-winstead-7723532.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #f4fcff;
   width: 100%;
   height: auto;
   overflow: hidden;
-  position: relative;
-  z-index: -2;
-  &::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: #000000a6;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-  }
 }
 .serviceChild {
-  p {
-    color: white;
-    font-weight: 500;
+  div {
+    margin-bottom: 10px;
+    overflow: hidden;
+    h4 {
+      color: #01cbca;
+      position: relative;
+      width: fit-content;
+      margin: auto;
+      &::before {
+        content: "";
+        width: 3rem;
+        height: 3px;
+        background: #01cbca;
+        position: absolute;
+        top: 50%;
+        left: -55px;
+      }
+      &::after {
+        content: "";
+        width: 3rem;
+        height: 3px;
+        background: #01cbca;
+        position: absolute;
+        top: 50%;
+        right: -55px;
+      }
+    }
   }
   h2 {
-    color: #73d0f4;
-    font-weight: 600;
-    font-size: 2rem;
+    color: #050545;
+    font-weight: 700;
+    font-size: 1.9rem;
+    text-transform: uppercase;
   }
 }
 .serviceCard {
+  padding: 2.5rem 1.3rem;
+  margin: 1.8rem 5rem;
+  border-radius: 15px / 10px;
+  box-shadow: 0 11px 18px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  transition: all 0.3s;
+  background: white;
   img {
-    width: 5rem;
+    width: 4.5rem;
     height: auto;
     margin: 5px 0;
   }
   p {
     font-weight: normal;
+  }
+  h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    margin-top: 0.3rem;
+    font-weight: 700;
+    color: #050545;
+  }
+  &:hover {
+    transform: scale(1.03);
+    transition: all 0.4s;
+  }
+}
+@media (max-width: 576px) {
+  .serviceChild {
+    h2 {
+      font-size: 1.7rem !important;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .serviceCard {
+    padding: 2.5rem 1.3rem !important;
+    margin: 1rem 3rem !important;
+  }
+}
+@media (max-width: 1400px) {
+  .serviceCard {
+    margin: 1.5rem 3.5rem !important;
   }
 }
