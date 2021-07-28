@@ -1,21 +1,77 @@
-.appointmentImg {
-  img {
-    width: 100%;
-    border-radius: 0px;
+.takeAppointmentDiv{
+  h2 {
+    color: #00cccb
+  }
+  h1{
+    font-weight: bold;
+    color: #050545
+  }
+  height: 700px;
+  margin-top: 180px
+}
+
+
+.appointmentImg{
+  img{
+    border-radius: 40px;
     animation-name: imgAnimation;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
   }
 }
 
-@keyframes imgAnimation {
-  0% {
-    border-radius: 0 35px 0 35px;
+// @keyframes imgAnimation {
+//   0% {
+//     border-radius: 0 35px 0 35px;
+//   }
+//   50% {
+//     border-radius: 35px 0 35px 0;
+//   }
+//   100% {
+//     border-radius: 0 35px 0 35px;
+//   }
+// }
+
+
+@media screen and (max-width:780px) {
+  .takeAppointmentDiv{
+    margin-top: 0px
   }
-  50% {
-    border-radius: 35px 0 35px 0;
-  }
-  100% {
-    border-radius: 0 35px 0 35px;
+  .flexdiv{
+    flex-wrap: wrap;
+    margin-left: 180px;
+
+    img{
+      height: 250px;
+      margin-top: 20px;
+    }
+
   }
 }
+
+@media screen and (max-width:430px) {
+  .flexdiv{
+    flex-wrap: wrap;
+    margin-left: 20px;
+
+    img{
+      height: 250px;
+      margin-top: 20px;
+    }
+
+  }
+}
+
+@media screen and (max-width:380px) {
+  .flexdiv{
+    flex-wrap: wrap;
+    margin-left: 30px;
+
+    img{
+      height: 250px;
+      margin-top: 20px;
+    }
+
+  }
+}
+
