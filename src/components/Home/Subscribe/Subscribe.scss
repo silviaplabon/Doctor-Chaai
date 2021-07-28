@@ -1,0 +1,152 @@
+.subscribeDiv{
+    height: 800px;
+}
+.subscribeText{
+    h2{
+        color: #050545;
+        
+    }
+
+}
+.subscribeRow{
+    border: 1px solid black;
+    border-radius: 25px;
+    height: 300px;
+    margin-top: 200px;
+    background-color: #050545;
+    
+    
+}
+.subscribeRow {
+    .subscribeRowDiv{
+        color: whitesmoke;
+        margin: auto;
+        margin-bottom: 220px;
+    }
+    .input{
+        height: 60px;
+        width: 300px;
+        margin-top: 20px;
+        border-radius: 40px;
+        padding-bottom: 5px;
+    }
+    button{
+        height: 60px;
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 40px;
+        border: 0px;
+        background-color: #00cccb;
+        color: white;
+        font-weight: bold;
+        margin-left: -50px;
+    }
+    
+    form {
+        img{
+            height: 40px
+        }
+    }
+    
+}
+.subscribeImg{
+    img{
+        height: 419px;
+        position: relative;
+        transform: translateY(-120px)   
+    }
+}
+
+@media only screen and (max-width:330px) {
+    /* For mobile phones: */
+    .subscribeRow{
+        border: 1px solid black;
+        border-radius: 25px;
+        height: 500px;
+        margin-top: 200px;
+        background-color: #050545;
+        
+        margin-left: 10px;
+
+        .input{
+            height: 60px;
+            width: 200px;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+    }
+
+    .subscribeImg{
+        img{
+            height: 219px;
+            position: relative;
+            transform: translateY(-200px)   
+        }
+    }
+        
+        
+}
+
+
+
+@media only screen and (max-width:380px) {
+    /* For mobile phones: */
+    .subscribeRow{
+        border: 1px solid black;
+        border-radius: 25px;
+        height: 500px;
+        margin-top: 200px;
+        background-color: #050545;
+        
+        margin-left: 10px;
+
+        .input{
+            height: 60px;
+            width: 200px;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+    }
+
+    .subscribeImg{
+        img{
+            height: 219px;
+            position: relative;
+            transform: translateY(-200px)   
+        }
+    }
+        
+        
+}
+
+
+@media only screen and (max-width:430px) {
+    /* For mobile phones: */
+    .subscribeRow{
+        border: 1px solid black;
+        border-radius: 25px;
+        height: 500px;
+        margin-top: 200px;
+        background-color: #050545;
+        
+        margin-left: 10px;
+
+        .input{
+            height: 60px;
+            width: 200px;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+    }
+
+    .subscribeImg{
+        img{
+            height: 219px;
+            position: relative;
+            transform: translateY(-200px)   
+        }
+    }
+        
+        
+}
+
