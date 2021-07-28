@@ -18,11 +18,11 @@ const Home = () => {
             <Header/>
             <FindDoctor/>
             <Features />
-            <TakeAppointment/>
             <FAQ></FAQ>
             <Department/>
             <TalentedStaff />
             <OurService/>
+            <TakeAppointment/>
             <Subscribe />
             <Footer/>
         </div>

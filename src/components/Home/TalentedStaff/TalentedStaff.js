@@ -62,7 +62,7 @@ const TalentedStaff = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
     </div>
   );
 };
