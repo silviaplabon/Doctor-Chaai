@@ -17,6 +17,12 @@
     animation-name: imgAnimation;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
+    filter: grayscale(50%);
+    transition: 1.8s ease;
+    &:hover{
+      filter: grayscale(0%);
+      transition: 1.8s ease;
+    }
   }
 }
 
