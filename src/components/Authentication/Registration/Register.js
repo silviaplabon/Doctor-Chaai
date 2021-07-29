@@ -3,11 +3,11 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import React from 'react';
 import { useState } from 'react';
 import doctorsChamber from '../../../images/doctorsChamber.jpg'
-import './Login.scss'
-import { auth, googleProvider } from './firebase.config';
+import './Register.scss'
+import { auth, googleProvider } from '../Login/firebase.config';
 
-const Login = () => {
-    const [isSignUp, setSignUp] = useState(false)
+const Register = () => {
+    const [isSignUp, setSignUp] = useState(true)
     const [user, setUser] = useState({
         fullName: "",
         email: "",
@@ -64,7 +64,7 @@ const Login = () => {
         <div className="login-container">
             <div className="container custom-container py-5">
             <h3 className="text-center">{isSignUp ? 'NEW HERE? PLEASE SIGN UP' : 'OUR OLD USER? PLEASE LOG IN'}</h3>
-            <div className="row row-cols-1 row-cols-md-2">
+            <div className="row row-cols-1 row-cols-md-2 login-container">
 
                 <div className="col my-5 ">
                     <div className="doctor-img">
@@ -124,4 +124,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
