@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useContext } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import FAQ from '../FAQ/FAQ'
-import './AppointmentBooking.scss'
+import FAQ from '../FAQ/FAQ';
+import './AppointmentBooking.scss';
 
 const AppointmentBooking = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -10,18 +9,15 @@ const AppointmentBooking = () => {
 
     const onSubmit = data => {
     }
-
-
-
     return (
-        <div className="container">
+        <div className="container mb-5">
             <div className="row mx-auto">
-                <div className="col-md-6 col-sm-12 mt-5" style={{ backgroundColor: '#04043e', borderRadius: '0.80rem' }}>
+                <div className="col-md-6 col-sm-12 mt-5 px-3" style={{ backgroundColor: '#04043e', borderRadius: '0.80rem' }}>
                     <h4 className="mt-5 text-white text-center mb-2">Book an Appointment</h4>
                     <form onSubmit={handleSubmit(onSubmit)} className="">
-                        <div className="row">
+                        <div className="row ">
                             <div className="col-lg-6 col-sm-12 ">
-                                <select class="form-select form-select-sm  mt-1 mb-1 text-white " aria-label=".form-select-lg example" ref={register} name="category" style={{ backgroundColor: '#02021f', color:'white'}}>
+                                <select className="form-select form-select-sm  mt-1 mb-1 text-white " aria-label=".form-select-lg example" ref={register} name="category" style={{ backgroundColor: '#02021f', color:'white'}}>
                                     <option selected>Select Departments</option>
                                     <option value="1">Outpatient Surgery</option>
                                     <option value="2">Cardiac Clinic</option>
@@ -32,7 +28,7 @@ const AppointmentBooking = () => {
                                 </select>
                             </div>
                             <div className="col-lg-6 col-sm-12 mt-1 mb-1  ps-lg-0 ">
-                                <select class="form-select form-select-sm text-white " aria-label=".form-select-lg example" ref={register} name="category" style={{ backgroundColor: '#02021f' }} >
+                                <select className="form-select form-select-sm text-white " aria-label=".form-select-lg example" ref={register} name="category" style={{ backgroundColor: '#02021f' }} >
                                     <option selected>Select Doctors</option>
                                     <option value="Dr. Michael Lindon">Dr. Michael Lindon</option>
                                     <option value="Dr. Amy Adams">Dr. Amy Adams</option>
@@ -62,7 +58,7 @@ const AppointmentBooking = () => {
                     </form>
                 </div>
 
-                <div className="p-0 ps-md-4 col-md-6 col-sm-12 mt-5 mb-5">
+                <div className="p-0 px-5 ps-md-4 col-md-6 col-sm-12 mt-5 mb-5">
                     <FAQ></FAQ>
                 </div>
             </div>
