@@ -1,6 +1,8 @@
 import React from 'react';
+import BlogsCollection from '../Blogs/BlogsCollection/BlogsCollection';
 import FAQ from '../Booking/FAQ/FAQ';
 import Department from '../Department/Department';
+import Doctors from '../Doctors/DoctorsCollection/DoctorsCollection';
 import Features from '../Features/Features';
 import FindDoctor from '../FindDoctor/FindDoctor';
 import Footer from '../Footer/Footer';
@@ -19,6 +21,8 @@ const Home = () => {
             <Features />
             <TakeAppointment/>
             <FAQ></FAQ>
+            <Doctors></Doctors>
+            <BlogsCollection></BlogsCollection>
             <Department/>
             <TalentedStaff />
             <OurService/>
