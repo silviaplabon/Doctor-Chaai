@@ -1,0 +1,116 @@
+$btn-color: #050546;
+$text-color: #ffffff;
+$secondary-color: #00cccc;
+
+.android-app{
+    height: 800px;
+    background-color: #f1f6fa;
+
+    .android-container{
+        width: 70%;
+        height: 550px;
+        position: relative;
+
+        h5{
+            color: $secondary-color;
+            font-weight: bold;
+            text-transform: capitalize;
+            font-size: 22px;
+        }
+        .dash-line{
+            height: 3px;
+            width: 40px;
+            background-color: $secondary-color;
+            left: 37%;
+            top: 50%;
+        }
+        h2{
+            color: $btn-color;
+            font-size: 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .app-container{
+            height: 250px;
+            background-color: $secondary-color;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            border-radius: 15px;
+
+            .app-content{
+                h4{
+                    font-size: 28px;
+                    font-weight: bold;
+                    color: $text-color;
+                    text-transform: capitalize;
+                }
+                p{
+                    color: $text-color;
+                }
+                button{
+                    outline: none;
+                    border: none;
+                    background-color: #000;
+                    color: $text-color;
+                    padding: 10px 30px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    margin-left: 10px;
+                }
+            }
+            img{
+                margin-top: -180px;
+                height: 430px;
+            }
+        }
+    }
+}
+
+$breakpoint-phone: 576px;
+$breakpoint-tablet: 768px;
+
+@media (max-width: $breakpoint-phone) {
+   .android-app{
+       height: auto;
+       .android-container{
+           padding: 50px 0;
+           h2{
+               font-size: 30px;
+           }
+           
+           img{
+               display: none;
+           }
+           .dash-line{
+               display: none;
+           }
+           .app-container{
+               height: auto;
+               padding-top: 20px;
+               padding-bottom: 50px;
+               background-color: #f1f6fa;
+               .app-content{
+                   .width-100{
+                       width: 100%;
+                   }
+                   h4, p{
+                       color: $btn-color;
+                   }
+                   button{
+                    padding: 6px 20px;
+                    font-size: 14px;
+                    margin-top: 10px;
+                   }
+               }
+           }
+       }
+   }
+}    
+
+@media (min-width: $breakpoint-tablet) and (max-width: 991px){
+    .android-app{
+        height: auto;
+    }
+}
