@@ -2,7 +2,7 @@ import React from 'react';
 import './FAQ.scss'
 const FAQ = () => {
   return (
-    <div className="container mt-5 mb-5">
+    <div className="container mb-5" style={{marginTop:'100px'}}>
       <div className="faqContainer m-auto">
         <div className="d-flex justify-content-center align-items-center">
           <hr className="hrStyle me-1" />

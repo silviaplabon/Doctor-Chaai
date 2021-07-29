@@ -20,7 +20,7 @@ const BlogsCollection = () => {
         },
     ]
     return (
-        <div className="container mb-5" style={{ marginTop: '120px' }}>
+        <div className="container mb-5 mt-5" >
             <div className="d-flex justify-content-center align-items-center">
                 <hr className="hrStyleBlog me-1"></hr>
                 <h5 className="text-center " style={{ color: '#1dc0bf' }}>Our Blog</h5>
