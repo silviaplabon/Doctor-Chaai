@@ -1,17 +1,36 @@
 import React from 'react';
-import AppointmentBooking from '../Booking/AppointmentBooking/AppointmentBooking';
+
+import BlogsCollection from '../Blogs/BlogsCollection/BlogsCollection';
+import About from '../About/About';
+import FAQ from '../Booking/FAQ/FAQ';
+import Department from '../Department/Department';
+import Doctors from '../Doctors/DoctorsCollection/DoctorsCollection';
+import Features from '../Features/Features';
 import FindDoctor from '../FindDoctor/FindDoctor';
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 import NavBar from '../NavBar/NavBar';
+import OurService from '../OurService/OurService';
+import Subscribe from '../Subscribe/Subscribe';
 import TakeAppointment from '../TakeAppointment/TakeAppointment';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     return (
         <div>
             <NavBar/>
+            <Header/>
             <FindDoctor/>
+            <Features />
+            <FAQ></FAQ>
+            <Doctors></Doctors>
+            <BlogsCollection></BlogsCollection>
+            <Department/>
+            <About/>
+            <OurService/>
             <TakeAppointment/>
-            <AppointmentBooking></AppointmentBooking>
+            <Testimonial/>
+            <Subscribe />
             <Footer/>
         </div>
     );

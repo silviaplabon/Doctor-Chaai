@@ -1,8 +1,8 @@
 .btnDesign1 {
   background-color: #050546;
   transition: all 0.3s;
-  color: white !important;
-  padding: 10px 18px !important;
+  color: white;
+  padding: 10px 18px;
   font-size: 1.2rem;
   font-weight: 600;
   &:hover {
@@ -60,5 +60,15 @@
   }
   100% {
     transform: rotate(-2deg);
+  }
+}
+
+@media (max-width: 576px) {
+  .btnDesign1 {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  .titleDesign1 {
+    font-size: 1.5rem;
   }
 }
