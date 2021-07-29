@@ -1,5 +1,6 @@
 $btn-color: #050546;
 $text-color: #ffffff;
+$secondary-color: #00cccc;
 
 .custom-container{
     width: 75%;
@@ -7,39 +8,62 @@ $text-color: #ffffff;
 }
 .header-main{
     height: 650px;
-    background-image:  linear-gradient(45deg, rgba(5, 5, 70, 1), rgba(255, 255, 255, 0.2)), url("../../../images/headerBG.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 
     .header-main-container{
         height: 500px;
-        
-        h1{
-            color: $text-color;
-            font-size: 80px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        p{
-            color: $text-color;
-            font-size: 18px;
-        }
-        button{
-            padding: 9px 50px;
-            border: 2px solid $text-color;
-            outline: none;
-            border-radius: 40px;
-            text-transform: capitalize;
-            font-size: 18px;
-            color: $btn-color;
-            font-weight: bold;
-            background: $text-color;
-            transition: 0.2s;
+        .welcome-content{
+            height: 100%;
 
-            &:hover{
-                background: inherit;
-                color: $text-color;
+            h1{
+                color: $btn-color;
+                font-size: 70px;
+                text-transform: uppercase;
+                font-weight: bold;
+    
+                .life{
+                    color: $secondary-color;
+                }
             }
+            p{
+                color: $btn-color;
+                font-size: 18px;
+            }
+            .login-btn{
+                padding: 9px 50px;
+                border: 2px solid $btn-color;
+                outline: none;
+                border-radius: 40px;
+                text-transform: capitalize;
+                font-size: 18px;
+                color: $text-color;
+                background: $btn-color;
+                transition: 0.2s;
+                a{
+                    color: $text-color;
+                    text-decoration: none;
+                }
+                &:hover{
+                    color: $btn-color;
+                    border: 2px solid $btn-color;
+                    background-color: $text-color;
+
+                    a{
+                        color: $btn-color;
+                    }
+                }
+            }
+            .appoint-btn{
+                color: $btn-color;
+                border: 2px solid $btn-color;
+                background-color: $text-color;
+                padding: 10px 30px;
+                border-radius: 40px;
+                text-transform: capitalize;
+                margin-left: 1%;
+            }
+        }
+        img{
+            height: 80%;
         }
     }
 }
@@ -55,22 +79,42 @@ $breakpoint-desktop: 992px;
     .header-main{
         height: auto;
         padding: 20px 10px;
-        background-position: center;
         .header-main-container{
             height: auto;
-
-            h1{
-                font-size: 50px;
+            .welcome-content{
+                h1{
+                    font-size: 50px;
+                }
+                p{
+                    font-size: 15px;
+                }
             }
-            p{
-                font-size: 15px;
+            img{
+                display: none;
             }
         }
     }
 }
 
-@media (min-width: $breakpoint-tablet) {
-    
+@media (min-width: $breakpoint-tablet) and (max-width: 991px){
+    .header-main{
+        height: auto;
+        padding: 20px 10px;
+        .header-main-container{
+            height: auto;
+            .welcome-content{
+                h1{
+                    font-size: 50px;
+                }
+                p{
+                    font-size: 15px;
+                }
+            }
+            img{
+                height: 80%;
+            }
+        }
+    }
 }
 
 @media (min-width: $breakpoint-desktop) {
