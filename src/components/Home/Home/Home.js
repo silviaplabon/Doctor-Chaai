@@ -1,5 +1,6 @@
 import React from 'react';
 import About from '../About/About';
+import Android from '../AndroidApp/Android';
 import FAQ from '../Booking/FAQ/FAQ';
 import Department from '../Department/Department';
 import Features from '../Features/Features';
@@ -24,6 +25,7 @@ const Home = () => {
             <About/>
             <OurService/>
             <TakeAppointment/>
+            <Android/>
             <Testimonial/>
             <Subscribe />
             <Footer/>
