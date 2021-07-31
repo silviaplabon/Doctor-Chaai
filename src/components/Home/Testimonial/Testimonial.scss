@@ -1,0 +1,23 @@
+.testimonialParent {
+  position: relative;
+  background: #ffffff;
+  padding: 4rem 0;
+  .testimonialTitle {
+    text-align: center;
+    color: #050545;
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 0 40px;
+  }
+}
+.swiper-pagination-bullet {
+  padding: 10px;
+  background: #050545;
+}
+
+@media (max-width: 576px) {
+  .testimonialTitle {
+    font-size: 1.6rem !important;
+  }
+}

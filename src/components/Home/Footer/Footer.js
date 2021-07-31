@@ -2,13 +2,12 @@ import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './Footer.scss';
-import logo from "../../../images/doctor-logo.png";
 
 const Footer = () => {
     return (
-        <div>
+        <div className="footerParent">
             <div className="container-sm py-5 custom-container">
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 footerContent pt-5">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 footerContent pt-5">
                     <div className="col mt-3">
                         <h4>DoctorsChaai</h4>
                         <h6>About</h6>
@@ -46,13 +45,13 @@ const Footer = () => {
                         <h6>Corporate Wellness</h6>
                     </div>
                 </div>
-                <div>
+                <div className="footerSocial pt-5">
                     <hr/>
-                    <div className="d-flex justify-content-between align-items-center p-2">
+                    <div className="d-block d-sm-flex justify-content-between align-items-center">
                         <div>
-                            <img className="logoImg" src={logo} alt="doctors-chaai" />
+                            <img className="logoImg" src="https://i.ibb.co/FzBKrr8/dcLogoWH.png" alt="doctors-chaai" />
                         </div>
-                        <div className="d-flex justify-content-center align-items-center socialIcon">
+                        <div className="d-flex align-items-center socialIcon">
                             <FontAwesomeIcon icon={faFacebook} />
                             <FontAwesomeIcon icon={faTwitter} />
                             <FontAwesomeIcon icon={faInstagram} />
