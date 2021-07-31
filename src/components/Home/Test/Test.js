@@ -1,11 +1,11 @@
 import React from 'react';
 
-const feke = () => {
+const Test = () => {
     return (
         <div>
-            <h1>hdssaikdjpasjdpa</h1>
+            <h1>Hello</h1>
         </div>
     );
 };
 
-export default feke;
+export default Test;
