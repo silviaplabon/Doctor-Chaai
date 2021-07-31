@@ -51,7 +51,7 @@ const Login = () => {
                 <div className="col p-0 mt-md-5  ps-md-3 pe-md-5 login-form" >
                     <form className="mt-md-5  me-md-auto mx-auto ms-1 " onSubmit={handleSubmit}>
                         {
-                            isSignUp &&
+                            isSignUp  &&
                             <div className="mb-3">
                                 <input name="fullName" value={user.fullName} onChange={handleChange} required type="text" className="form-control" id="fullName" placeholder="Enter your Name.." />
                             </div>
