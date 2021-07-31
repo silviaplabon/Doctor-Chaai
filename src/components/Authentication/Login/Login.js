@@ -53,7 +53,7 @@ const Login = () => {
             console.log(user);
 
 
-        }).catch((error) => {
+        }).catch((error) =>  {
             var errorMessage = error.message;
             console.log(errorMessage);
 
