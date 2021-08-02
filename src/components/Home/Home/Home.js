@@ -1,6 +1,7 @@
 import React from 'react';
 import About from '../About/About';
-import AppointmentBooking from '../Booking/AppointmentBooking/AppointmentBooking';
+import Android from '../AndroidApp/Android';
+import FAQ from '../Booking/FAQ/FAQ';
 import Department from '../Department/Department';
 import Features from '../Features/Features';
 import FindDoctor from '../FindDoctor/FindDoctor';
@@ -8,8 +9,8 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import NavBar from '../NavBar/NavBar';
 import OurService from '../OurService/OurService';
+import Subscribe from '../Subscribe/Subscribe';
 import TakeAppointment from '../TakeAppointment/TakeAppointment';
-import TalentedStaff from '../TalentedStaff/TalentedStaff';
 import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
@@ -19,13 +20,14 @@ const Home = () => {
             <Header/>
             <FindDoctor/>
             <Features />
-            <TakeAppointment/>
-            <AppointmentBooking/>
+            <FAQ></FAQ>
             <Department/>
-            <TalentedStaff />
             <About/>
             <OurService/>
+            <TakeAppointment/>
+            <Android/>
             <Testimonial/>
+            <Subscribe />
             <Footer/>
         </div>
     );

@@ -49,7 +49,7 @@ const reviewData = [
   {
     name: "Apu Dey",
     message:
-      "Easy–to–understand health information to help you be ready for your appointment.Learn what you need to know about symptoms, diagnosis, and treatment options to discuss with your doctor. From major surgery to routine procedures, find out what to expect and how to prepare for a successful outcome.",
+      "Easy–to–understand  health information to help you be ready for your appointment.Learn what you need to know about symptoms, diagnosis, and treatment options to discuss with your doctor. From major surgery to routine procedures, find out what to expect and how to prepare for a successful outcome.",
     img: "https://i.ibb.co/d0gTWsB/profile7-min.jpg",
     role:"Reasearcher"
   },

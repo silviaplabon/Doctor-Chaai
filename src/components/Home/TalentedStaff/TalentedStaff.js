@@ -26,35 +26,43 @@ const TalentedStaff = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="col py-4 m-auto">
-          <div className="card text-black shadow">
-            <img src={doc2} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h3>DR. DONALD TOMASH</h3>
-              <p className="text-secondary">Pediatrist</p>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col py-4 m-auto">
-          <div className="card text-black shadow">
-            <img src={doc3} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h3>DR. DONALD TOMASH</h3>
-              <p className="text-secondary">Pediatrist</p>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
+      <div className="col py-4 m-auto">
+        <div className="card text-black shadow">
+          <img src={doc2} className="card-img-top" alt="..." />
+          <div className="card-body">
+            <h3>DR. DONALD TOMASH</h3>
+            <p className="text-secondary">Pediatrist</p>
+            <p className="card-text">
+              Some quick example text to build on the card title and make up
+              the bulk of the card's content.
+            </p>
           </div>
         </div>
       </div>
+
+      <div class="col m-auto">
+        <div className="card">
+          <img src={doc3} class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h3>DR. DONALD TOMASH </h3>
+            <div className="col py-4 m-auto">
+              <div className="card text-black shadow">
+                <img src={doc3} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h3>DR. DONALD TOMASH</h3>
+                  <p className="text-secondary">Pediatrist</p>
+                  <p className="card-text">
+                    Some quick example text to build on the card title and make up
+                    the bulk of the card's content.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
     </div>
   );
 };
