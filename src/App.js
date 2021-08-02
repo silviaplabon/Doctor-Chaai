@@ -2,6 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
+import BookAppointment from "./components/BookAppointment/BookAppointment";
 import Home from "./components/Home/Home/Home";
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
         </Route>
         <Route path="/home">
           <Home />
+        </Route>
+        <Route path="/appointment">
+          <BookAppointment/>
         </Route>
       </Switch>
     </Router>
