@@ -1,4 +1,5 @@
 import React from 'react';
+// import MailchimpFormContainer from '../../MailchimpFormContainer/MailchimpFormContainer';
 import About from '../About/About';
 import Android from '../AndroidApp/Android';
 import FAQ from '../Booking/FAQ/FAQ';
