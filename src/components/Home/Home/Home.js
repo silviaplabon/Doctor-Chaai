@@ -22,14 +22,14 @@ const Home = () => {
             <Header/>
             <FindDoctor/>
             <Features />
-            <FAQ></FAQ>
             <Doctors></Doctors>
-            <BlogsCollection></BlogsCollection>
             <Department/>
             <About/>
             <OurService/>
             <TakeAppointment/>
+            <BlogsCollection></BlogsCollection>
             <Testimonial/>
+            <FAQ></FAQ>
             <Subscribe />
             <Footer/>
         </div>
