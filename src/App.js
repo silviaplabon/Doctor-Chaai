@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 
 import Login from "./components/Authentication/Login/Login";
+import AddDoctor from "./components/Doctors/AddDoctor/AddDoctor";
 import Home from "./components/Home/Home/Home";
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route exact path="/addDoctor">
+          <AddDoctor></AddDoctor>
         </Route>
       </Switch>
     </Router>
