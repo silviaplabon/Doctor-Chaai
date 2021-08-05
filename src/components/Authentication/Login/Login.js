@@ -5,8 +5,10 @@ import { useState } from 'react';
 import doctorsChamber from '../../../images/doctorsChamber.jpg'
 import './Login.scss'
 import { auth, facebookProvider, googleProvider } from './firebase.config';
+import { useHistory } from 'react-router-dom'
 
 const Login = () => {
+    let history = useHistory()
     const [isSignUp, setSignUp] = useState(false)
     const [user, setUser] = useState({
         fullName: "",
@@ -25,6 +27,19 @@ const Login = () => {
         })
     }
     const handleCreateUser = () => {
+        if (user.password === user.confirmPassword) {
+            auth.createUserWithEmailAndPassword(user.email, user.password)
+                .then((result) => {
+                    result.user.updateProfile({
+                        displayName: user.fullName
+                    })
+                    history.push('/')
+                })
+                .catch((err) => alert(err.message))
+        }
+        else {
+            alert("Password not matched")
+        }
 
     }
 
@@ -33,6 +48,7 @@ const Login = () => {
             .then((res) => {
                 const user = res.user;
                 console.log(user);
+                history.push('/')
             })
 
             .catch((err) => alert(err.message))
