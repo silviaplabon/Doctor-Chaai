@@ -1,26 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../../NavBar/NavBar';
 import DoctorShow from '../DoctorShow/DoctorShow';
-// import './DoctorsCollection.scss'
+import './AllDoctorCollection.scss'
 const AllDoctorsCollection = () => {
     let [data, setData] = useState([])
-    const [dept,setDept]=useState('')
+    let [newdata, setNewdata] = useState([])
+    let [searchData,setSearchData]=useState([])
+
+    const [dept, setDept] = useState('')
+    const [exp, setExp] = useState('')
+
     useEffect(() => {
-        fetch('http://localhost:4300/doctor')
+        fetch('https://warm-cliffs-62735.herokuapp.com/doctor')
             .then(res => res.json())
             .then(data => {
                 setData(data.result)
             })
-    }, [])
-    const handleChangeDept=(event)=>{
-        console.log(event.target.value)
-            setDept(event.target.value)
-           
+    }, [data])
+
+    const handleChangeDept = (event) => {
+        setDept(event.target.value);
+
     }
+    const handleChangeExp = (event) => {
+        setExp(event.target.value)
+    }
+    const handleSearch = (event) => {
+        fetch(`https://warm-cliffs-62735.herokuapp.com/searchDoctor/${event.target.value}`)
+            .then(res => res.json())
+            .then(data => {
+                setSearchData(data.result)
+            })
+    }
+
+
+
     useEffect(() => {
-      const newData=data?.find(doctor=>doctor.specialization==dept);
-      data=newData;
+        setNewdata(data?.filter(doctor => doctor.specialization == dept));
     }, [dept])
+
+    useEffect(() => {
+        setNewdata(data?.filter(doctor => doctor.experience == exp))
+    }, [exp])
+
+
+
 
 
 
@@ -28,14 +52,14 @@ const AllDoctorsCollection = () => {
         <>
             <NavBar></NavBar>
             <div className="container mb-5" style={{ marginTop: '120px' }}>
-                <div className="row row-cols-2">
-                    <div className="col">
-                        <input class="form-control me-5 text-center" type="search" placeholder="Search your Doctor" aria-label="Search" />
+                <div className="row mx-3 mb-5">
+                    <div className="col-md-5 col-lg-7">
+                        <input class="form-control me-5 text-center searchBarDoctor" onChange={(event) => handleSearch(event)} type="search" placeholder="Search your Doctor" aria-label="Search" />
                     </div>
-                    <div className="col ">
-                        <div className="row row-cols-2 ">
-                            <div className="col">
-                                <select class="form-select" aria-label="Default select example" onChange={(event)=>handleChangeDept(event)} >
+                    <div className="col-md-7  col-lg-5 ">
+                        <div className="row row-cols-2   justify-content-end align-items-end">
+                            <div className="col ">
+                                <select class="form-select selectDropdownDoctor" aria-label="Default select example" onChange={(event) => handleChangeDept(event)} >
                                     <option selected>By Dept</option>
                                     <option value="Allergists">Allergists</option>
                                     <option value="Dermatologists">Dermatologists</option>
@@ -53,7 +77,7 @@ const AllDoctorsCollection = () => {
                                 </select>
                             </div>
                             <div className="col">
-                                <select class="form-select  rounded-lg" aria-label="Default select example">
+                                <select class="form-select  rounded-lg selectDropdownDoctor" aria-label="Default select example" onChange={(event) => handleChangeExp(event)}>
                                     <option selected>By Expert</option>
                                     <option value="Junior">Junior</option>
                                     <option value="Senior">Senior</option>
@@ -64,7 +88,7 @@ const AllDoctorsCollection = () => {
                 </div>
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     {
-                        data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)
+                        newdata.length ? (newdata?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)) : data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)
                     }
                 </div>
             </div >

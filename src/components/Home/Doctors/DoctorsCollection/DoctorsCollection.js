@@ -5,13 +5,13 @@ import './DoctorsCollection.scss'
 const Doctors = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch('http://localhost:4300/doctor')
+        fetch('https://warm-cliffs-62735.herokuapp.com/doctor')
             .then(res => res.json())
             .then(data => {
                 setData(data.result)
             })
     }, [])
-    const doctors = data.slice(0, 8);
+    const doctors = data?.slice(0, 8);
     const history = useHistory();
     const loadMore = () => {
         history.push('/allDoctorList')

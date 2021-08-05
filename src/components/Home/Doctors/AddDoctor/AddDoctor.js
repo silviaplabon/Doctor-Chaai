@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import NavBar from '../../NavBar/NavBar';
 import './AddDoctor.scss'
 const axios = require('axios').default;
-
 
 const AddDoctor = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -20,7 +20,7 @@ const AddDoctor = () => {
             consultation: data.consultation,
         };
 
-        fetch(`http://localhost:4300/doctor/addDoctor`, {
+        fetch(`https://warm-cliffs-62735.herokuapp.com/doctor/addDoctor`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -42,10 +42,11 @@ const AddDoctor = () => {
     }
     return (
         <div className="addDoctorSection">
-            <div className="container">
+           <NavBar></NavBar>
+            <div className="container mt-5 ">
                 <form onSubmit={handleSubmit(onSubmit)} className=" formStyle" >
-                    <h5 className="">Basic Information</h5>
-                    <div className="row d-flex p-3 sectionDoctorBg">
+                    <h2 className="">Basic Information</h2>
+                    <div className="row d-flex p-3 sectionDoctorBg shadow">
                         <div className="col-md-6  mt-2">
                             <label for="username" className="fw-bold">Name</label>
                             <input name="name" id="username" className="form-control " defaultValue="" placeholder="name" ref={register({ required: true })} />
@@ -66,7 +67,7 @@ const AddDoctor = () => {
                             </select>
                         </div>
                     </div>
-                    <div className="row d-flex  p-3 mt-5 sectionDoctorBg">
+                    <div className="row d-flex  p-3 mt-5 sectionDoctorBg shadow">
                         <div className="col-md-12 mt-2">
                             <label for="about" className="fw-bold">About</label>
                             <textarea name="about" className=" form-control " id="about" rows="3" placeholder="please tell yourself" defaultValue="" ref={register({ required: true })} />
@@ -80,7 +81,7 @@ const AddDoctor = () => {
                             <input name="education" id="education" className="form-control" placeholder="education" ref={register({ required: true })} />
                         </div>
                         </div>
-                        <div className="row d-flex p-3 mt-5  sectionDoctorBg">
+                        <div className="row d-flex p-3 mt-5  sectionDoctorBg shadow">
                         <div className="col-md-6 mt-2">
                             <label for="specialization" className="fw-bold">Specialization</label>
                             <select ref={register} name="specialization" className="form-select" >
@@ -105,7 +106,7 @@ const AddDoctor = () => {
                         </div>
                     </div>
                     <div className="d-flex justify-content-end">
-                        <input type="submit" className="mt-3 btn btn-primary " value="Save" />
+                        <input type="submit" className="mt-3 btn  text-white doctorMoreButton" value="Register" />
                     </div>
                 </form>
             </div>
