@@ -1,5 +1,4 @@
 import React from 'react';
-
 import BlogsCollection from '../Blogs/BlogsCollection/BlogsCollection';
 import About from '../About/About';
 import FAQ from '../Booking/FAQ/FAQ';

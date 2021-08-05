@@ -6,6 +6,7 @@ import {
 import Login from "./components/Authentication/Login/Login";
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
+import Register from "./components/Authentication/Registration/Register";
 import Home from "./components/Home/Home/Home";
 
 function App() {
@@ -25,7 +26,10 @@ function App() {
           <AddDoctor></AddDoctor>
         </Route>
         <Route exact path="/allDoctorList">
-         <AllDoctorsCollection></AllDoctorsCollection>
+          <AllDoctorsCollection></AllDoctorsCollection>
+        </Route>
+        <Route path="/register">
+          <Register />
         </Route>
       </Switch>
     </Router>
