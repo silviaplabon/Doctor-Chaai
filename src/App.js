@@ -2,7 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
-
+import BookAppointment from "./components/BookAppointment/BookAppointment";
 import Login from "./components/Authentication/Login/Login";
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
@@ -30,6 +30,9 @@ function App() {
         </Route>
         <Route path="/register">
           <Register />
+        </Route>
+        <Route path="/appointment">
+          <BookAppointment/>
         </Route>
       </Switch>
     </Router>
