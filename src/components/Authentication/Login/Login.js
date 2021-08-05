@@ -33,7 +33,7 @@ const Login = () => {
                     result.user.updateProfile({
                         displayName: user.fullName
                     })
-                    history.push('/')
+                    history.push('/login')
                 })
                 .catch((err) => alert(err.message))
         }
@@ -67,7 +67,7 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
-
+                history.push('/')
 
             }).catch((error) => {
                 var errorMessage = error.message;
