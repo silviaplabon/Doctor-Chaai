@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import doctorsChamber from "../../../images/doctorsChamber.jpg";
 import "./Register.scss";
 
 const Register = () => {
+  const [passwordMatch,setPasswordMatch] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   // Form Data
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if (data.password === data.confirmPassword) {
+      delete data.confirmPassword;
+      console.log("allrights Ok, You are a good user")
+      setPasswordMatch(false);
+      console.log(data)
+
+      fetch('https://whispering-reef-28119.herokuapp.com/user/signup',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+
+      })
+      .catch(err => console.log(err))
+
+    }else{
+      setPasswordMatch(true);
+    }
+
+  };
 
   return (
     <div className="login-container">
@@ -69,11 +93,13 @@ const Register = () => {
                   errors.email ||
                   errors.password ||
                   errors.confirmPassword) && (
-                  <p
-                    className="text-center text-danger mt-2 mb-0"
-                    style={{ fontWeight: "700" }}
-                  >
+                  <p className="text-center text-danger mt-2 mb-0" style={{ fontWeight: "700" }} >
                     * PLease fill up the form.
+                  </p>
+                )}
+                {passwordMatch && (
+                  <p className="text-center text-danger mt-2 mb-0" style={{ fontWeight: "700" }} >
+                    Not Match Your Password.
                   </p>
                 )}
                 <button

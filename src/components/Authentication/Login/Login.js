@@ -11,7 +11,18 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   // Form Data
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    fetch('https://whispering-reef-28119.herokuapp.com/user/login',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+      })
+      .catch(err => console.log(err))
+  };
 
   return (
     <div className="login-container">
