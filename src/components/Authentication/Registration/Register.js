@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import doctorsChamber from "../../../images/doctorsChamber.jpg";
 import "./Register.scss";
 
 const Register = () => {
   const [passwordMatch,setPasswordMatch] = useState(false);
+  let history = useHistory();
   const {
     register,
     handleSubmit,
@@ -15,9 +17,7 @@ const Register = () => {
   const onSubmit = (data) => {
     if (data.password === data.confirmPassword) {
       delete data.confirmPassword;
-      console.log("allrights Ok, You are a good user")
       setPasswordMatch(false);
-      console.log(data)
 
       fetch('https://whispering-reef-28119.herokuapp.com/user/signup',{
         method:'POST',
@@ -27,7 +27,9 @@ const Register = () => {
       .then(res => res.json())
       .then(result => {
         console.log(result);
-
+        if(result.status === true){
+          history.replace("/login");
+        }
       })
       .catch(err => console.log(err))
 

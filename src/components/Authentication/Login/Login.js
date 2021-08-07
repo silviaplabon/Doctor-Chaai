@@ -1,10 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import doctorsChamber from "../../../images/doctorsChamber.jpg";
 import "./Login.scss";
 
 const Register = () => {
+  let history = useHistory();
   const {
     register,
     handleSubmit,
@@ -20,6 +22,10 @@ const Register = () => {
       .then(res => res.json())
       .then(result => {
         console.log(result);
+        if(result.status === true){
+          history.replace("/");
+        }
+        localStorage.setItem("Authorization",result.access_token);
       })
       .catch(err => console.log(err))
   };
