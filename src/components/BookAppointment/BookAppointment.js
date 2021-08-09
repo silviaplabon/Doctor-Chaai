@@ -52,10 +52,10 @@ const BookAppointment = () => {
                         type="number"
                         className="appointmentInput form-control rounded-pill px-3 py-2"
                         placeholder="Phone Number..."
-                        name="number"
-                        ref={register({ required: true })}
+                        name="phone"
+                        ref={register({ required: false })}
                       />
-                    {errors.number && <p className="text-center text-danger mt-2 mb-0">Phone Number is required.</p>}
+                    {errors.phone && <p className="text-center text-danger mt-2 mb-0">Phone Number is required.</p>}
                   </div>
                   <div className="col-12">
                     <select className="form-select appointmentInput rounded-pill px-3 py-2" name="department"

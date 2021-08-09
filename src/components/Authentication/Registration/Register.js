@@ -57,7 +57,7 @@ const Register = () => {
               <div className="col-12">
                 <input
                   type="text"
-                  className="form-control mx-auto rounded-pill px-3 py-2"
+                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Enter Your name"
                   name="name"
                   ref={register({ required: true })}
@@ -66,7 +66,7 @@ const Register = () => {
               <div className="col-12">
                 <input
                   type="email"
-                  className="form-control mx-auto rounded-pill px-3 py-2"
+                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Enter Your Email"
                   name="email"
                   ref={register({ required: true })}
@@ -75,7 +75,7 @@ const Register = () => {
               <div className="col-12">
                 <input
                   type="password"
-                  className="form-control mx-auto rounded-pill px-3 py-2"
+                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Enter Your Password"
                   name="password"
                   ref={register({ required: true })}
@@ -84,7 +84,7 @@ const Register = () => {
               <div className="col-12">
                 <input
                   type="password"
-                  className="form-control mx-auto rounded-pill px-3 py-2"
+                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Confirm Your Password"
                   name="confirmPassword"
                   ref={register({ required: true })}
