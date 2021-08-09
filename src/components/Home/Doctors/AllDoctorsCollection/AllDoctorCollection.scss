@@ -1,7 +1,14 @@
 .searchBarDoctor{
   border-radius: 30px;
 }
-
+.searchDoctorInput{
+   height:40px!important;
+   border: 1px solid #212729!important;
+   margin-top:2px!important;
+   height:40px!important;
+   border-radius: 30px;
+   width:70%;
+}
 
 @media only screen and (min-device-width : 993px) and (max-device-width :3500px){
 .searchBarDoctor{

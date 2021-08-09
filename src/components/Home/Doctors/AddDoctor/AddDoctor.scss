@@ -5,9 +5,26 @@
     background-color:#ffffff!important;
     opacity:1;
 }
-.form-select, .form-select:focus{
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    // border: rgba(255, 255, 255, 0);
-    border: 2px solid #050546;
-    background-color: #fff;
- }
+
+.formControlAddDoctor{
+         border: 1px solid #212729!important;
+        margin-top:2px!important;
+        height:40px!important;
+}
+.addDoctorFormStyle{
+    width:90%;
+    margin:auto;
+}
+.formSelectAddDoctor{
+         border: 1px solid #212729!important;
+        margin-top:2px!important;
+        height:40px!important;
+}
+
+.registerDoctorButton{
+    padding:5px 5px;
+    border-radius: 30px;
+    background-color: #1d1d48 ;
+    height:50px;
+    width:100px;
+}

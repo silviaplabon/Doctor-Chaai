@@ -8,6 +8,7 @@ import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Register from "./components/Authentication/Registration/Register";
 import Home from "./components/Home/Home/Home";
+import PendingDoctors from "./components/Home/Doctors/PendingDoctors/PendingDoctors";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route path="/appointment">
           <BookAppointment/>
+        </Route>
+        <Route path="/pending">
+          <PendingDoctors></PendingDoctors>
         </Route>
       </Switch>
     </Router>

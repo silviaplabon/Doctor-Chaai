@@ -5,7 +5,7 @@ import './DoctorsCollection.scss'
 const Doctors = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch('https://warm-cliffs-62735.herokuapp.com/doctor')
+        fetch('https://whispering-reef-28119.herokuapp.com/doctor/')
             .then(res => res.json())
             .then(data => {
                 setData(data.result)

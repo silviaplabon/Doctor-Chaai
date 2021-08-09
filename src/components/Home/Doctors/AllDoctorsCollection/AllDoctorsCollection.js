@@ -5,48 +5,46 @@ import './AllDoctorCollection.scss'
 const AllDoctorsCollection = () => {
     let [data, setData] = useState([])
     let [newdata, setNewdata] = useState([])
-    let [searchData,setSearchData]=useState([])
-
     const [dept, setDept] = useState('')
     const [exp, setExp] = useState('')
 
     useEffect(() => {
-        fetch('https://warm-cliffs-62735.herokuapp.com/doctor')
+        fetch('https://whispering-reef-28119.herokuapp.com/doctor')
             .then(res => res.json())
             .then(data => {
-                setData(data.result)
+                const datas=data.result.filter(doctor=>doctor.status!=="pending");
+                setData(datas)
             })
-    }, [data])
+    }, [newdata||dept||exp||!data])
 
     const handleChangeDept = (event) => {
         setDept(event.target.value);
-
     }
     const handleChangeExp = (event) => {
         setExp(event.target.value)
     }
     const handleSearch = (event) => {
-        fetch(`https://warm-cliffs-62735.herokuapp.com/searchDoctor/${event.target.value}`)
+        setData([]);
+        setNewdata([])
+        fetch(`https://whispering-reef-28119.herokuapp.com/doctor/searchDoctor/${event.target.value}`)
             .then(res => res.json())
             .then(data => {
-                setSearchData(data.result)
+                setData(data.result)
             })
     }
 
 
 
     useEffect(() => {
+        setExp('')
+
         setNewdata(data?.filter(doctor => doctor.specialization == dept));
     }, [dept])
 
     useEffect(() => {
+        setDept('')
         setNewdata(data?.filter(doctor => doctor.experience == exp))
-    }, [exp])
-
-
-
-
-
+    }, [exp||newdata])
 
     return (
         <>
@@ -54,7 +52,7 @@ const AllDoctorsCollection = () => {
             <div className="container mb-5" style={{ marginTop: '120px' }}>
                 <div className="row mx-3 mb-5">
                     <div className="col-md-5 col-lg-7">
-                        <input class="form-control me-5 text-center searchBarDoctor" onChange={(event) => handleSearch(event)} type="search" placeholder="Search your Doctor" aria-label="Search" />
+                        <input class="form-control searchDoctorInput me-5 text-center " onChange={(event) => handleSearch(event)} type="search" placeholder="Search your Doctor" aria-label="Search" />
                     </div>
                     <div className="col-md-7  col-lg-5 ">
                         <div className="row row-cols-2   justify-content-end align-items-end">
@@ -88,7 +86,8 @@ const AllDoctorsCollection = () => {
                 </div>
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     {
-                        newdata.length ? (newdata?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)) : data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)
+                        newdata.length ? (newdata?.map(doctor =>
+                            <DoctorShow doctor={doctor}></DoctorShow>)) : data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)
                     }
                 </div>
             </div >

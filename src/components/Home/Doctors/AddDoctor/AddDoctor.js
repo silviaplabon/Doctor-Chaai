@@ -20,7 +20,7 @@ const AddDoctor = () => {
             consultation: data.consultation,
         };
 
-        fetch(`https://warm-cliffs-62735.herokuapp.com/doctor/addDoctor`, {
+        fetch(`https://whispering-reef-28119.herokuapp.com/doctor/addDoctor`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -44,47 +44,47 @@ const AddDoctor = () => {
         <div className="addDoctorSection">
            <NavBar></NavBar>
             <div className="container mt-5 ">
-                <form onSubmit={handleSubmit(onSubmit)} className=" formStyle" >
+                <form onSubmit={handleSubmit(onSubmit)} className=" addDoctorFormStyle" >
                     <h2 className="">Basic Information</h2>
-                    <div className="row d-flex p-3 sectionDoctorBg shadow">
+                    <div className="row d-flex p-3  pb-5 sectionDoctorBg shadow">
                         <div className="col-md-6  mt-2">
                             <label for="username" className="fw-bold">Name</label>
-                            <input name="name" id="username" className="form-control " defaultValue="" placeholder="name" ref={register({ required: true })} />
+                            <input name="name" id="username" className="form-control  formControlAddDoctor" defaultValue="" placeholder="name" ref={register({ required: true })} />
                         </div>
                         <div className="col-md-6  mt-2">
                             <label for="phone" className="fw-bold">Phone</label>
-                            <input name="phone" id="email" className="form-control " defaultValue="" placeholder="phone" ref={register({ required: true })} />
+                            <input name="phone" id="email" className="form-control formControlAddDoctor" defaultValue="" placeholder="phone" ref={register({ required: true })} />
                         </div>
                         <div className="col-md-6  mt-2">
                             <label for="address" className="fw-bold">Address</label>
-                            <input name="address" id="address" className="form-control " defaultValue="" placeholder="address" ref={register({ required: true })} />
+                            <input name="address" id="address" className="form-control formControlAddDoctor" defaultValue="" placeholder="address" ref={register({ required: true })} />
                         </div>
                         <div className="col-md-6 mt-2">
-                            <label for="experience" className="fw-bold">Experience</label><br />
-                            <select ref={register} name="experience" className="form-select">
+                            <label for="experience" className="fw-bold">Experience</label>
+                            <select ref={register} name="experience" className="form-select formSelectAddDoctor">
                                 <option value="Junior">Junior</option>
                                 <option value="Senior">Senior</option>
                             </select>
                         </div>
                     </div>
-                    <div className="row d-flex  p-3 mt-5 sectionDoctorBg shadow">
+                    <div className="row d-flex  p-3 mt-5 pb-5 sectionDoctorBg shadow">
                         <div className="col-md-12 mt-2">
                             <label for="about" className="fw-bold">About</label>
-                            <textarea name="about" className=" form-control " id="about" rows="3" placeholder="please tell yourself" defaultValue="" ref={register({ required: true })} />
+                            <textarea name="about" className=" form-control  formControlAddDoctor" id="about" rows="3" placeholder="please tell yourself" defaultValue="" ref={register({ required: true })} />
                         </div>
                         <div className="col-md-6  mt-2 ms-0">
                             <label for="photo" className="fw-bold">Photo</label>
-                            <input name="photo" type="file" id="photo" className="form-control " onChange={handleImageUpload} ref={register({ required: true })} />
+                            <input name="photo" type="file" id="photo" className="form-control  formControlAddDoctor " onChange={handleImageUpload} ref={register({ required: true })} />
                         </div>
                         <div className="col-md-6  mt-2 ms-0">
                             <label for="education" className="fw-bold">Education</label>
-                            <input name="education" id="education" className="form-control" placeholder="education" ref={register({ required: true })} />
+                            <input name="education" id="education" className="form-control  formControlAddDoctor " placeholder="education" ref={register({ required: true })} />
                         </div>
                         </div>
-                        <div className="row d-flex p-3 mt-5  sectionDoctorBg shadow">
+                        <div className="row d-flex p-3 mt-5  pb-5 sectionDoctorBg shadow">
                         <div className="col-md-6 mt-2">
                             <label for="specialization" className="fw-bold">Specialization</label>
-                            <select ref={register} name="specialization" className="form-select" >
+                            <select ref={register} name="specialization" className=" form-select formSelectAddDoctor" >
                                 <option value="Allergists">Allergists</option>
                                 <option value="Dermatologists">Dermatologists</option>
                                 <option value="Ophthalmologists">Ophthalmologists</option>
@@ -102,11 +102,11 @@ const AddDoctor = () => {
                         </div>
                         <div className="col-md-6 mt-2">
                             <label for="username" className="fw-bold">Consultation</label>
-                            <input name="consultation" id="" className="form-control " defaultValue="" placeholder="consultation fee" ref={register({ required: true })} />
+                            <input name="consultation" id="" className="form-control  formControlAddDoctor" defaultValue="" placeholder="consultation fee" ref={register({ required: true })} />
                         </div>
                     </div>
-                    <div className="d-flex justify-content-end">
-                        <input type="submit" className="mt-3 btn  text-white doctorMoreButton" value="Register" />
+                    <div className="d-flex justify-content-end ">
+                        <input type="submit" className="btn  text-white registerDoctorButton p-0" value="Register" />
                     </div>
                 </form>
             </div>

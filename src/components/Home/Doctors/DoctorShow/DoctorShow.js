@@ -1,7 +1,7 @@
 import React from 'react';
 import './DoctorShow.scss'
 const DoctorShow = ({ doctor }) => {
-    const { name, photo,specialization} = doctor;
+    const { name, photo,specialization,experience} = doctor;
     return (
         <div className="col mt-4">
             <div className="doctorShowContainer  mt-4">
@@ -12,6 +12,7 @@ const DoctorShow = ({ doctor }) => {
                     <div className="card-body d-flex-column justify-content-center align-items-center">
                         <h5 className="text-center">{name}</h5>
                         <p className="text-center m-0">{specialization}</p>
+                        <p className="text-center m-0">{experience}</p>
                     </div>
                 </div>
             </div>
