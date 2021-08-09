@@ -1,0 +1,36 @@
+.searchBarDoctor{
+  border-radius: 30px;
+}
+.searchDoctorInput{
+   height:40px!important;
+   border: 1px solid #212729!important;
+   margin-top:2px!important;
+   height:40px!important;
+   border-radius: 30px;
+   width:70%;
+}
+
+@media only screen and (min-device-width : 993px) and (max-device-width :3500px){
+.searchBarDoctor{
+    width:60%;
+}
+.selectDropdownDoctor{
+    width:80%;
+    border-radius: 30px;
+}
+}
+@media only screen and (min-device-width : 768px) and (max-device-width :992px){
+    .searchBarDoctor{
+        width:60%;
+    }
+    .selectDropdownDoctor{
+        width:100%;
+        border-radius: 30px;
+    }
+    }
+    @media only screen and (min-device-width :0px) and (max-device-width :767px){
+        .selectDropdownDoctor{
+            margin-top:10px;
+            border-radius: 30px;
+        }
+    }
