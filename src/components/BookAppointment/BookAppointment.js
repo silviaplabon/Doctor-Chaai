@@ -9,7 +9,18 @@ import "./BookAppointment.scss";
 const BookAppointment = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     // Form Data
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+      fetch('https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+      })
+      .catch(err => console.log(err))
+    };
 
 
   return (
@@ -31,20 +42,20 @@ const BookAppointment = () => {
                         type="text"
                         className="appointmentInput form-control rounded-pill px-3 py-2"
                         placeholder="Patient name..."
-                        name="patientName"
+                        name="name"
                         ref={register({ required: true })}
                       />
-                    {errors.patientName && <p className="text-center text-danger mt-2 mb-0">Name is required.</p>}
+                    {errors.name && <p className="text-center text-danger mt-2 mb-0">Name is required.</p>}
                   </div>
                   <div className="col-12">
                     <input
                         type="number"
                         className="appointmentInput form-control rounded-pill px-3 py-2"
                         placeholder="Phone Number..."
-                        name="phoneNumber"
+                        name="number"
                         ref={register({ required: true })}
                       />
-                    {errors.phoneNumber && <p className="text-center text-danger mt-2 mb-0">Phone Number is required.</p>}
+                    {errors.number && <p className="text-center text-danger mt-2 mb-0">Phone Number is required.</p>}
                   </div>
                   <div className="col-12">
                     <select className="form-select appointmentInput rounded-pill px-3 py-2" name="department"
