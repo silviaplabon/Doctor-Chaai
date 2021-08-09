@@ -3,10 +3,13 @@ import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
 import Login from "./components/Authentication/Login/Login";
+import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
+import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointment/BookAppointment";
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Home from "./components/Home/Home/Home";
+import PendingDoctors from "./components/Home/Doctors/PendingDoctors/PendingDoctors";
 
 function App() {
   return (
@@ -21,12 +24,21 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
+        <Route exact path="/addDoctor">
+          <AddDoctor></AddDoctor>
+        </Route>
+        <Route exact path="/allDoctorList">
+          <AllDoctorsCollection></AllDoctorsCollection>
+        </Route>
         <Route path="/register">
           <Register />
         </Route>
         <Route path="/appointment">
           <BookAppointment/>
         </Route>
+        <Route path="/pending">
+          <PendingDoctors></PendingDoctors>
+          </Route>
         <Route path="/dashboard">
           <Dashboard/>
         </Route>
