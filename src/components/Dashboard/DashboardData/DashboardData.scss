@@ -1,0 +1,30 @@
+.dashboardTitle {
+  color: #050545;
+  h3 {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+}
+.DashboardCard {
+  padding: 20px 20px;
+  color: white;
+  font-weight: 700;
+  border-radius: 15px;
+  h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+  }
+}
+.totalPatient {
+  background-color: #ff679a;
+}
+.todaysPatient {
+  background-color: #ffbe00;
+}
+.totalDoctors {
+  background-color: #00cc99;
+}
+.todaysOTList {
+  background-color: #e60000;
+}

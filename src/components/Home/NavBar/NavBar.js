@@ -2,8 +2,8 @@ import { faGripLines, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from "../../../images/doctor-logo.png";
 import './NavBar.scss';
-import logo from "../../../images/doctor-logo.png"
 
 const NavBar = () => {
     const [expand,setExpand] = useState(true);
@@ -42,7 +42,7 @@ const NavBar = () => {
                                     <Link className="nav-link logInBtn" aria-current="page" to="/home">LogIn</Link>
                                 </li> */}
                                 <li className="nav-item mt-3 mt-lg-0">
-                                    <Link className="signUpBtn rounded-pill" aria-current="page" to="/home">SignUp</Link>
+                                    <Link className="signUpBtn rounded-pill" aria-current="page" to="/register">SignUp</Link>
                                 </li>
                             </ul>
                         </div>
