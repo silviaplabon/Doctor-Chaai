@@ -21,7 +21,7 @@ const BookAppointment = () => {
       .then(res => res.json())
       .then(result => {
         console.log(result);
-        alert("Appointment Booking Successfull");
+        alert("Appointment Booking ");
       })
       .catch(err => console.log(err))
     };
