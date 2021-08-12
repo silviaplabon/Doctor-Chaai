@@ -12,12 +12,16 @@ const BookAppointment = () => {
     const onSubmit = data => {
       fetch('https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment',{
         method:'POST',
-        headers:{'Content-Type':'application/json'},
+        headers:{
+          'Content-Type':'application/json',
+          'Authorization':`Bearer ${localStorage.getItem('Authorization')}`
+      },
         body: JSON.stringify(data)
       })
       .then(res => res.json())
       .then(result => {
         console.log(result);
+        alert("Appointment Booking Successfull");
       })
       .catch(err => console.log(err))
     };
