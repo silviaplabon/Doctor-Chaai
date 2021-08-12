@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory, useLocation } from "react-router-dom";
 import appointmentImg from '../../images/appointment.png';
 import Footer from "../Home/Footer/Footer";
 import NavBar from "../Home/NavBar/NavBar";
@@ -8,6 +9,10 @@ import "./BookAppointment.scss";
 
 const BookAppointment = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" }};
     // Form Data
     const onSubmit = data => {
       fetch('https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment',{
@@ -21,7 +26,8 @@ const BookAppointment = () => {
       .then(res => res.json())
       .then(result => {
         console.log(result);
-        alert("Appointment Booking ");
+        alert("Appointment Booking Successfull");
+        history.replace(from);
       })
       .catch(err => console.log(err))
     };
