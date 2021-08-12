@@ -17,7 +17,7 @@ const BookAppointment = () => {
       })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
+        console.log(result,"silvia");
       })
       .catch(err => console.log(err))
     };
