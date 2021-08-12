@@ -1,24 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import DoctorShow from '../DoctorShow/DoctorShow';
+import axios from "axios";
 import './DoctorsCollection.scss'
 const Doctors = () => {
     const [data, setData] = useState([])
+    // useEffect(() => {
+    //     fetch('https://whispering-reef-28119.herokuapp.com/doctor/',
+    //         {
+    //             method: 'GET',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'status':``
+    //             }
+    //         }
+    //     )
+    //         .then(res => res.json())
+    //         .then(data => {
+                   
+    //         })
+    // }, [])
     useEffect(() => {
-        fetch('https://whispering-reef-28119.herokuapp.com/doctor/',
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'status':``
-                }
+        axios
+          .get("https://whispering-reef-28119.herokuapp.com/doctor/allDoctors",{
+            headers:{
+              'Authorization':`Bearer ${localStorage.getItem('Authorization')}`
             }
-        )
-            .then(res => res.json())
-            .then(data => {
-                    setData(data.result)
-            })
-    }, [])
+          })
+          .then(function (response) {
+            // setDoctorStatus(response.data.result);
+            setData(response.data.result)
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+          .then(function () {
+            // always executed
+          });
+      }, []);
+    
 
 
 

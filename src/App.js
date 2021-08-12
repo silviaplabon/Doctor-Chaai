@@ -33,9 +33,9 @@ function App() {
           <Route exact path="/addDoctor">
             <AddDoctor></AddDoctor>
           </Route>
-          <Route exact path="/allDoctorList">
+          <PrivateRoute exact path="/allDoctorList">
             <AllDoctorsCollection></AllDoctorsCollection>
-          </Route>
+          </PrivateRoute>
           <Route path="/register">
             <Register />
           </Route>
