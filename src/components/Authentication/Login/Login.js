@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { UserContext } from "../../../App";
 import doctorsChamber from "../../../images/doctorsChamber.jpg";
 import "./Login.scss";
 
 const Register = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   let history = useHistory();
+  let location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
   const {
     register,
     handleSubmit,
@@ -14,18 +18,20 @@ const Register = () => {
   } = useForm();
   // Form Data
   const onSubmit = (data) => {
-    fetch('https://whispering-reef-28119.herokuapp.com/user/login',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify(data)
-      })
+    fetch('https://whispering-reef-28119.herokuapp.com/user/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
       .then(res => res.json())
       .then(result => {
+        setLoggedInUser({ result: result.status })
         console.log(result);
-        if(result.status === true){
-          history.replace("/");
+        if (result.status === true) {
+          history.replace(from);
         }
-        localStorage.setItem("Authorization",result.access_token);
+        localStorage.setItem("Authorization", result.access_token);
+        
       })
       .catch(err => console.log(err))
   };
@@ -48,7 +54,7 @@ const Register = () => {
               <div className="col-12">
                 <input
                   type="email"
-                  className="form-control mx-auto rounded-pill px-3 py-2"
+                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Enter Your Email"
                   name="email"
                   ref={register({ required: true })}
@@ -57,7 +63,7 @@ const Register = () => {
               <div className="col-12">
                 <input
                   type="password"
-                  className="form-control mx-auto rounded-pill px-3 py-2"
+                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Enter Your Password"
                   name="password"
                   ref={register({ required: true })}
@@ -66,13 +72,13 @@ const Register = () => {
               <div className="col-12 text-center">
                 {(errors.email ||
                   errors.password) && (
-                  <p
-                    className="text-center text-danger mt-2 mb-0"
-                    style={{ fontWeight: "700" }}
-                  >
-                    * PLease fill up the form.
-                  </p>
-                )}
+                    <p
+                      className="text-center text-danger mt-2 mb-0"
+                      style={{ fontWeight: "700" }}
+                    >
+                      * PLease fill up the form.
+                    </p>
+                  )}
                 <button
                   type="submit"
                   className="my-2 loginSubmitBtn rounded-pill px-4 py-2 mx-auto"

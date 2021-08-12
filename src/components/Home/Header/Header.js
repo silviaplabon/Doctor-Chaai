@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Header.scss";
-import banner from "../../../images/banner-img.png";
 import { Link } from 'react-router-dom';
+import banner from "../../../images/banner-img.png";
+import "./Header.scss";
 
 const Header = () => {
     return (
@@ -14,7 +14,9 @@ const Header = () => {
                             <p className="py-3">Hospital Management System or HMS Software is mainly a system that can help to maintain any hospital activities properly and easily. Moreover, the hospital management system can be used as clinical software. Also, it helps to keep records and monitor the activities of any hospital. </p>
                             <div className="pt-2">
                                 <Link to="/login"><button className="login-btn">log in</button></Link>
-                                <button className="appoint-btn">appointment</button>
+                                <Link to="/appointment">
+                                    <button className="appoint-btn">appointment</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
