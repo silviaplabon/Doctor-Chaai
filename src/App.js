@@ -36,9 +36,6 @@ function App() {
         <Route path="/appointment">
           <BookAppointment/>
         </Route>
-        <Route path="/pending">
-          <PendingDoctors></PendingDoctors>
-          </Route>
         <Route path="/dashboard">
           <Dashboard/>
         </Route>

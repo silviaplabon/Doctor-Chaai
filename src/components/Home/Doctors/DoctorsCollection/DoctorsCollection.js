@@ -5,12 +5,24 @@ import './DoctorsCollection.scss'
 const Doctors = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch('https://whispering-reef-28119.herokuapp.com/doctor/')
+        fetch('https://whispering-reef-28119.herokuapp.com/doctor/',
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'status':``
+                }
+            }
+        )
             .then(res => res.json())
             .then(data => {
-                setData(data.result)
+                    setData(data.result)
             })
     }, [])
+
+
+
+
     const doctors = data?.slice(0, 8);
     const history = useHistory();
     const loadMore = () => {

@@ -2,49 +2,54 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../../NavBar/NavBar';
 import DoctorShow from '../DoctorShow/DoctorShow';
 import './AllDoctorCollection.scss'
+
 const AllDoctorsCollection = () => {
     let [data, setData] = useState([])
-    let [newdata, setNewdata] = useState([])
+    let [categoryData, setCategoryData] = useState([])
+    let [searchData, setSearchData] = useState([])
     const [dept, setDept] = useState('')
     const [exp, setExp] = useState('')
-
+    const [state, setState] = useState(true)
+//loading data from server
     useEffect(() => {
         fetch('https://whispering-reef-28119.herokuapp.com/doctor')
             .then(res => res.json())
             .then(data => {
-                const datas=data.result.filter(doctor=>doctor.status!=="pending");
+                const datas = data.result.filter(doctor => doctor.status !== "pending");
                 setData(datas)
             })
-    }, [newdata||dept||exp||!data])
-
+    }, [])
+//category data handle
     const handleChangeDept = (event) => {
         setDept(event.target.value);
+        setExp('')
+        setState(false);
+        categoryDataCollection(data)
     }
+
     const handleChangeExp = (event) => {
         setExp(event.target.value)
+        setDept('')
+        setState(false)
+        categoryDataCollection(data)
     }
+
+    const categoryDataCollection = (data) => {
+        dept ? setCategoryData(data?.filter(doctor => doctor.specialization == dept)) : setCategoryData(data?.filter(doctor => doctor.specialization == exp))
+    }
+
     const handleSearch = (event) => {
-        setData([]);
-        setNewdata([])
+        setState(true)
         fetch(`https://whispering-reef-28119.herokuapp.com/doctor/searchDoctor/${event.target.value}`)
             .then(res => res.json())
             .then(data => {
-                setData(data.result)
+                setSearchData(data.result)
+                console.log(searchData, "searchfatatahscsdjcjefc");
             })
     }
 
 
 
-    useEffect(() => {
-        setExp('')
-
-        setNewdata(data?.filter(doctor => doctor.specialization == dept));
-    }, [dept])
-
-    useEffect(() => {
-        setDept('')
-        setNewdata(data?.filter(doctor => doctor.experience == exp))
-    }, [exp||newdata])
 
     return (
         <>
@@ -86,8 +91,10 @@ const AllDoctorsCollection = () => {
                 </div>
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     {
-                        newdata.length ? (newdata?.map(doctor =>
-                            <DoctorShow doctor={doctor}></DoctorShow>)) : data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)
+                        state == true ? (data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)): (searchData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
+                    }
+                    {
+                        state == false && (categoryData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
                     }
                 </div>
             </div >
