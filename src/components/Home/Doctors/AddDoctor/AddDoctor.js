@@ -1,9 +1,10 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router-dom';
 import NavBar from '../../NavBar/NavBar';
 import './AddDoctor.scss'
-const axios = require('axios').default;
+
 
 const AddDoctor = () => {
     const { register, handleSubmit, watch, errors } = useForm();

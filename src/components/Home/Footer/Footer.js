@@ -46,16 +46,16 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="footerSocial pt-5">
-                    <hr/>
+                    <hr />
                     <div className="d-block d-sm-flex justify-content-between align-items-center">
                         <div>
                             <img className="logoImg" src="https://i.ibb.co/FzBKrr8/dcLogoWH.png" alt="doctors-chaai" />
                         </div>
                         <div className="d-flex align-items-center socialIcon">
-                            <FontAwesomeIcon icon={faFacebook} />
-                            <FontAwesomeIcon icon={faTwitter} />
-                            <FontAwesomeIcon icon={faInstagram} />
-                            <FontAwesomeIcon icon={faYoutube} />
+                            <li className="list-inline-item"><a href="https://www.facebook.com" target="_blank" rel="noreferrer"><FontAwesomeIcon className="icon" icon={faFacebook} /></a></li>
+                            <li className="list-inline-item"><a href="https://twitter.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon className="icon" icon={faTwitter} /></a></li>
+                            <li className="list-inline-item"><a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon className="icon" icon={faInstagram} /></a></li>
+                            <li className="list-inline-item"><a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon className="icon" icon={faYoutube} /></a></li>
                         </div>
                     </div>
                 </div>

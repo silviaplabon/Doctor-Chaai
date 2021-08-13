@@ -66,9 +66,22 @@ const AllDoctorsCollection = () => {
             .then(function () {
             });
     }
+<<<<<<< HEAD
 
 
 
+=======
+    useEffect(() => {
+        setExp('')
+
+        setNewdata(data?.filter(doctor => doctor.specialization == dept));
+    }, [dept])
+
+    useEffect(() => {
+        setDept('')
+        setNewdata(data?.filter(doctor => doctor.experience == exp))
+    }, [exp||newdata])
+>>>>>>> 3d4b76945a8553481239c35f21a2fb911ec7a474
 
     return (
         <>
