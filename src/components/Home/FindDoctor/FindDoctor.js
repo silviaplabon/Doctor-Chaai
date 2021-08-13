@@ -32,7 +32,13 @@ const FindDoctor = () => {
         <div className="modal-div">
           {/* <button className="rounded-pill btn btn-primary">Close</button> */}
           <h1>
+<<<<<<< HEAD
+             <iframe title="google-map" className='g-map' src={url} >
+                  
+              </iframe>
+=======
             <iframe className="g-map" src={url}></iframe>
+>>>>>>> 58753e62f7649bfe25d8cfcf682ffe7654e225d3
           </h1>
         </div>
       </Modal>
