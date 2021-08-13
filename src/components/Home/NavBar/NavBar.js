@@ -45,6 +45,9 @@ const NavBar = () => {
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/">Help</Link>
                                     </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/covid19">Covid Tracker</Link>
+                                    </li>
                                 </ul>
                                 <ul className="navbar-nav align-items-center ms-lg-auto mb-2 mb-lg-0 navbarBtnItem">
                                     {/* <li className="nav-item ">

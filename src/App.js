@@ -10,6 +10,7 @@ import BookAppointment from "./components/BookAppointment/BookAppointment";
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Home from "./components/Home/Home/Home";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
+import CovidTracker from "./components/CovidTracker/CovidTracker";
 
 export const UserContext = createContext();
 
@@ -44,6 +45,9 @@ function App() {
           </PrivateRoute>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/covid19">
+            <CovidTracker />
           </Route>
         </Switch>
       </Router>

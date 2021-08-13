@@ -32,7 +32,7 @@ const FindDoctor = () => {
 
         <div className="modal-div">
           <h1>
-             <iframe className='g-map' src={url} >
+             <iframe title="google-map" className='g-map' src={url} >
                   
               </iframe>
           </h1>
