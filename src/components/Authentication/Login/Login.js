@@ -1,127 +1,106 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
-import React from 'react';
-import { useState } from 'react';
-import doctorsChamber from '../../../images/doctorsChamber.jpg'
-import './Login.scss'
-import { auth, googleProvider } from './firebase.config';
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
+import { Link, useLocation } from "react-router-dom";
+import { UserContext } from "../../../App";
+import doctorsChamber from "../../../images/doctorsChamber.jpg";
+import "./Login.scss";
 
-const Login = () => {
-    const [isSignUp, setSignUp] = useState(false)
-    const [user, setUser] = useState({
-        fullName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
+const Register = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+  let history = useHistory();
+  let location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  // Form Data
+  const onSubmit = (data) => {
+    fetch('https://whispering-reef-28119.herokuapp.com/user/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     })
-    const handleChange = (e) => {
-        const { name, value } = e.target
+      .then(res => res.json())
+      .then(result => {
+        setLoggedInUser({ result: result.status })
+        console.log(result);
+        if (result.status === true) {
+          history.replace(from);
+        }
+        localStorage.setItem("Authorization", result.access_token);
+        
+      })
+      .catch(err => console.log(err))
+  };
 
-        setUser((preVal) => {
-            return {
-                ...preVal,
-                [name]: value
-            }
-        })
-    }
-    const handleCreateUser = () => {
-
-    }
-
-    const handleSignIn = () => {
-        auth.signInWithEmailAndPassword(user.email, user.password)
-            .then((res) => {
-                const user = res.user;
-                console.log(user);
-            })
-
-            .catch((err) => alert(err.message))
-
-    }
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-    }
-
-    const switchMode = () => {
-        setSignUp((toggle) => !toggle)
-    }
-
-    const handleGoogleSignIn = () => {
-        auth.signInWithPopup(googleProvider)
-        .then((result) => {
-            const user = result.user;
-            console.log(user);
-
-
-        }).catch((error) => {
-            var errorMessage = error.message;
-            console.log(errorMessage);
-
-        });
-    }
-    
-    return (
-        <div className="login-container">
-            <div className="container custom-container py-5">
-            <h3 className="text-center">{isSignUp ? 'NEW HERE? PLEASE SIGN UP' : 'OUR OLD USER? PLEASE LOG IN'}</h3>
-            <div className="row row-cols-1 row-cols-md-2">
-
-                <div className="col my-5 ">
-                    <div className="doctor-img">
-                        <img src={doctorsChamber} alt="" />
-                    </div>
-                </div>
-                <div className="col p-0 mt-md-5  ps-md-3 pe-md-5 login-form" >
-                    <form className="mt-md-5  me-md-auto mx-auto ms-1 " onSubmit={handleFormSubmit}>
-                        {
-                            isSignUp &&
-                            <div className="mb-3">
-                                <input name="fullName" value={user.fullName} onChange={handleChange} required type="text" className="form-control" id="fullName" placeholder="Enter your Name.." />
-                            </div>
-                        }
-                        <div className="mb-3">
-                            <input name="email" value={user.email} onChange={handleChange} required type="email" id="email" className="form-control" placeholder="Your email.." />
-                        </div>
-                        <div className="mb-3">
-                            <input name="password" value={user.password} onChange={handleChange} required type="password" className="form-control" id="password" placeholder="Your Password.." />
-                        </div>
-                        {
-                            isSignUp &&
-                            <div className="mb-3">
-                                <input name="confirmPassword" value={user.confirmPassword} onChange={handleChange} required type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password.." />
-                            </div>
-                        }
-                        <div className="col-12 mb-3">
-                            {
-                                isSignUp ?
-                                    <button onClick={handleCreateUser} className="submit-btn form-control" type="submit">Register</button> :
-                                    <button onClick={handleSignIn} className="submit-btn form-control" type="submit">Log in</button>
-                            }
-                        </div>
-                        {
-                            isSignUp ? "" :
-                                <div className="Social-login">
-                                    <h5 className="text-center">or</h5>
-                                    <div className="mt-4 d-flex align-items-center justify-content-between social-media-button">
-                                        <button className="facebook-btn"><FontAwesomeIcon icon={faFacebook} /> <span>Log in</span></button>
-                                        <button onClick={handleGoogleSignIn} className="google-btn"> <FontAwesomeIcon icon={faGoogle} /> <span>Log in</span></button>
-                                    </div>
-                                </div>
-                        }
-                    </form>
-                </div>
-
+  return (
+    <div className="login-container">
+      <div className="container custom-container py-5">
+        <h3 className="text-center">OUR OLD USER? PLEASE LOG IN</h3>
+        <div className="row row-cols-1 row-cols-md-2 login-container">
+          <div className="col my-5 ">
+            <div className="doctor-img">
+              <img src={doctorsChamber} alt="" />
             </div>
-            <div className="text-center toggle-container py-3">
-                {
-                    isSignUp ?
-                        <p>Already have an account ? <span onClick={switchMode}>Login!</span></p> :
-                        <p>Are you a new member ? <span onClick={switchMode}>Register here!</span></p>
-                }
-            </div>
+          </div>
+          <div className="col my-5 login-form">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="row row-cols-lg-auto g-4 align-items-center mt-4"
+            >
+              <div className="col-12">
+                <input
+                  type="email"
+                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
+                  placeholder="Enter Your Email"
+                  name="email"
+                  ref={register({ required: true })}
+                />
+              </div>
+              <div className="col-12">
+                <input
+                  type="password"
+                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
+                  placeholder="Enter Your Password"
+                  name="password"
+                  ref={register({ required: true })}
+                />
+              </div>
+              <div className="col-12 text-center">
+                {(errors.email ||
+                  errors.password) && (
+                    <p
+                      className="text-center text-danger mt-2 mb-0"
+                      style={{ fontWeight: "700" }}
+                    >
+                      * PLease fill up the form.
+                    </p>
+                  )}
+                <button
+                  type="submit"
+                  className="my-2 loginSubmitBtn rounded-pill px-4 py-2 mx-auto"
+                >
+                  LogIn
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+        <div className="text-center toggle-container d-flex justify-content-center py-3">
+          <p>
+            Are you a new member ? <Link className="text-decoration-none" to="/register"><span>Register here!</span></Link>
+          </p>
+          <span className="mx-5 " style={{color:"#212729"}}>Or</span>
+          <p>
+            doctor ? <Link className="text-decoration-none" to="/addDoctor"><span>Register here!</span></Link>
+          </p>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
-export default Login;
+export default Register;
