@@ -18,7 +18,7 @@ const AllDoctorsCollection = () => {
                 }
             })
             .then(function (response) {
-                const datas = response.data.result.filter(doctor => doctor.status !== "pending");
+                const datas = response?.data?.result?.filter(doctor => doctor?.status !== "pending");
                 setData(datas);
                 console.log(datas)
             })
@@ -42,10 +42,10 @@ const AllDoctorsCollection = () => {
     }
 
     const categoryDataDepartment = (data, value) => {
-        setCategoryDeptData(data?.filter(doctor => doctor.specialization == value))
+        setCategoryDeptData(data?.filter(doctor => doctor?.specialization == value))
     }
     const categoryDataExperience = (data, value) => {
-        setCategoryExpData(data?.filter(doctor => doctor.experience == value))
+        setCategoryExpData(data?.filter(doctor => doctor?.experience == value))
     }
 
     const handleSearch = (event) => {
@@ -57,7 +57,7 @@ const AllDoctorsCollection = () => {
                 }
             })
             .then(function (response) {
-                const datas = response.data.result.filter(doctor => doctor.status !== "pending");
+                const datas = response?.data?.result?.filter(doctor => doctor?.status !== "pending");
                 setSearchData(datas);
             })
             .catch(function (error) {
