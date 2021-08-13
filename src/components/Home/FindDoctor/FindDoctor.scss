@@ -35,6 +35,15 @@
     animation-iteration-count: infinite;
   }
 }
+.modal-div{
+  width: 700px;
+  height: 500px;
+}
+.g-map{
+  margin: auto;
+  height: 500px;
+  width: 700px
+}
 
 @keyframes findImgBgAnimation {
   0% {
