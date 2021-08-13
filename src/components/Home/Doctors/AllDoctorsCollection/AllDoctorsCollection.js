@@ -32,9 +32,6 @@ const AllDoctorsCollection = () => {
                 setData(data.result)
             })
     }
-
-
-
     useEffect(() => {
         setExp('')
 
