@@ -1,10 +1,12 @@
+
 import { faGripLines, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
+
 import logo from "../../../images/doctor-logo.png";
-import './NavBar.scss';
+import "./NavBar.scss";
 
 const NavBar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
