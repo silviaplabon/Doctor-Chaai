@@ -12,7 +12,8 @@ const BookAppointment = () => {
     const onSubmit = data => {
       fetch('https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment',{
         method:'POST',
-        headers:{'Content-Type':'application/json'},
+        headers:{'Content-Type':'application/json',
+      },
         body: JSON.stringify(data)
       })
       .then(res => res.json())
@@ -29,7 +30,7 @@ const BookAppointment = () => {
       {/* Appointment page main code start  */}
       <div className="container">
         <div className="appointmentChild">
-          <h2 className="my-2">Book Your Appointment</h2>
+          <h2 className="my-2">Book Your Appointment </h2>
           <div>
             <div className="row px-sm-5 pt-5 appointmentBook">
               <div className="col-sm-6 AppointmentImgCol px-lg-5 d-flex align-items-end">
