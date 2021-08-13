@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
-
 import logo from "../../../images/doctor-logo.png";
 import "./NavBar.scss";
 
+
 const NavBar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser);
     const [expand, setExpand] = useState(true);
 
     const handleLogout = () => {
@@ -54,7 +53,7 @@ const NavBar = () => {
                                     <Link className="nav-link logInBtn" aria-current="page" to="/home">LogIn</Link>
                                 </li> */}
                                     {
-                                        loggedInUser ?
+                                        loggedInUser?.userName ?
                                             <li className="nav-item mt-3 mt-lg-0">
                                                 <Link onClick={handleLogout} className="signUpBtn rounded-pill" aria-current="page" to="/login">Logout</Link>
                                             </li> 
