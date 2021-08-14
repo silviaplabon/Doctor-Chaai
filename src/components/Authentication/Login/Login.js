@@ -67,8 +67,7 @@ const Register = () => {
                   className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Enter Your Password"
                   name="password"
-                  ref={register({ required: true })}
-                />
+                  ref={register({ required: true })} />
               </div>
               <div className="col-12 text-center">
                 {(errors.email ||
