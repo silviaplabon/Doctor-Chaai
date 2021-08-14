@@ -11,7 +11,6 @@ import DoctorDashboard from "./components/DoctorDashboard/DoctorDashboard/Doctor
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
-import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import CovidTracker from "./components/CovidTracker/CovidTracker";
 
 export const UserContext = createContext();
