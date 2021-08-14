@@ -1,8 +1,8 @@
 import {
-    faBell,
-    faCalendarCheck,
-    faChartPie,
-    faUserInjured
+  faBell,
+  faCalendarCheck,
+  faChartPie,
+  faUserInjured
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -29,15 +29,15 @@ const DoctorDashboard = () => {
             <img src="https://i.ibb.co/FzBKrr8/dcLogoWH.png" alt="logo" />
           </div>
           <div className="sidebarMenu">
-            <Link to="/dashboard/dashboard">
+            <Link to="/doctordashboard/dashboard">
               <FontAwesomeIcon className="me-3" icon={faChartPie} />
               Dashboard
             </Link>
-            <Link to="/dashboard/appointments">
+            <Link to="/doctordashboard/appointments">
               <FontAwesomeIcon className="me-3" icon={faUserInjured} />
               Appointments
             </Link>
-            <Link to="/dashboard/doctorrequest">
+            <Link to="/doctordashboard/shedul">
               <FontAwesomeIcon className="me-3" icon={faCalendarCheck} />
               Shedule
             </Link>
