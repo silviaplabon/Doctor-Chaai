@@ -21,7 +21,7 @@ const CovidTracker = () => {
             <div className="container covid-Container">
                 <NavBar />
                 <h1 className="mt-3 text-center heading">Covid 19 <span>Tracker</span></h1>
-                <h4 className="mx-3 mt-lg-3">LAST UPDATED <span> {new Date().toLocaleTimeString()}</span></h4>
+                <h4 className="mx-3 mt-lg-3">LAST UPDATED <span> {new Date().toLocaleTimeString()}</span><span>  {new Date().toLocaleDateString()}</span></h4>
                 <div className="row mx-auto mt-5">
                     <div className="col-md-4">
                         <div className="card shadow-sm card-result text-white mb-5">
