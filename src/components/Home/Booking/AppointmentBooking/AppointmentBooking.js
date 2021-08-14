@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 import FAQ from '../FAQ/FAQ';
 import './AppointmentBooking.scss';
 
 const AppointmentBooking = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
-    const [selected, setSelected] = useState();
+    const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
     }

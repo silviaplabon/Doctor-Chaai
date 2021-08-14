@@ -11,8 +11,8 @@ const Department = () => {
                     <h2>our departments</h2>
                 </div>
                 <div className="row py-5 px-2">
-                    {DeptData.map(item => 
-                        <div className="col-md-4 my-2 m-auto col-12 dept-container">
+                    {DeptData.map(item =>
+                        <div key={item.id} className="col-md-4 my-2 m-auto col-12 dept-container">
                             <img src={item.image} alt={item.title} />
                             <div className="px-4 py-5 text-center">
                                 <h4>{item.title}</h4>
