@@ -3,11 +3,13 @@ import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
 import Login from "./components/Authentication/Login/Login";
-import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
-import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
+import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointment/BookAppointment";
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
+import DoctorDashboard from "./components/DoctorDashboard/DoctorDashboard/DoctorDashboard";
+import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
+import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import CovidTracker from "./components/CovidTracker/CovidTracker";
@@ -45,6 +47,9 @@ function App() {
           </PrivateRoute>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/doctordashboard">
+            <DoctorDashboard/>
           </Route>
           <Route path="/covid19">
             <CovidTracker />
