@@ -12,6 +12,7 @@ import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
 import CovidTracker from "./components/CovidTracker/CovidTracker";
+import DoctorSchedule from "./components/DoctorDashboard/DoctorSchedule/DoctorSchedule";
 
 export const UserContext = createContext();
 
