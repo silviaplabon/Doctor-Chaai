@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import appointmentImg from "../../images/appointment.png";
@@ -9,6 +9,8 @@ import SuccessModal from "../Modal/SuccessModal/SuccessModal";
 import "./BookAppointment.scss";
 
 const BookAppointment = () => {
+  // Store all Doctor Data
+  const [allDoctor,setAllDoctor] = useState([]);
 
   const {
     register,
@@ -21,6 +23,25 @@ const BookAppointment = () => {
   const [errorModal, setErrorModal] = useState(false);
   // UseHistory for route changing
   let history = useHistory();
+  //Load all Doctor
+  useEffect(()=>{
+    fetch(
+      "https://whispering-reef-28119.herokuapp.com/doctor",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setAllDoctor(data.result);
+      })
+  },[])
+  console.log('Doctors',allDoctor);
   // Form Data
   const onSubmit = (data) => {
     fetch(

@@ -4,23 +4,26 @@ import './BlogsCollection.scss'
 const BlogsCollection = () => {
     const blogs = [
         {
+            id:1,
             date: ' August 01, 2021',
             name: 'Vaccination',
             description: 'Hospital management System or HMS Software is mainly a system that'
         },
         {
+            id:2,
             date: ' August 01, 2021',
             name: 'Vaccination',
             description: 'Hospital management System or HMS Software is mainly a system that'
         },
         {
+            id:3,
             date: ' August 01, 2021',
             name: 'Vaccination',
             description: 'Hospital management System or HMS Software is mainly a system that'
         },
     ]
     return (
-        <div className="container mb-5 mt-5" >
+        <div className="container mb-5 mt-5">
             <div className="d-flex justify-content-center align-items-center">
                 <hr className="hrStyleBlog me-1"></hr>
                 <h5 className="text-center " style={{ color: '#1dc0bf' }}>Our Blog</h5>
@@ -28,7 +31,7 @@ const BlogsCollection = () => {
             <h2 className="text-center mb-2" style={{ color: '#050546' }}>GET OUR DAILY NEWS FEEDS</h2>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {
-                    blogs.map(blog => <BlogShow blog={blog}></BlogShow>)
+                    blogs.map(blog => <BlogShow key={blog.id} blog={blog}></BlogShow>)
                 }
             </div>
 

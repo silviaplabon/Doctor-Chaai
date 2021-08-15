@@ -12,8 +12,9 @@ const BlogShow = ({ blog }) => {
                 </div>
                 <div className=" blogImageContainer">
                     <img
-                        src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGRvY3RvcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                        className="w-100 blogImage" />
+                    src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGRvY3RvcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                    alt="profile" className="w-100 blogImage" />
+
                 </div>
 
                 <div className="text-center">

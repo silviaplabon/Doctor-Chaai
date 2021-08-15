@@ -7,7 +7,7 @@ import './AddDoctor.scss'
 
 
 const AddDoctor = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
     const history = useHistory()
     const onSubmit = data => {

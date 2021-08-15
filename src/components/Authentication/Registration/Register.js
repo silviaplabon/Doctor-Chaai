@@ -92,8 +92,9 @@ const Register = () => {
                     className="form-control login-input mx-auto rounded-pill px-3 py-2"
                     placeholder="Enter Your Email"
                     name="email"
-                    ref={register({ required: true })}
+                    ref={register({ required: true, pattern: /^\S+@\S+$/i })}
                   />
+                  {errors.email && <span>Email not matched</span>}
                 </div>
                 <div className="col-12">
                   <input
@@ -101,8 +102,9 @@ const Register = () => {
                     className="form-control login-input mx-auto rounded-pill px-3 py-2"
                     placeholder="Enter Your Password"
                     name="password"
-                    ref={register({ required: true })}
+                    ref={register({ required: true , minLength:8, maxLength:20 , pattern: /^[A-Za-z]+[0-9_]+$/i })}
                   />
+                  {errors.password && <span>This field is required</span>}
                 </div>
                 <div className="col-12">
                   <input
@@ -110,8 +112,9 @@ const Register = () => {
                     className="form-control login-input mx-auto rounded-pill px-3 py-2"
                     placeholder="Confirm Your Password"
                     name="confirmPassword"
-                    ref={register({ required: true })}
+                    ref={register({ required: true , minLength:8, maxLength:20 , pattern: /^[A-Za-z]+[0-9_]+$/i })}
                   />
+                  {errors.confirmPassword && <span>password not match</span>}
                 </div>
                 <div className="col-12 text-center">
                   {(errors.name ||
