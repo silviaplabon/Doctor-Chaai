@@ -8,6 +8,7 @@ import "./Login.scss";
 
 const Register = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+
   let history = useHistory();
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
@@ -25,13 +26,13 @@ const Register = () => {
     })
       .then(res => res.json())
       .then(result => {
-        setLoggedInUser({ result: result.status })
+        setLoggedInUser({ result: result.status,userName: result.user })
         console.log(result);
         if (result.status === true) {
           history.replace(from);
         }
         localStorage.setItem("Authorization", result.access_token);
-        
+
       })
       .catch(err => console.log(err))
   };
