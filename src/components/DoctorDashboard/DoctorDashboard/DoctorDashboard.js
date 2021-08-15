@@ -11,6 +11,7 @@ import { useState } from "react/cjs/react.development";
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
 import DoctorDashboardData from "../DoctorDashboardData/DoctorDashboardData";
+import DoctorSchedule from "../DoctorSchedule/DoctorSchedule";
 import "./DoctorDashboard.scss";
 
 const DoctorDashboard = () => {
@@ -21,25 +22,24 @@ const DoctorDashboard = () => {
       <div className="d-flex">
         {/* Dashboard sidBar Start */}
         <div
-          className={`doctorSideBar min-vh-100 ${
-            expandDoctorSidebar && "doctorSideBarHide"
-          }`}
+          className={`doctorSideBar min-vh-100 ${expandDoctorSidebar && "doctorSideBarHide"
+            }`}
         >
           <div className="dashboardLogo">
             <img src="https://i.ibb.co/FzBKrr8/dcLogoWH.png" alt="logo" />
           </div>
           <div className="sidebarMenu">
-            <Link to="/doctordashboard/dashboard">
+            <Link to="/doctorDashboard/dashboard">
               <FontAwesomeIcon className="me-3" icon={faChartPie} />
               Dashboard
             </Link>
-            <Link to="/doctordashboard/appointments">
+            <Link to="/doctorDashboard/appointments">
               <FontAwesomeIcon className="me-3" icon={faUserInjured} />
               Appointments
             </Link>
-            <Link to="/doctordashboard/shedul">
+            <Link to="/doctorDashboard/schedule">
               <FontAwesomeIcon className="me-3" icon={faCalendarCheck} />
-              Shedule
+              Schedule
             </Link>
           </div>
         </div>
@@ -78,6 +78,9 @@ const DoctorDashboard = () => {
           <Switch>
             <Route path="/doctordashboard/dashboard">
               <DoctorDashboardData />
+            </Route>
+            <Route path="/doctordashboard/schedule">
+              <DoctorSchedule />
             </Route>
           </Switch>
         </div>

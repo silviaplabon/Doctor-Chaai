@@ -12,6 +12,7 @@ import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
 import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
+import CovidTracker from "./components/CovidTracker/CovidTracker";
 
 export const UserContext = createContext();
 
@@ -19,7 +20,7 @@ function App() {
 
   const [loggedInUser, setLoggedInUser] = useState({})
 
-  return (
+  return (      
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
@@ -35,9 +36,9 @@ function App() {
           <Route exact path="/addDoctor">
             <AddDoctor></AddDoctor>
           </Route>
-          <Route exact path="/allDoctorList">
+          <PrivateRoute exact path="/allDoctorList">
             <AllDoctorsCollection></AllDoctorsCollection>
-          </Route>
+          </PrivateRoute>
           <Route path="/register">
             <Register />
           </Route>
