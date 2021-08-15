@@ -71,6 +71,7 @@ const DoctorDashboard = () => {
                 <h4>Md Rakib</h4>
               </div>
             </div>
+            <hr/>
           </div>
           {/* Dashboard TopBar End */}
 
