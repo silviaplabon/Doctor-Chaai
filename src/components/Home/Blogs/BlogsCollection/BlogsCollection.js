@@ -7,19 +7,19 @@ const BlogsCollection = () => {
             id:1,
             date: ' August 01, 2021',
             name: 'Vaccination',
-            description: 'Hospital management System or HMS Software is mainly a system that'
+            description: 'Hospital management System or HMS Software is mainly a system that designed for multispeciality hospitals, to cover a wide range ofhospital administration and management processes. It is an integrated end-to-end HospitalManagement System that provides relevant information across the hospital to support effectivedecision making for patient care, hospital administration and critical financial accounting, in aseamless flow.Hospital Management System is a software product suite designed to improve the quality andmanagement of hospital management in the areas of clinical process analysis and activity-basedcosting. Hospital Management System enables you to develop your organization and improve itseffectiveness and quality of work. Managing the key processes efficiently is critical to thesuccess of the hospital helps you manage your processes'
         },
         {
             id:2,
-            date: ' August 01, 2021',
-            name: 'Vaccination',
-            description: 'Hospital management System or HMS Software is mainly a system that'
+            date: ' August 14, 2021',
+            name: 'E Health',
+            description: 'Hospital management System or HMS Software is mainly a system that designed for multispeciality hospitals, to cover a wide range ofhospital administration and management processes. It is an integrated end-to-end HospitalManagement System that provides relevant information across the hospital to support effectivedecision making for patient care, hospital administration and critical financial accounting, in aseamless flow.Hospital Management System is a software product suite designed to improve the quality andmanagement of hospital management in the areas of clinical process analysis and activity-basedcosting. Hospital Management System enables you to develop your organization and improve itseffectiveness and quality of work. Managing the key processes efficiently is critical to thesuccess of the hospital helps you manage your processes'
         },
         {
             id:3,
-            date: ' August 01, 2021',
+            date: ' August 15, 2021',
             name: 'Vaccination',
-            description: 'Hospital management System or HMS Software is mainly a system that'
+            description: 'Hospital management System or HMS Software is mainly a system that designed for multispeciality hospitals, to cover a wide range ofhospital administration and management processes. It is an integrated end-to-end HospitalManagement System that provides relevant information across the hospital to support effectivedecision making for patient care, hospital administration and critical financial accounting, in aseamless flow.Hospital Management System is a software product suite designed to improve the quality andmanagement of hospital management in the areas of clinical process analysis and activity-basedcosting. Hospital Management System enables you to develop your organization and improve itseffectiveness and quality of work. Managing the key processes efficiently is critical to thesuccess of the hospital helps you manage your processes'
         },
     ]
     return (
