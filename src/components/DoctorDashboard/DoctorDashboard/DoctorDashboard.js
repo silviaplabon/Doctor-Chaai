@@ -22,8 +22,9 @@ const DoctorDashboard = () => {
       <div className="d-flex">
         {/* Dashboard sidBar Start */}
         <div
-          className={`doctorSideBar min-vh-100 ${expandDoctorSidebar && "doctorSideBarHide"
-            }`}
+          className={`doctorSideBar min-vh-100 ${
+            expandDoctorSidebar && "doctorSideBarHide"
+          }`}
         >
           <div className="dashboardLogo">
             <img src="https://i.ibb.co/FzBKrr8/dcLogoWH.png" alt="logo" />
@@ -47,31 +48,33 @@ const DoctorDashboard = () => {
         {/* Dashboard Child start */}
         <div className="w-100">
           {/* Dashboard TopBar Start */}
-          <div className="dashboardTopbar">
-            <div className="d-flex align-items-center justify-content-between">
-              <div>
-                <button
-                  onClick={() => setExpandDoctorSidebar(!expandDoctorSidebar)}
-                  className="btn menuBtn"
-                >
-                  {expandDoctorSidebar ? (
-                    <img src={cancelBtn} alt="menu button" />
-                  ) : (
-                    <img src={menuBtn} alt="menu button" />
-                  )}
-                </button>
-              </div>
-              <div className="dashboardTopbarMenu d-flex align-items-center">
-                <FontAwesomeIcon className="topbarIcon" icon={faBell} />
-                <img
-                  className="rounded-circle"
-                  src="https://i.ibb.co/jZnydgt/foto-sushi-6anudmp-ILw4-unsplash.jpg"
-                  alt="profile pic"
-                />
-                <h4>Md Rakib</h4>
+          <div>
+            <div className="dashboardTopbar">
+              <div className="d-flex align-items-center justify-content-between">
+                <div>
+                  <button
+                    onClick={() => setExpandDoctorSidebar(!expandDoctorSidebar)}
+                    className="btn menuBtn"
+                  >
+                    {expandDoctorSidebar ? (
+                      <img src={cancelBtn} alt="menu button" />
+                    ) : (
+                      <img src={menuBtn} alt="menu button" />
+                    )}
+                  </button>
+                </div>
+                <div className="dashboardTopbarMenu d-flex align-items-center">
+                  <FontAwesomeIcon className="topbarIcon" icon={faBell} />
+                  <img
+                    className="rounded-circle"
+                    src="https://i.ibb.co/jZnydgt/foto-sushi-6anudmp-ILw4-unsplash.jpg"
+                    alt="profile pic"
+                  />
+                  <h4>Md Rakib</h4>
+                </div>
               </div>
             </div>
-            <hr/>
+            <hr className="m-0" />
           </div>
           {/* Dashboard TopBar End */}
 
