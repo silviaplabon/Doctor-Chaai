@@ -1,47 +1,72 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../../NavBar/NavBar';
 import DoctorShow from '../DoctorShow/DoctorShow';
+import axios from 'axios'
 import './AllDoctorCollection.scss'
+
 const AllDoctorsCollection = () => {
     let [data, setData] = useState([])
-    let [newdata, setNewdata] = useState([])
-    const [dept, setDept] = useState('')
-    const [exp, setExp] = useState('')
-
+    let [categoryDeptData, setCategoryDeptData] = useState([])
+    let [categoryExpData, setCategoryExpData] = useState([])
+    let [searchData, setSearchData] = useState([])
+    const [state, setState] = useState(1)
     useEffect(() => {
-        fetch('https://whispering-reef-28119.herokuapp.com/doctor')
-            .then(res => res.json())
-            .then(data => {
-                const datas=data.result.filter(doctor=>doctor.status!=="pending");
-                setData(datas)
+        axios
+            .get("https://whispering-reef-28119.herokuapp.com/doctor/", {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('Authorization')}`
+                }
             })
-    }, [newdata||dept||exp||!data])
+            .then(function (response) {
+                const datas = response?.data?.result?.filter(doctor => doctor?.status !== "pending");
+                setData(datas);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .then(function () {
+                // always executed for doctorchaai
+            });
+    }, []);
 
+    //category data handle
     const handleChangeDept = (event) => {
-        setDept(event.target.value);
+        setState(3)
+        categoryDataDepartment(data,event.target.value)
     }
+
     const handleChangeExp = (event) => {
-        setExp(event.target.value)
+        setState(4);
+        categoryDataExperience(data,event.target.value)
     }
+
+    const categoryDataDepartment = (data, value) => {
+        setCategoryDeptData(data?.filter(doctor => doctor?.specialization == value))
+    }
+    const categoryDataExperience = (data, value) => {
+        setCategoryExpData(data?.filter(doctor => doctor?.experience == value))
+    }
+
     const handleSearch = (event) => {
-        setData([]);
-        setNewdata([])
-        fetch(`https://whispering-reef-28119.herokuapp.com/doctor/searchDoctor/${event.target.value}`)
-            .then(res => res.json())
-            .then(data => {
-                setData(data.result)
+        setState(2)
+        axios
+            .get(`https://whispering-reef-28119.herokuapp.com/doctor/searchDoctor/${event.target.value}`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('Authorization')}`
+                }
             })
+            .then(function (response) {
+                const datas = response?.data?.result?.filter(doctor => doctor?.status !== "pending");
+                setSearchData(datas);
+            })
+            .catch(function (error) {
+            })
+            .then(function () {
+            });
     }
-    useEffect(() => {
-        setExp('')
 
-        setNewdata(data?.filter(doctor => doctor.specialization == dept));
-    }, [dept])
 
-    useEffect(() => {
-        setDept('')
-        setNewdata(data?.filter(doctor => doctor.experience == exp))
-    }, [exp||newdata])
+
 
     return (
         <>
@@ -83,8 +108,16 @@ const AllDoctorsCollection = () => {
                 </div>
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     {
-                        newdata.length ? (newdata?.map(doctor =>
-                            <DoctorShow doctor={doctor}></DoctorShow>)) : data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>)
+                        state == 1 && (data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
+                    }
+                    {
+                        state == 2 && (searchData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
+                    }
+                    {
+                        state == 3 && (categoryDeptData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
+                    }
+                    {
+                        state == 4 && (categoryExpData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
                     }
                 </div>
             </div >
