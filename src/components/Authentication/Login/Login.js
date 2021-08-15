@@ -89,9 +89,13 @@ const Register = () => {
             </form>
           </div>
         </div>
-        <div className="text-center toggle-container py-3">
+        <div className="text-center toggle-container d-flex justify-content-center py-3">
           <p>
             Are you a new member ? <Link className="text-decoration-none" to="/register"><span>Register here!</span></Link>
+          </p>
+          <span className="mx-5 " style={{color:"#212729"}}>Or</span>
+          <p>
+            doctor ? <Link className="text-decoration-none" to="/addDoctor"><span>Register here!</span></Link>
           </p>
         </div>
       </div>

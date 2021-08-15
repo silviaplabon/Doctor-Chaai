@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router-dom';
 import NavBar from '../../NavBar/NavBar';
 import './AddDoctor.scss'
 
@@ -8,6 +9,7 @@ import './AddDoctor.scss'
 const AddDoctor = () => {
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
+    const history = useHistory()
     const onSubmit = data => {
         const doctorData = {
             name: data.name,
@@ -28,6 +30,10 @@ const AddDoctor = () => {
             },
             body: JSON.stringify(doctorData)
         })
+            .then(res => {
+                alert('Doctor Entered Successfully');
+                history.push('/home');
+            })
     }
     const handleImageUpload = event => {
         const imageData = new FormData();
@@ -37,13 +43,14 @@ const AddDoctor = () => {
         axios.post('https://api.imgbb.com/1/upload', imageData)
             .then(function (response) {
                 setImageURL(response.data.data.display_url);
+                console.log(imageURL)
             })
             .catch(function (error) {
             });
     }
     return (
         <div className="addDoctorSection">
-           <NavBar></NavBar>
+            <NavBar></NavBar>
             <div className="container mt-5 ">
                 <form onSubmit={handleSubmit(onSubmit)} className=" addDoctorFormStyle" >
                     <h2 className="">Basic Information</h2>
@@ -81,8 +88,8 @@ const AddDoctor = () => {
                             <label for="education" className="fw-bold">Education</label>
                             <input name="education" id="education" className="form-control  formControlAddDoctor " placeholder="education" ref={register({ required: true })} />
                         </div>
-                        </div>
-                        <div className="row d-flex p-3 mt-5  pb-5 sectionDoctorBg shadow">
+                    </div>
+                    <div className="row d-flex p-3 mt-5  pb-5 sectionDoctorBg shadow">
                         <div className="col-md-6 mt-2">
                             <label for="specialization" className="fw-bold">Specialization</label>
                             <select ref={register} name="specialization" className=" form-select formSelectAddDoctor" >
