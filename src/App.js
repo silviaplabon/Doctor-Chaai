@@ -6,13 +6,12 @@ import Login from "./components/Authentication/Login/Login";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointment/BookAppointment";
-import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
+import CovidTracker from "./components/CovidTracker/CovidTracker";
 import DoctorDashboard from "./components/DoctorDashboard/DoctorDashboard/DoctorDashboard";
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
-import CovidTracker from "./components/CovidTracker/CovidTracker";
-import DoctorSchedule from "./components/DoctorDashboard/DoctorSchedule/DoctorSchedule";
+import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
 
 export const UserContext = createContext();
 
@@ -45,8 +44,8 @@ function App() {
           <PrivateRoute path="/appointment">
             <BookAppointment />
           </PrivateRoute>
-          <Route path="/dashboard">
-            <Dashboard />
+          <Route path="/userdashboard">
+            <UserDashboard/>
           </Route>
           <Route path="/doctordashboard">
             <DoctorDashboard/>

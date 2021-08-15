@@ -1,8 +1,7 @@
 import {
-  faBell,
-  faCalendarCheck,
-  faChartPie,
-  faUserInjured
+    faBell,
+    faChartPie,
+    faUserInjured
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -10,37 +9,32 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
-import DoctorDashboardData from "../DoctorDashboardData/DoctorDashboardData";
-import DoctorSchedule from "../DoctorSchedule/DoctorSchedule";
-import "./DoctorDashboard.scss";
+import UserDashboardData from "../UserDashboardData/UserDashboardData";
+import "./UserDashboard.scss";
 
-const DoctorDashboard = () => {
-  const [expandDoctorSidebar, setExpandDoctorSidebar] = useState(false);
+const UserDashboard = () => {
+  const [expandUserSidebar, setexpandUserSidebar] = useState(false);
 
   return (
     <Router>
       <div className="d-flex">
         {/* Dashboard sidBar Start */}
         <div
-          className={`doctorSideBar min-vh-100 ${
-            expandDoctorSidebar && "doctorSideBarHide"
+          className={`userSideBar min-vh-100 ${
+            expandUserSidebar && "doctorSideBarHide"
           }`}
         >
           <div className="dashboardLogo">
             <img src="https://i.ibb.co/FzBKrr8/dcLogoWH.png" alt="logo" />
           </div>
           <div className="sidebarMenu">
-            <Link to="/doctorDashboard/dashboard">
+            <Link to="/userdashboard/dashboard">
               <FontAwesomeIcon className="me-3" icon={faChartPie} />
               Dashboard
             </Link>
-            <Link to="/doctorDashboard/appointments">
+            <Link to="/userdashboard/appointments">
               <FontAwesomeIcon className="me-3" icon={faUserInjured} />
               Appointments
-            </Link>
-            <Link to="/doctorDashboard/schedule">
-              <FontAwesomeIcon className="me-3" icon={faCalendarCheck} />
-              Schedule
             </Link>
           </div>
         </div>
@@ -53,10 +47,10 @@ const DoctorDashboard = () => {
               <div className="d-flex align-items-center justify-content-between">
                 <div>
                   <button
-                    onClick={() => setExpandDoctorSidebar(!expandDoctorSidebar)}
+                    onClick={() => setexpandUserSidebar(!expandUserSidebar)}
                     className="btn menuBtn"
                   >
-                    {expandDoctorSidebar ? (
+                    {expandUserSidebar ? (
                       <img src={cancelBtn} alt="menu button" />
                     ) : (
                       <img src={menuBtn} alt="menu button" />
@@ -79,11 +73,8 @@ const DoctorDashboard = () => {
           {/* Dashboard TopBar End */}
 
           <Switch>
-            <Route path="/doctordashboard/dashboard">
-              <DoctorDashboardData />
-            </Route>
-            <Route path="/doctordashboard/schedule">
-              <DoctorSchedule />
+            <Route path="/userdashboard/dashboard">
+              <UserDashboardData />
             </Route>
           </Switch>
         </div>
@@ -93,4 +84,4 @@ const DoctorDashboard = () => {
   );
 };
 
-export default DoctorDashboard;
+export default UserDashboard;
