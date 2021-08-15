@@ -1,5 +1,7 @@
 import React from 'react';
 import './BlogShow.scss'
+
+
 const BlogShow = ({ blog }) => {
     const { name, description, date } = blog;
 

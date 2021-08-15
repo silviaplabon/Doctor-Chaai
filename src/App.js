@@ -5,7 +5,8 @@ import {
 import Login from "./components/Authentication/Login/Login";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import Register from "./components/Authentication/Registration/Register";
-import BookAppointment from "./components/BookAppointment/BookAppointment";
+import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
+import Departments from "./components/BookAppointments/Departments/Departments";
 import CovidTracker from "./components/CovidTracker/CovidTracker";
 import DoctorDashboard from "./components/DoctorDashboard/DoctorDashboard/DoctorDashboard";
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route path="/covid19">
             <CovidTracker />
+          </Route>
+          <Route path="/doctorDepartments">
+            <Departments />
           </Route>
         </Switch>
       </Router>
