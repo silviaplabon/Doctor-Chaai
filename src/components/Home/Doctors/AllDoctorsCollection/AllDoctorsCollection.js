@@ -20,7 +20,6 @@ const AllDoctorsCollection = () => {
             .then(function (response) {
                 const datas = response?.data?.result?.filter(doctor => doctor?.status !== "pending");
                 setData(datas);
-                console.log(datas)
             })
             .catch(function (error) {
                 console.log(error);
@@ -61,7 +60,6 @@ const AllDoctorsCollection = () => {
                 setSearchData(datas);
             })
             .catch(function (error) {
-                console.log(error);
             })
             .then(function () {
             });
