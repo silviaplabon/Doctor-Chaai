@@ -23,18 +23,16 @@ const FindDoctor = () => {
     <div className="container-sm py-4">
       <Modal
         isOpen={modal}
-        onRequestClose={()=>setModal(false)}
+        onRequestClose={() => setModal(false)}
         style={customStyles}
         contentLabel="Example Modal"
       >
         {/* <button onClick={() => setModal(false)}>close</button> */}
-        
 
         <div className="modal-div">
+          {/* <button className="rounded-pill btn btn-primary">Close</button> */}
           <h1>
-             <iframe className='g-map' src={url} >
-                  
-              </iframe>
+            <iframe title="g-map" className="g-map" src={url}></iframe>
           </h1>
         </div>
       </Modal>

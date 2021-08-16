@@ -1,0 +1,46 @@
+.covid-Container {
+    
+    .heading {
+        color: #050546;
+        font-size: 50px;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        span{
+            color: #00cccc;
+        }
+    }
+    h4 {
+        color:#050546 
+    }
+    span{
+        color: #00cccc;
+    }
+    .card-result {
+        background-color:#050546 ;
+        border-radius: 20px;
+    }
+    
+}
+
+// Responsive
+
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 576px;
+$breakpoint-desktop: 992px;
+
+@media (max-width: $breakpoint-tablet) {
+    .covid-Container {
+        
+        .heading {
+            color: #050546;
+            font-size: 35px;
+            text-transform: uppercase;
+            font-weight: bold;
+    
+            span{
+                color: #00cccc;
+            }
+    }
+}
+}

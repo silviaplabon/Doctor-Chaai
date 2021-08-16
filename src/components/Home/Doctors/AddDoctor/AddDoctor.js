@@ -7,7 +7,7 @@ import './AddDoctor.scss'
 
 
 const AddDoctor = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
     const history = useHistory()
     const onSubmit = data => {
@@ -43,6 +43,7 @@ const AddDoctor = () => {
         axios.post('https://api.imgbb.com/1/upload', imageData)
             .then(function (response) {
                 setImageURL(response.data.data.display_url);
+                console.log(imageURL)
             })
             .catch(function (error) {
             });

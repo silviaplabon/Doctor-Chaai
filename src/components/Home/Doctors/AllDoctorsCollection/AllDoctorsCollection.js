@@ -59,7 +59,6 @@ const AllDoctorsCollection = () => {
                 setSearchData(datas);
             })
             .catch(function (error) {
-                console.log(error);
             })
             .then(function () {
             });
@@ -74,12 +73,12 @@ const AllDoctorsCollection = () => {
             <div className="container mb-5" style={{ marginTop: '120px' }}>
                 <div className="row mx-3 mb-5">
                     <div className="col-md-5 col-lg-7">
-                        <input class="form-control searchDoctorInput me-5 text-center " onChange={(event) => handleSearch(event)} type="search" placeholder="Search your Doctor" aria-label="Search" />
+                        <input className="form-control searchDoctorInput me-5 text-center " onChange={(event) => handleSearch(event)} type="search" placeholder="Search your Doctor" aria-label="Search" />
                     </div>
                     <div className="col-md-7  col-lg-5 ">
                         <div className="row row-cols-2   justify-content-end align-items-end">
                             <div className="col ">
-                                <select class="form-select selectDropdownDoctor" aria-label="Default select example" onChange={(event) => handleChangeDept(event)} >
+                                <select className="form-select selectDropdownDoctor" aria-label="Default select example" onChange={(event) => handleChangeDept(event)} >
                                     <option selected>By Dept</option>
                                     <option value="Allergists">Allergists</option>
                                     <option value="Dermatologists">Dermatologists</option>
@@ -97,7 +96,7 @@ const AllDoctorsCollection = () => {
                                 </select>
                             </div>
                             <div className="col">
-                                <select class="form-select  rounded-lg selectDropdownDoctor" aria-label="Default select example" onChange={(event) => handleChangeExp(event)}>
+                                <select className="form-select  rounded-lg selectDropdownDoctor" aria-label="Default select example" onChange={(event) => handleChangeExp(event)}>
                                     <option selected>By Expert</option>
                                     <option value="Junior">Junior</option>
                                     <option value="Senior">Senior</option>

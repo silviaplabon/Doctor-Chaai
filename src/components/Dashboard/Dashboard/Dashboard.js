@@ -31,12 +31,9 @@ const Dashboard = () => {
         </div>
 
         <Switch>
-          {/* <Route path="/dashboard">
+         <Route path="/dashboard">
             <DashboardData />
-          </Route> */}
-          <Route path="/dashboard/user/appointmentList">
-            <UserAppoinmentDashboard/>
-          </Route>
+          </Route> 
         </Switch>
       </div>
     </Router>
