@@ -10,6 +10,7 @@ import BookAppointment from "./components/BookAppointment/BookAppointment";
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Home from "./components/Home/Home/Home";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
+import UserAppoinmentDashboard from "./components/Dashboard/UserAppointmentDashboard/UserAppointmentDashboard";
 
 export const UserContext = createContext();
 
@@ -45,6 +46,10 @@ function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
+          <Route path="/dashboard/user/appointmentList">
+           <UserAppoinmentDashboard/>
+          </Route>
+
         </Switch>
       </Router>
     </UserContext.Provider>

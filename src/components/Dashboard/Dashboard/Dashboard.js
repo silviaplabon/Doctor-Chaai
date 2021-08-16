@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import DashboardData from "../DashboardData/DashboardData";
+import UserAppoinmentDashboard from "../UserAppointmentDashboard/UserAppointmentDashboard";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
@@ -30,8 +31,11 @@ const Dashboard = () => {
         </div>
 
         <Switch>
-          <Route path="/dashboard">
+          {/* <Route path="/dashboard">
             <DashboardData />
+          </Route> */}
+          <Route path="/dashboard/user/appointmentList">
+            <UserAppoinmentDashboard/>
           </Route>
         </Switch>
       </div>
