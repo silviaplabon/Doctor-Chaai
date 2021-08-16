@@ -2,12 +2,17 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
 import { UserContext } from "../../../App";
 import doctorsChamber from "../../../images/doctorsChamber.jpg";
+import ErrorModal from "../../Modal/ErrorModal/ErrorModal";
 import "./Login.scss";
 
 const Register = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  // Usestate initialize for Modal handling
+  const [errorModal, setErrorModal] = useState(false);
+
   let history = useHistory();
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
@@ -25,19 +30,26 @@ const Register = () => {
     })
       .then(res => res.json())
       .then(result => {
-        setLoggedInUser({ result: result.status })
+        setLoggedInUser({ result: result.status,userName: result.user })
         console.log(result);
         if (result.status === true) {
           history.replace(from);
+        }else if (result.status === false) {
+          setErrorModal(true);
         }
         localStorage.setItem("Authorization", result.access_token);
-        
+
       })
       .catch(err => console.log(err))
   };
 
   return (
     <div className="login-container">
+      {/* Error modal start */}
+      <ErrorModal
+        modalContent={[errorModal, setErrorModal, "LogIn Error, Please Try Again"]}
+      />
+      {/* Error modal end */}
       <div className="container custom-container py-5">
         <h3 className="text-center">OUR OLD USER? PLEASE LOG IN</h3>
         <div className="row row-cols-1 row-cols-md-2 login-container">
@@ -66,8 +78,7 @@ const Register = () => {
                   className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Enter Your Password"
                   name="password"
-                  ref={register({ required: true })}
-                />
+                  ref={register({ required: true })} />
               </div>
               <div className="col-12 text-center">
                 {(errors.email ||

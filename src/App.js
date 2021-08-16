@@ -3,13 +3,16 @@ import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
 import Login from "./components/Authentication/Login/Login";
+import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
+import Register from "./components/Authentication/Registration/Register";
+import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
+import Departments from "./components/BookAppointments/Departments/Departments";
+import CovidTracker from "./components/CovidTracker/CovidTracker";
+import DoctorDashboard from "./components/DoctorDashboard/DoctorDashboard/DoctorDashboard";
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
-import Register from "./components/Authentication/Registration/Register";
-import BookAppointment from "./components/BookAppointment/BookAppointment";
-import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Home from "./components/Home/Home/Home";
-import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
+import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
 
 export const UserContext = createContext();
 
@@ -42,8 +45,17 @@ function App() {
           <PrivateRoute path="/appointment">
             <BookAppointment />
           </PrivateRoute>
-          <Route path="/dashboard">
-            <Dashboard />
+          <Route path="/userdashboard">
+            <UserDashboard/>
+          </Route>
+          <Route path="/doctordashboard">
+            <DoctorDashboard/>
+          </Route>
+          <Route path="/covid19">
+            <CovidTracker />
+          </Route>
+          <Route path="/doctorDepartments">
+            <Departments />
           </Route>
         </Switch>
       </Router>
