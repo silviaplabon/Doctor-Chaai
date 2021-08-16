@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import appointmentImg from "../../images/appointment.png";
-import Footer from "../Home/Footer/Footer";
-import NavBar from "../Home/NavBar/NavBar";
-import ErrorModal from "../Modal/ErrorModal/ErrorModal";
-import SuccessModal from "../Modal/SuccessModal/SuccessModal";
+import appointmentImg from "../../../images/appointment.png";
+import Footer from "../../Home/Footer/Footer";
+import NavBar from "../../Home/NavBar/NavBar";
+import ErrorModal from "../../Modal/ErrorModal/ErrorModal";
+import SuccessModal from "../../Modal/SuccessModal/SuccessModal";
 import "./BookAppointment.scss";
 
 const BookAppointment = () => {
