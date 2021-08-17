@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useContext} from "react";
-import { UserContext } from "../../../App";
-import UserAppoinmentListShow from "../UserAppointmentListShow/UserAppointmentListShow";
+import { UserContext } from "../../../../App";
+import UserAppoinmentListShow from "./UserAppointmentListShow";
 const UserAppoinmentList = () => {
     const [loggedInUser,setLoggedInUser]=useContext(UserContext)
     const [appointmentList,setAppointmentList]=useState([])

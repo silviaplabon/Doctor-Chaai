@@ -102,7 +102,7 @@ const NavBar = () => {
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/userdashboard">
-                      Profile
+                      Find Doctors
                     </Link>
                   </li>
                   <li className="nav-item">
