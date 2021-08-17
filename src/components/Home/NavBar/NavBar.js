@@ -111,8 +111,8 @@ const NavBar = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                      Help
+                    <Link target="_blank" className="nav-link" to="/help" >
+                      help
                     </Link>
                   </li>
                   <li className="nav-item">
