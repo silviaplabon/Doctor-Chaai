@@ -1,12 +1,11 @@
 import React, { createContext, useState } from "react";
-import {
-  BrowserRouter as Router, Route, Switch
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/Authentication/Login/Login";
 
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
 import Departments from "./components/BookAppointments/Departments/Departments";
+import SpecificDoctors from "./components/BookAppointments/SpecificDoctors/SpecificDoctors";
 import CovidTracker from "./components/CovidTracker/CovidTracker";
 import DoctorDashboard from "./components/DoctorDashboard/DoctorDashboard/DoctorDashboard";
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
@@ -18,10 +17,9 @@ import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboar
 export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
 
-  const [loggedInUser, setLoggedInUser] = useState({})
-
-  return (      
+  return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
@@ -47,19 +45,21 @@ function App() {
             <BookAppointment />
           </PrivateRoute>
           <Route path="/userdashboard">
-            <UserDashboard/>
+            <UserDashboard />
           </Route>
           <Route path="/doctordashboard">
-            <DoctorDashboard/>
+            <DoctorDashboard />
           </Route>
           <Route path="/covid19">
             <CovidTracker />
           </Route>
-          <Route path="/doctorDepartments">
+          <Route exact path="/doctorDepartments">
             <Departments />
           </Route>
           
-
+          <Route path='/doctorDepartments/:department'>
+            <SpecificDoctors />
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>

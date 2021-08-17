@@ -11,6 +11,7 @@ import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
 import UserDashboardData from "../UserDashboardData/UserDashboardData";
 import "./UserDashboard.scss";
+import UserAppointmentList from '../UserAppointmentList/UserAppointmentList';
 
 const UserDashboard = () => {
   const [expandUserSidebar, setexpandUserSidebar] = useState(false);
@@ -32,7 +33,7 @@ const UserDashboard = () => {
               <FontAwesomeIcon className="me-3" icon={faChartPie} />
               Dashboard
             </Link>
-            <Link to="/userdashboard/appointments">
+            <Link to="/userdashboard/appointment">
               <FontAwesomeIcon className="me-3" icon={faUserInjured} />
               Appointments
             </Link>
@@ -76,10 +77,12 @@ const UserDashboard = () => {
             <Route path="/userdashboard/dashboard">
               <UserDashboardData />
             </Route>
-        
+            <Route path="/userdashboard/appointment">
+             <UserAppointmentList></UserAppointmentList>
+            </Route>
           </Switch>
         </div>
-        {/* Dashboard Child end */}
+        {/* Dashboard Child End */}
       </div>
     </Router>
   );
