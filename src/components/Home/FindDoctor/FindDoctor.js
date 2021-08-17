@@ -54,12 +54,21 @@ const FindDoctor = () => {
               Select preferred doctor and time slot to book an in-clinic or
               video consultation. Its very easy and simple process to booking.
             </p>
-            <button
-              className="btn rounded-pill btnDesign1 mt-3"
-              onClick={() => handleModal()}
-            >
-              Find Doctor Now
-            </button>
+            <div className="d-flex align-items-center justify-content-between">
+              <button
+                className="btn rounded-pill btnDesign1 mt-3"
+                onClick={() => handleModal()}
+              >
+                Find Doctor Now
+              </button>
+              <button
+                className="btnDesign2 mt-3 mx-5">
+                <a href="https://doctor-chaai-help.netlify.app/" target="_blank" rel="noopener noreferrer">
+                Lets chat
+                </a>
+                
+              </button>
+            </div>
           </div>
         </div>
       </div>
