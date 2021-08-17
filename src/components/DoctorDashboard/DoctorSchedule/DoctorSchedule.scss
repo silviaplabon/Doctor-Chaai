@@ -1,0 +1,215 @@
+// Css for Date And Time Start
+.react-datepicker {
+  border: 0px solid #050545;
+  font-size: 1.2rem;
+  background: #e5ffff;
+  border-radius: 10px;
+  width: 100%;
+  .react-datepicker__month-container {
+    width: 100%;
+  }
+  .react-datepicker__day-names,
+  .react-datepicker__week {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .react-datepicker__day-name,
+  .react-datepicker__day,
+  .react-datepicker__time-name {
+    width: 1.7rem;
+    text-align: center;
+    margin: 0.5rem;
+  }
+  .react-datepicker__header {
+    background: #00cccc;
+    border: 0;
+    border-radius: 10px 10px 0 0;
+  }
+  .react-datepicker__current-month,
+  .react-datepicker__day-name {
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+  .react-datepicker__day--selected {
+    background: #050545;
+  }
+  .react-datepicker__day {
+    transition: all 0.2s;
+    padding: 0.3rem 0;
+    width: 2.5rem;
+    &:hover {
+      background-color: #00cccc !important;
+      transition: all 0.2s;
+      color: white;
+      font-weight: 600;
+    }
+  }
+  .react-datepicker__day--disabled {
+    transition: all 0.2s;
+    &:hover {
+      background-color: #d60f00 !important;
+      transition: all 0.2s;
+      color: white;
+      font-weight: 600;
+    }
+  }
+}
+.react-datepicker__triangle::before,
+.react-datepicker__triangle::after {
+  left: -20px !important;
+}
+.timePicker {
+  width: 100%;
+  float: right;
+  h4 {
+    text-align: start;
+    color: #050545;
+  }
+  .rc-time-picker {
+    display: initial;
+    .rc-time-picker-clear {
+      top: 0px;
+    }
+    .rc-time-picker-input {
+      border: 2px solid #00cccc;
+      background: #00cccc;
+      color: white;
+      font-size: 1.2rem;
+      padding: 7px 8px;
+      height: auto;
+      font-weight: 600;
+      margin-top: 0px;
+      outline: none;
+    }
+  }
+}
+.popupTimeCard {
+  .rc-time-picker-panel-input-wrap {
+    background: #050545;
+    border-radius: 8px 8px 0 0;
+  }
+  .rc-time-picker-panel-input {
+    height: auto;
+    padding: 5px;
+    background: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .rc-time-picker-panel-inner {
+    border: 0;
+    border-radius: 8px;
+    li {
+      transition: all 0.2s;
+      text-align: center !important;
+      padding: 0;
+      &:hover {
+        background: #00cccc;
+        font-weight: 600;
+        color: white;
+      }
+    }
+  }
+}
+
+.timeRemoveIcon {
+  color: #050545;
+  font-size: 1.5rem;
+  position: absolute;
+  top: -10px;
+  right: 8px;
+}
+
+.rc-time-picker-panel {
+  margin-top: 33px !important;
+}
+.rc-time-picker-panel-select {
+  width: 50%;
+}
+.rc-time-picker-panel-select:last-child {
+  width: 100%;
+  Ul li {
+    text-align: center;
+  }
+}
+// Css for Date and Time End
+
+.pendingSchedule {
+  h4 {
+    color: #050545;
+    font-weight: 700;
+    position: relative;
+    padding-left: 10px;
+    margin: 0;
+    overflow: hidden;
+    animation-name: titleAnimation;
+    animation-duration: 1s;
+    transform-origin: left;
+    &::before {
+      content: "";
+      width: 3px;
+      height: 100%;
+      background: #050545;
+      position: absolute;
+      left: 0;
+    }
+  }
+  .scheduleListParent {
+    width: 100%;
+    background: #fff1dd;
+    margin: 1.8rem 0 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    .scheduleListItem {
+      padding: 9px 12px;
+      background: #fdb64e;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: white;
+      border-radius: 7px;
+      margin: 1rem 0;
+      div {
+        display: flex;
+        align-items: center;
+      }
+      .scheduleListbtn {
+        background: #6782c5;
+        border: 0;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        padding: 3px 15px;
+        transition: all 0.2s;
+        &:hover {
+          background: #436fb6ee;
+          transition: all 0.2s;
+        }
+      }
+    }
+  }
+}
+
+.availableListParent {
+  background: #cce7d6 !important;
+  .availableListItem {
+    background: #1bb26b !important;
+  }
+  .availableListbtn {
+    background: #e78079 !important;
+    &:hover {
+      background: #de575d !important;
+    }
+  }
+}
+
+@keyframes titleAnimation {
+  0% {
+    transform: translateX(-20rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}

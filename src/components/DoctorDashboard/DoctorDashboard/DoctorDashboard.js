@@ -22,7 +22,7 @@ const DoctorDashboard = () => {
       <div className="d-flex">
         {/* Dashboard sidBar Start */}
         <div
-          className={`doctorSideBar min-vh-100 ${
+          className={`doctorSideBar minDoctorSideBar min-vh-100 ${
             expandDoctorSidebar && "doctorSideBarHide"
           }`}
         >
