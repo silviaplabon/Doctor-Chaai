@@ -32,19 +32,19 @@ const AllDoctorsCollection = () => {
     //category data handle
     const handleChangeDept = (event) => {
         setState(3)
-        categoryDataDepartment(data,event.target.value)
+        categoryDataDepartment(data, event.target.value)
     }
 
     const handleChangeExp = (event) => {
         setState(4);
-        categoryDataExperience(data,event.target.value)
+        categoryDataExperience(data, event.target.value)
     }
 
     const categoryDataDepartment = (data, value) => {
-        setCategoryDeptData(data?.filter(doctor => doctor?.specialization == value))
+        setCategoryDeptData(data?.filter(doctor => doctor?.specialization === value))
     }
     const categoryDataExperience = (data, value) => {
-        setCategoryExpData(data?.filter(doctor => doctor?.experience == value))
+        setCategoryExpData(data?.filter(doctor => doctor?.experience === value))
     }
 
     const handleSearch = (event) => {
@@ -108,16 +108,16 @@ const AllDoctorsCollection = () => {
                 </div>
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     {
-                        state == 1 && (data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
+                        state === 1 && (data?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
                     }
                     {
-                        state == 2 && (searchData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
+                        state === 2 && (searchData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
                     }
                     {
-                        state == 3 && (categoryDeptData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
+                        state === 3 && (categoryDeptData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
                     }
                     {
-                        state == 4 && (categoryExpData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
+                        state === 4 && (categoryExpData?.map(doctor => <DoctorShow doctor={doctor}></DoctorShow>))
                     }
                 </div>
             </div >
