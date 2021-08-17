@@ -1,5 +1,9 @@
 import React, { createContext, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import {
+  BrowserRouter as Router, Redirect, Route, Switch
+} from "react-router-dom";
+
 import Login from "./components/Authentication/Login/Login";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import Register from "./components/Authentication/Registration/Register";
