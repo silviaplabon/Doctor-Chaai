@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
 import Login from "./components/Authentication/Login/Login";
-import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
+
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
 import Departments from "./components/BookAppointments/Departments/Departments";
@@ -13,7 +13,6 @@ import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
-import UserAppoinmentDashboard from "./components/Dashboard/UserAppointmentDashboard/UserAppointmentDashboard";
 import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
 
 export const UserContext = createContext();
@@ -59,9 +58,7 @@ function App() {
           <Route path="/doctorDepartments">
             <Departments />
           </Route>
-          <Route path="/dashboard/user/appointmentList">
-           <UserAppoinmentDashboard/>
-          </Route>
+          
 
         </Switch>
       </Router>

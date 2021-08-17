@@ -29,7 +29,6 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-
         <Switch>
          <Route path="/dashboard">
             <DashboardData />

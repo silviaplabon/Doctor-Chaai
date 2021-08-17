@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
+import UserAppoinmentList from "../UserAppointmentList/UserAppointmentList";
 import UserDashboardData from "../UserDashboardData/UserDashboardData";
 import "./UserDashboard.scss";
 
@@ -76,6 +77,10 @@ const UserDashboard = () => {
             <Route path="/userdashboard/dashboard">
               <UserDashboardData />
             </Route>
+            <Route path="/userdashboard/appointments">
+              <UserAppoinmentList />
+            </Route>
+            
           </Switch>
         </div>
         {/* Dashboard Child end */}
@@ -83,5 +88,6 @@ const UserDashboard = () => {
     </Router>
   );
 };
+
 
 export default UserDashboard;
