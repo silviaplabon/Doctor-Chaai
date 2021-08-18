@@ -44,73 +44,75 @@ const Register = () => {
   };
 
   return (
-    <div className="login-container">
-      {/* Error modal start */}
-      <ErrorModal
-        modalContent={[errorModal, setErrorModal, "LogIn Error, Please Try Again"]}
-      />
-      {/* Error modal end */}
-      <div className="container custom-container py-5">
-        <h3 className="text-center">OUR OLD USER? PLEASE LOG IN</h3>
-        <div className="row row-cols-1 row-cols-md-2 login-container">
-          <div className="col my-5 ">
-            <div className="doctor-img">
-              <img src={doctorsChamber} alt="" />
-            </div>
-          </div>
-          <div className="col my-5 login-form">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="row row-cols-lg-auto g-4 align-items-center mt-4"
-            >
-              <div className="col-12">
-                <input
-                  type="email"
-                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
-                  placeholder="Enter Your Email"
-                  name="email"
-                  ref={register({ required: true })}
-                />
-              </div>
-              <div className="col-12">
-                <input
-                  type="password"
-                  className="form-control login-input mx-auto rounded-pill px-3 py-2"
-                  placeholder="Enter Your Password"
-                  name="password"
-                  ref={register({ required: true })} />
-              </div>
-              <div className="col-12 text-center">
-                {(errors.email ||
-                  errors.password) && (
-                    <p
-                      className="text-center text-danger mt-2 mb-0"
-                      style={{ fontWeight: "700" }}
-                    >
-                      * PLease fill up the form.
-                    </p>
-                  )}
-                <button
-                  type="submit"
-                  className="my-2 loginSubmitBtn rounded-pill px-4 py-2 mx-auto"
-                >
-                  LogIn
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div className="text-center toggle-container d-flex justify-content-center py-3">
-          <p>
-            Are you a new member ? <Link className="text-decoration-none" to="/register"><span>Register here!</span></Link>
-          </p>
-          <span className="mx-5 " style={{color:"#212729"}}>Or</span>
-          <p>
-            doctor ? <Link className="text-decoration-none" to="/addDoctor"><span>Register here!</span></Link>
-          </p>
-        </div>
-      </div>
-    </div>
+
+    // <div className="login-container">
+    //   {/* Error modal start */}
+    //   <ErrorModal
+    //     modalContent={[errorModal, setErrorModal, "LogIn Error, Please Try Again"]}
+    //   />
+    //   {/* Error modal end */}
+    //   <div className="container custom-container py-5">
+    //     <h3 className="text-center">OUR OLD USER? PLEASE LOG IN</h3>
+    //     <div className="row row-cols-1 row-cols-md-2 login-container">
+    //       <div className="col my-5 ">
+    //         <div className="doctor-img">
+    //           <img src={doctorsChamber} alt="" />
+    //         </div>
+    //       </div>
+    //       <div className="col my-5 login-form">
+    //         <form
+    //           onSubmit={handleSubmit(onSubmit)}
+    //           className="row row-cols-lg-auto g-4 align-items-center mt-4"
+    //         >
+    //           <div className="col-12">
+    //             <input
+    //               type="email"
+    //               className="form-control login-input mx-auto rounded-pill px-3 py-2"
+    //               placeholder="Enter Your Email"
+    //               name="email"
+    //               ref={register({ required: true })}
+    //             />
+    //           </div>
+    //           <div className="col-12">
+    //             <input
+    //               type="password"
+    //               className="form-control login-input mx-auto rounded-pill px-3 py-2"
+    //               placeholder="Enter Your Password"
+    //               name="password"
+    //               ref={register({ required: true })} />
+    //           </div>
+    //           <div className="col-12 text-center">
+    //             {(errors.email ||
+    //               errors.password) && (
+    //                 <p
+    //                   className="text-center text-danger mt-2 mb-0"
+    //                   style={{ fontWeight: "700" }}
+    //                 >
+    //                   * PLease fill up the form.
+    //                 </p>
+    //               )}
+    //             <button
+    //               type="submit"
+    //               className="my-2 loginSubmitBtn rounded-pill px-4 py-2 mx-auto"
+    //             >
+    //               LogIn
+    //             </button>
+    //           </div>
+    //         </form>
+    //       </div>
+    //     </div>
+    //     <div className="text-center toggle-container d-flex justify-content-center py-3">
+    //       <p>
+    //         Are you a new member ? <Link className="text-decoration-none" to="/register"><span>Register here!</span></Link>
+    //       </p>
+    //       <span className="mx-5 " style={{color:"#212729"}}>Or</span>
+    //       <p>
+    //         doctor ? <Link className="text-decoration-none" to="/addDoctor"><span>Register here!</span></Link>
+    //       </p>
+    //     </div>
+    //   </div>
+    // </div>
+    <><h1>Hi Rakib, you have done a mistake</h1></>
   );
 };
 
