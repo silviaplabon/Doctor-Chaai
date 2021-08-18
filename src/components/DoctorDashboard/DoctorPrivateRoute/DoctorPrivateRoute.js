@@ -14,7 +14,7 @@ const DoctorPrivateRoute = ({ children, ...rest }) => {
         "email":`${loggedInUser.email}`,
     }
     }).then(res=>res.json())
-    .then(data=>console.log(data))
+    .then(data=>setIsDoctor(data.status))
     .catch(err=>console.log(err))
   }, []);
 
