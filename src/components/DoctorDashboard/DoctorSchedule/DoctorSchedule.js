@@ -4,10 +4,9 @@ import subDays from "date-fns/subDays";
 import moment from "moment";
 import TimePicker from "rc-time-picker";
 import "rc-time-picker/assets/index.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useContext } from "react/cjs/react.development";
 import { UserContext } from "../../../App.js";
 import { db } from "../../../DataBase/FirebaseInitialize/firebase.config.js";
 import AvailableScheduleList from "../AvailableScheduleList/AvailableScheduleList";
@@ -26,6 +25,7 @@ const DoctorSchedule = () => {
   const [updatePendingList, setUpdatePendingList] = useState(false);
   const [updateAvaliableList, setUpdateAvaliableList] = useState(false);
   const [doctorID, setDoctorId] = useState("");
+  const [findDoctor, setFindDoctor] = useState(false);
 
   useEffect(() => {
     // set the date and time in state with formating
@@ -56,9 +56,11 @@ const DoctorSchedule = () => {
     }
   };
 
+  // Call The function for find doctor from pendingSchedule
+  useEffect(() => findDoctorPending(), [findDoctor]);
+
   //Find the doctor if is available then add pending schedul otherwise add doctor with pending schedul
   const pendingScheduleAdd = async () => {
-    doctorID?.length !== 0 && findDoctorPending();
     // check the doctors finded or not find
     if (doctorID !== "") {
       // Add the schedul
@@ -113,15 +115,13 @@ const DoctorSchedule = () => {
     setAllAvailableSchedule(tempAllSchedule);
   };
 
-  // Call The function for find doctor from pendingSchedule
-  useEffect(() => findDoctorPending(), []);
   // Call The function for get pending schedule from pendingSchedule
   useEffect(
-    () => doctorID?.length && pendingScheduleGet(),
+    () => doctorID?.length ? pendingScheduleGet():setFindDoctor(!findDoctor),
     [addNewPending, updatePendingList, doctorID]
   );
   useEffect(
-    () => doctorID?.length && availableScheduleGet(),
+    () => doctorID?.length ? availableScheduleGet():setFindDoctor(!findDoctor),
     [updatePendingList, updateAvaliableList, doctorID]
   );
 
