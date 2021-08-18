@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
+import DoctorAppointments from "../DoctorAppointments/DoctorAppointments";
 import DoctorDashboardData from "../DoctorDashboardData/DoctorDashboardData";
 import DoctorSchedule from "../DoctorSchedule/DoctorSchedule";
 import "./DoctorDashboard.scss";
@@ -84,6 +85,9 @@ const DoctorDashboard = () => {
             </Route>
             <Route path="/doctordashboard/schedule">
               <DoctorSchedule />
+            </Route>
+            <Route path="/doctordashboard/appointments">
+              <DoctorAppointments />
             </Route>
           </Switch>
         </div>
