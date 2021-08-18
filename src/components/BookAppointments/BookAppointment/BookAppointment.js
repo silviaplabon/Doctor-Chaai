@@ -38,7 +38,7 @@ const BookAppointment = () => {
       });
   }, []);
   console.log('Doctors', allDoctor);
-  // Form Data
+  // Form Data submit
   const onSubmit = (data) => {
     fetch(
       'https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment',
