@@ -30,7 +30,7 @@ const Register = () => {
     })
       .then(res => res.json())
       .then(result => {
-        setLoggedInUser({ result: result.status,userName: result.user })
+        setLoggedInUser({ result: result.status,userName: result.user ,email:result.email})
         console.log(result);
         if (result.status === true) {
           history.replace(from);

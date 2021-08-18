@@ -7,12 +7,15 @@ import "rc-time-picker/assets/index.css";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useContext } from "react/cjs/react.development";
+import { UserContext } from "../../../App.js";
 import { db } from "../../../DataBase/FirebaseInitialize/firebase.config.js";
 import AvailableScheduleList from "../AvailableScheduleList/AvailableScheduleList";
 import ScheduleList from "../ScheduleList/ScheduleList";
 import "./DoctorSchedule.scss";
 
 const DoctorSchedule = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [scheduleDate, setScheduleDate] = useState(new Date());
   const [startTime, setStartTime] = useState(moment());
   const [endTime, setEndTime] = useState(moment());
@@ -37,7 +40,7 @@ const DoctorSchedule = () => {
   const pendingCollection = db.collection("pendingSchedule");
   const availableCollection = db.collection("availableSchedule");
   //Email for test check
-  const email = "dhruba@gmail.com";
+  const email = loggedInUser.email;
 
   // Find the doctor in pendingSchedule
   const findDoctorPending = async () => {
@@ -55,6 +58,7 @@ const DoctorSchedule = () => {
 
   //Find the doctor if is available then add pending schedul otherwise add doctor with pending schedul
   const pendingScheduleAdd = async () => {
+    doctorID?.length !== 0 && findDoctorPending();
     // check the doctors finded or not find
     if (doctorID !== "") {
       // Add the schedul
