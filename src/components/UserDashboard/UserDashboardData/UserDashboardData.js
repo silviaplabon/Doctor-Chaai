@@ -97,7 +97,7 @@ const UserDashboardData = () => {
                         </div>
             
                     <div className="col-md-6 mt-2">
-                        <label for="username" className="fw-bold">Zip Code</label>
+                        <label for="zipcode" className="fw-bold">Zip Code</label>
                         <input name="zipCode" id="" className="form-control  formControlAddDoctor" defaultValue="" placeholder="consultation fee" ref={register({ required: true })} />
                     </div>
 
