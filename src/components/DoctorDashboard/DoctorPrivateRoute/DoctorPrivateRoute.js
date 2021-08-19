@@ -22,7 +22,7 @@ const DoctorPrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-        loggedInUser.result === true ? (
+        loggedInUser?.result === true ? (
           children
         ) : (
           <Redirect
