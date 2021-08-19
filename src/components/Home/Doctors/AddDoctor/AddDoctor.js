@@ -7,6 +7,7 @@ import './AddDoctor.scss'
 
 
 const AddDoctor = () => {
+
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
     const history = useHistory()
@@ -21,6 +22,7 @@ const AddDoctor = () => {
             education: data.education,
             specialization: data.specialization,
             consultation: data.consultation,
+            email:data.email
         };
 
         fetch(`https://whispering-reef-28119.herokuapp.com/doctor/addDoctor`, {
@@ -61,7 +63,7 @@ const AddDoctor = () => {
                         </div>
                         <div className="col-md-6  mt-2">
                             <label for="phone" className="fw-bold">Phone</label>
-                            <input name="phone" id="email" className="form-control formControlAddDoctor" defaultValue="" placeholder="phone" ref={register({ required: true })} />
+                            <input name="phone" id="phone" className="form-control formControlAddDoctor" defaultValue="" placeholder="phone" ref={register({ required: true })} />
                         </div>
                         <div className="col-md-6  mt-2">
                             <label for="address" className="fw-bold">Address</label>
@@ -73,6 +75,10 @@ const AddDoctor = () => {
                                 <option value="Junior">Junior</option>
                                 <option value="Senior">Senior</option>
                             </select>
+                        </div>
+                        <div className="col-md-6  mt-2">
+                            <label for="email" className="fw-bold">Email</label>
+                            <input name="email" id="email" className="form-control formControlAddDoctor" defaultValue="" placeholder="Email" ref={register({ required: true })} />
                         </div>
                     </div>
                     <div className="row d-flex  p-3 mt-5 pb-5 sectionDoctorBg shadow">

@@ -36,6 +36,13 @@ $btn-color: #050546;
   font-weight: 600;
   font-size: 1.2rem;
 }
+
+.anchor-class {
+  text-decoration: none;
+  margin-top: 25px !important;
+  position: absolute;
+
+}
 .navbarItem a {
   position: relative;
   width: fit-content;

@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import appointmentImg from "../../../images/appointment.png";
-import Footer from "../../Home/Footer/Footer";
-import NavBar from "../../Home/NavBar/NavBar";
-import ErrorModal from "../../Modal/ErrorModal/ErrorModal";
-import SuccessModal from "../../Modal/SuccessModal/SuccessModal";
-import "./BookAppointment.scss";
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import appointmentImg from '../../../images/appointment.png';
+import Footer from '../../Home/Footer/Footer';
+import NavBar from '../../Home/NavBar/NavBar';
+import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
+import SuccessModal from '../../Modal/SuccessModal/SuccessModal';
+import './BookAppointment.scss';
 
 const BookAppointment = () => {
   // Store all Doctor Data
-  const [allDoctor,setAllDoctor] = useState([]);
+  const [allDoctor, setAllDoctor] = useState([]);
 
   const {
     register,
@@ -18,39 +18,35 @@ const BookAppointment = () => {
     formState: { errors },
   } = useForm();
 
-  // Usestate initialize for Modal handling
   const [successModal, setSuccessModal] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
   // UseHistory for route changing
   let history = useHistory();
   //Load all Doctor
-  useEffect(()=>{
-    fetch(
-      "https://whispering-reef-28119.herokuapp.com/doctor",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
-        },
-      }
-    )
+  useEffect(() => {
+    fetch('https://whispering-reef-28119.herokuapp.com/doctor', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('Authorization')}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         setAllDoctor(data.result);
-      })
-  },[])
-  console.log('Doctors',allDoctor);
-  // Form Data
+      });
+  }, []);
+  console.log('Doctors', allDoctor);
+  // Form Data submit
   const onSubmit = (data) => {
     fetch(
-      "https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment",
+      'https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment',
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('Authorization')}`,
         },
         body: JSON.stringify(data),
       }
@@ -61,7 +57,7 @@ const BookAppointment = () => {
         if (result.status === true) {
           setSuccessModal(true);
           setTimeout(() => {
-            history.replace("/");
+            history.replace('/');
           }, 3000);
         } else if (result.status === false) {
           setErrorModal(true);
@@ -72,20 +68,18 @@ const BookAppointment = () => {
   return (
     <div>
       <NavBar />
-      {/* Appointment page main code start  */}
-      {/* Modal Start, success and error modal */}
       <SuccessModal
         modalContent={[
           successModal,
           setSuccessModal,
-          "Appointment Booking Successfull",
+          'Appointment Booking Successfull',
         ]}
       />
       <ErrorModal
-        modalContent={[errorModal, setErrorModal, "Email Already Used"]}
+        modalContent={[errorModal, setErrorModal, 'Email Already Used']}
       />
       {/* Modal End */}
-      
+
       <div className="container">
         <div className="appointmentChild">
           <h2 className="my-2">Book Your Appointment</h2>

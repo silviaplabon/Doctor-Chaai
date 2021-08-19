@@ -102,7 +102,7 @@ const NavBar = () => {
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/">
-                      Find Doctors
+                      Find Doctor
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -110,11 +110,9 @@ const NavBar = () => {
                       Find Medical
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                      Help
-                    </Link>
-                  </li>
+                  {/* <li className="nav-item">
+                    <a className="anchor-class" href="https://doctor-chaai-help.netlify.app/" target="_blank" rel="noopener noreferrer">help</a>
+                  </li> */}
                   <li className="nav-item">
                     <Link className="nav-link" to="/covid19">
                       Covid Tracker
