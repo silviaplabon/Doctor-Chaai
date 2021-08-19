@@ -11,6 +11,7 @@ import Departments from "./components/BookAppointments/Departments/Departments";
 import SpecificDoctors from "./components/BookAppointments/SpecificDoctors/SpecificDoctors";
 import CovidTracker from "./components/CovidTracker/CovidTracker";
 import DoctorDashboard from "./components/DoctorDashboard/DoctorDashboard/DoctorDashboard";
+import DoctorPrivateRoute from "./components/DoctorDashboard/DoctorPrivateRoute/DoctorPrivateRoute";
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
@@ -53,7 +54,10 @@ function App() {
           <Route  path="/doctordashboard">
             <DoctorDashboard />
           </Route>
-          <Route  path="/covid19">
+          <DoctorPrivateRoute path="/doctordashboard">
+            <DoctorDashboard/>
+          </DoctorPrivateRoute>
+          <Route path="/covid19">
             <CovidTracker />
           </Route>
           <Route path="/doctorDepartments">
