@@ -4,14 +4,13 @@ import {
     faUserInjured
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
 import UserDashboardData from "../UserDashboardData/UserDashboardData";
-import "./UserDashboard.scss";
 import UserAppointmentList from '../UserAppointmentList/UserAppointmentList';
+import "./UserDashboard.scss";
 
 const UserDashboard = () => {
   const [expandUserSidebar, setexpandUserSidebar] = useState(false);
@@ -74,10 +73,10 @@ const UserDashboard = () => {
           {/* Dashboard TopBar End */}
 
           <Switch>
-            <Route path="/userdashboard/dashboard">
+            <Route exact path="/userdashboard/dashboard">
               <UserDashboardData />
             </Route>
-            <Route path="/userdashboard/appointment">
+            <Route exact path="/userdashboard/appointment">
              <UserAppointmentList></UserAppointmentList>
             </Route>
           </Switch>

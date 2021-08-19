@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 
 import Login from "./components/Authentication/Login/Login";
-
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
 import Departments from "./components/BookAppointments/Departments/Departments";
@@ -28,13 +27,13 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home/>
           </Route>
           <Route  path="/home">
             <Home />
           </Route>
           <Route  path="/login">
-            <Login />
+          <Login/>
           </Route>
           <Route  path="/addDoctor">
             <AddDoctor></AddDoctor>
@@ -60,7 +59,6 @@ function App() {
           <Route path="/doctorDepartments">
             <Departments />
           </Route>
-          
           <Route path='/doctorDepartments/:department'>
             <SpecificDoctors />
           </Route>
