@@ -1,0 +1,39 @@
+
+.labelCVC{
+  font-size:18px!important;
+}
+.labelExp{
+  font-size:18px!important;
+}
+.labelCard{
+  font-size:18px!important;
+}
+
+@media only screen and (min-device-width: 200px) and (max-device-width:500px) {
+.labelCVC{
+    font-size:12px!important;
+}
+.labelExp{
+    font-size:12px!important;
+}
+.labelCard{
+    font-size:12px!important;
+}
+}
+.expStyle,.cvcStyle,.cardNumberStyle{
+    border: 1px solid #050546!important;
+    font-size: 1.6rem!important;
+    letter-spacing: 0.3px;
+    color: #050546!important;
+    &::placeholder {
+      color: #050546!important;
+    }
+    &::-ms-input-placeholder {
+      color: #050546!important;
+    }
+  }
+
+  .__PrivateStripeElement::placeholder{
+   padding:0 30%!important;
+   color:red!important;
+  }

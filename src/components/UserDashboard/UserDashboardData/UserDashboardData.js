@@ -52,59 +52,57 @@ const UserDashboardData = () => {
     }
     return (
         <div className="addDoctorSection">
-            <NavBar></NavBar>
             <div className="container mt-5 ">
-                <form onSubmit={handleSubmit(onSubmit)} className=" addDoctorFormStyle" >
-                    <h2 className="">Basic Information</h2>
+                <form onSubmit={handleSubmit(onSubmit)} className=" addDoctorFormStyle pt-5" >
                     <div className="row d-flex p-3  pb-5 sectionDoctorBg shadow">
-                    <div className="col-md-12  mt-2 ms-0">
-                            <label for="photo" className="fw-bold">Photo</label>
-                            <input name="photo" type="file" id="photo" className="form-control  formControlAddDoctor " onChange={handleImageUpload} ref={register({ required: true })} />
-                        </div>
-                        <div className="col-md-6  mt-2">
+                        <div className="col-6  mt-2">
                             <label for="username" className="fw-bold">Name</label>
                             <input name="name" id="username" className="form-control  formControlAddDoctor" defaultValue="" placeholder="name" ref={register({ required: true })} />
                         </div>
-                        <div className="col-md-6  mt-2">
+                        <div className="col-6  mt-2">
                             <label for="phone" className="fw-bold">Date Of Birth</label>
-                            <input name="birthDate" id="phone" className="form-control formControlAddDoctor" defaultValue="" placeholder="phone" ref={register({ required: true })} />
+                            <input name="birthDate" id="birthDate" className="form-control formControlAddDoctor" defaultValue="" placeholder="phone" ref={register({ required: true })} />
                         </div>
-                        <div className="col-md-6  mt-2">
+                        <div className="col-6  mt-2">
                             <label for="address" className="fw-bold">Blood Group</label>
                             <input name="bloodGroup" id="address" className="form-control formControlAddDoctor" defaultValue="" placeholder="address" ref={register({ required: true })} />
                         </div>
 
-                        <div className="col-md-6  mt-2">
+                        <div className="col-6  mt-2">
                             <label for="email" className="fw-bold">Email ID</label>
                             <input name="email" id="email" className="form-control formControlAddDoctor" defaultValue="" placeholder="Email" ref={register({ required: true })} disabled />
                         </div>
-                        <div className="col-md-6  mt-2">
+                        <div className="col-6  mt-2">
                             <label for="email" className="fw-bold">Mobile</label>
                             <input name="mobile" id="email" className="form-control formControlAddDoctor" defaultValue="" placeholder="Email" ref={register({ required: true })} />
                         </div>
-               
-                        <div className="col-md-12 mt-2">
-                            <label for="about" className="fw-bold">Address</label>
-                            <textarea name="address" className=" form-control  formControlAddDoctor" id="about" rows="3" placeholder="please tell yourself" defaultValue="" ref={register({ required: true })} />
+                        <div className="col-6 mt-2 ms-0">
+                                <label for="photo" className="fw-bold">Photo</label>
+                                <input name="photo" type="file" id="photo" className="form-control  formControlAddDoctor" onChange={handleImageUpload} ref={register({ required: true })} />
                         </div>
-                        <div className="col-md-6  mt-2 ms-0">
-                            <label for="photo" className="fw-bold">City</label>
-                            <input name="city" id="education" className="form-control  formControlAddDoctor " placeholder="education" ref={register({ required: true })} />
+
+                        <div className="col-12 mt-2">
+                            <label for="address" className="fw-bold">Address</label>
+                            <textarea name="address"  className=" form-control h-100 formControlAddDoctor textAreaAddress" id="about" placeholder="please tell yourself" defaultValue="" ref={register({ required: true })} />
                         </div>
-                        <div className="col-md-6  mt-2 ms-0">
-                            <label for="education" className="fw-bold">State</label>
+                        <div className="col-6  mt-2 ms-0">
+                            <label for="city" className="fw-bold">City</label>
+                            <input name="city" id="city" className="form-control  formControlAddDoctor " placeholder="education" ref={register({ required: true })} />
+                        </div>
+                        <div className="col-6  mt-2 ms-0">
+                            <label for="state" className="fw-bold">State</label>
                             <input name="state" id="education" className="form-control  formControlAddDoctor " placeholder="education" ref={register({ required: true })} />
                         </div>
-            
-                    <div className="col-md-6 mt-2">
-                        <label for="zipcode" className="fw-bold">Zip Code</label>
-                        <input name="zipCode" id="" className="form-control  formControlAddDoctor" defaultValue="" placeholder="consultation fee" ref={register({ required: true })} />
-                    </div>
 
-                    <div className="d-flex justify-content-end ">
-                        <input type="submit" className="btn  text-white registerDoctorButton p-0" value="Register" />
-                    </div>  
-                       </div>
+                        <div className="col-6 mt-2">
+                            <label for="zipcode" className="fw-bold">Zip Code</label>
+                            <input name="zipCode" id="" className="form-control  formControlAddDoctor" defaultValue="" placeholder="consultation fee" ref={register({ required: true })} />
+                        </div>
+
+                        <div className="d-flex justify-content-end ">
+                            <input type="submit" className="btn  text-white registerDoctorButton p-0" value="Register" />
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

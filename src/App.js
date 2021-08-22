@@ -7,6 +7,7 @@ import {
 import Login from "./components/Authentication/Login/Login";
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
+import BookAppointmentUpdate from "./components/BookAppointments/BookAppointment/BookAppointmentUpdate";
 import Departments from "./components/BookAppointments/Departments/Departments";
 import SpecificDoctors from "./components/BookAppointments/SpecificDoctors/SpecificDoctors";
 import CovidTracker from "./components/CovidTracker/CovidTracker";
@@ -17,6 +18,8 @@ import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection
 import Home from "./components/Home/Home/Home";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
+import CurrentPatientInfo from './components/DoctorDashboard/CurrentPatientInfo/CurrentPatientInfo';
+import AllPatientSchedule from "./components/DoctorDashboard/AllPatientSchedule/AllPatientSchedule";
 
 export const UserContext = createContext();
 
@@ -29,6 +32,12 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home/>
+          </Route>
+          <Route exact path="/currentPatientDoctor">
+            <CurrentPatientInfo/>
+          </Route>
+          <Route exact path="/currentPatientUser">
+            <AllPatientSchedule/>
           </Route>
           <Route  path="/home">
             <Home />
@@ -46,7 +55,8 @@ function App() {
             <Register />
           </Route>
           <PrivateRoute path="/appointment">
-            <BookAppointment />
+            {/* <BookAppointment /> */}
+            <BookAppointmentUpdate></BookAppointmentUpdate>
           </PrivateRoute>
           <Route  path="/userdashboard">
             <UserDashboard />
@@ -54,9 +64,9 @@ function App() {
           <Route  path="/doctordashboard">
             <DoctorDashboard />
           </Route>
-          <DoctorPrivateRoute path="/doctordashboard">
+          <PrivateRoute path="/doctordashboard">
             <DoctorDashboard/>
-          </DoctorPrivateRoute>
+          </PrivateRoute>
           <Route path="/covid19">
             <CovidTracker />
           </Route>
