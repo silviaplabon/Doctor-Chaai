@@ -1,5 +1,9 @@
 import React, { createContext, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import {
+  BrowserRouter as Router, Redirect, Route, Switch
+} from "react-router-dom";
+
 import Login from "./components/Authentication/Login/Login";
 
 import Register from "./components/Authentication/Registration/Register";
@@ -8,6 +12,7 @@ import Departments from "./components/BookAppointments/Departments/Departments";
 import SpecificDoctors from "./components/BookAppointments/SpecificDoctors/SpecificDoctors";
 import CovidTracker from "./components/CovidTracker/CovidTracker";
 import DoctorDashboard from "./components/DoctorDashboard/DoctorDashboard/DoctorDashboard";
+import DoctorPrivateRoute from "./components/DoctorDashboard/DoctorPrivateRoute/DoctorPrivateRoute";
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
@@ -50,7 +55,10 @@ function App() {
           <Route exact path="/doctordashboard">
             <DoctorDashboard />
           </Route>
-          <Route exact path="/covid19">
+          <DoctorPrivateRoute path="/doctordashboard">
+            <DoctorDashboard/>
+          </DoctorPrivateRoute>
+          <Route path="/covid19">
             <CovidTracker />
           </Route>
           <Route exact path="/doctorDepartments">

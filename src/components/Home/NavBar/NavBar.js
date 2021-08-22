@@ -1,12 +1,12 @@
 import { faGripLines, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import React, { useContext, useState } from "react";
+import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../App";
 import logo from "../../../images/doctor-logo.png";
 import "./NavBar.scss";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import Modal from "react-modal";
 
 const containerStyle = {
   width: "800px",
@@ -110,14 +110,17 @@ const NavBar = () => {
                       Find Medical
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                      Help
-                    </Link>
-                  </li>
+                  {/* <li className="nav-item">
+                    <a className="anchor-class" href="https://doctor-chaai-help.netlify.app/" target="_blank" rel="noopener noreferrer">help</a>
+                  </li> */}
                   <li className="nav-item">
                     <Link className="nav-link" to="/covid19">
                       Covid Tracker
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/doctorDashboard/dashboard">
+                      Dashboard
                     </Link>
                   </li>
                 </ul>
