@@ -16,6 +16,7 @@ import DoctorPrivateRoute from "./components/DoctorDashboard/DoctorPrivateRoute/
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
+import Message from "./components/Messenger/Message";
 import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
 
 export const UserContext = createContext();
@@ -62,6 +63,9 @@ function App() {
           </Route>
           <Route path='/doctorDepartments/:department'>
             <SpecificDoctors />
+          </Route>
+          <Route path='/message'>
+            <Message />
           </Route>
         </Switch>
       </Router>
