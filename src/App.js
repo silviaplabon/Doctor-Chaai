@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router, Redirect, Route, Switch
 } from "react-router-dom";
+import DoctorLogin from "./components/Authentication/DoctorLogin/DoctorLogin";
 
 import Login from "./components/Authentication/Login/Login";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
@@ -53,7 +54,7 @@ function App() {
             <UserDashboard />
           </Route>
           <DoctorPrivateRoute path="/doctordashboard">
-            <DoctorDashboard/>
+            <DoctorDashboard />
           </DoctorPrivateRoute>
           <Route path="/covid19">
             <CovidTracker />
@@ -66,6 +67,9 @@ function App() {
           </Route>
           <Route path='/message'>
             <Message />
+          </Route>
+          <Route path="/doctorLogin">
+            <DoctorLogin />
           </Route>
         </Switch>
       </Router>

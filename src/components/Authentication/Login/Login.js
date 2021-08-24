@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React, {useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import { UserContext } from '../../../App';
 import doctorsChamber from '../../../images/doctorsChamber.jpg';
 import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
