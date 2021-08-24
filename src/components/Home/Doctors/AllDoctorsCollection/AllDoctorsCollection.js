@@ -25,7 +25,6 @@ const AllDoctorsCollection = () => {
                 console.log(error);
             })
             .then(function () {
-                // always executed for doctorchaai
             });
     }, []);
 

@@ -101,8 +101,8 @@ const NavBar = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                      Find Doctor
+                    <Link className="nav-link" to="/userdashboard">
+                      Profile
                     </Link>
                   </li>
                   <li className="nav-item">

@@ -5,7 +5,6 @@ const UserAppoinmentListShow = ({ appointment }) => {
     console.log(appointment)
     const { amount, appDate, bookingDate, department, doctor, image, status } = appointment
     return (
-
         <div className="col mt-5" >
             <div className="card p-2 shadow">
                 <div class="row g-0">
@@ -24,20 +23,9 @@ const UserAppoinmentListShow = ({ appointment }) => {
                             <h5 className="mt-2">{amount} </h5>
                             <button className="mt-2 btn appointmentStatusButton text-white" >{status}</button>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-            {/*  <div className="h-50 d-flex justify-content-between align-items-between">
-                    <img src={image} className="img-fluid" alt="..." />
-                  
-
-                </div>
-                <div className=" h-50">
-                   
-                </div>
-            </div> */}
         </div>
     );
 };

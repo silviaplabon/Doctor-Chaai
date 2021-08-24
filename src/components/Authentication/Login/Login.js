@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+
+import React, { useContext,useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import { UserContext } from "../../../App";
 import doctorsChamber from "../../../images/doctorsChamber.jpg";
-import ErrorModal from "../../Modal/ErrorModal/ErrorModal";
-import "./Login.scss";
+import doctorsChamber from '../../../images/doctorsChamber.jpg';
+import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
+import './Login.scss';
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -15,7 +16,7 @@ const Login = () => {
 
   let history = useHistory();
   let location = useLocation();
-  let { from } = location.state || { from: { pathname: "/" } };
+  let { from } = location.state || { from: { pathname: '/' } };
   const {
     register,
     handleSubmit,
@@ -26,28 +27,31 @@ const Login = () => {
     fetch('https://whispering-reef-28119.herokuapp.com/user/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
       .then(res => res.json())
       .then(result => {
         setLoggedInUser({ result: result.status,userName: result.user ,email:result.email})
-        console.log(result);
         if (result.status === true) {
           history.replace(from);
-        }else if (result.status === false) {
+        } else if (result.status === false) {
           setErrorModal(true);
         }
-        localStorage.setItem("Authorization", result.access_token);
-
+        localStorage.setItem('Authorization', result.access_token);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   };
 
   return (
+  
     <div className="login-container">
       {/* Error modal start */}
       <ErrorModal
-        modalContent={[errorModal, setErrorModal, "LogIn Error, Please Try Again"]}
+        modalContent={[
+          errorModal,
+          setErrorModal,
+          'LogIn Error, Please Try Again',
+        ]}
       />
       {/* Error modal end */}
       <div className="container custom-container py-5">
@@ -78,18 +82,18 @@ const Login = () => {
                   className="form-control login-input mx-auto rounded-pill px-3 py-2"
                   placeholder="Enter Your Password"
                   name="password"
-                  ref={register({ required: true })} />
+                  ref={register({ required: true })}
+                />
               </div>
               <div className="col-12 text-center">
-                {(errors.email ||
-                  errors.password) && (
-                    <p
-                      className="text-center text-danger mt-2 mb-0"
-                      style={{ fontWeight: "700" }}
-                    >
-                      * PLease fill up the form.
-                    </p>
-                  )}
+                {(errors.email || errors.password) && (
+                  <p
+                    className="text-center text-danger mt-2 mb-0"
+                    style={{ fontWeight: '700' }}
+                  >
+                    * PLease fill up the form.
+                  </p>
+                )}
                 <button
                   type="submit"
                   className="my-2 loginSubmitBtn rounded-pill px-4 py-2 mx-auto"
@@ -102,11 +106,19 @@ const Login = () => {
         </div>
         <div className="text-center toggle-container d-flex justify-content-center py-3">
           <p>
-            Are you a new member ? <Link className="text-decoration-none" to="/register"><span>Register here!</span></Link>
+            Are you a new member ?{' '}
+            <Link className="text-decoration-none" to="/register">
+              <span>Register here!</span>
+            </Link>
           </p>
-          <span className="mx-5 " style={{color:"#212729"}}>Or</span>
+          <span className="mx-5 " style={{ color: '#212729' }}>
+            Or
+          </span>
           <p>
-            doctor ? <Link className="text-decoration-none" to="/addDoctor"><span>Register here!</span></Link>
+            doctor ?{' '}
+            <Link className="text-decoration-none" to="/addDoctor">
+              <span>Register here!</span>
+            </Link>
           </p>
         </div>
       </div>
