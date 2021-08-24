@@ -5,9 +5,9 @@ import {
   faUserInjured
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
 import DoctorAppointments from "../DoctorAppointments/DoctorAppointments";

@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="container-sm py-4">
             <div className="row row-cols-1 row-cols-md-2 g-4">
-                <div className="cols p-4" >
+                <div className="cols p-4">
                     <div className="pe-lg-4 p-sm-3">
                         <img className="w-100" src={aboutImage} alt="find doctor"/>
                     </div>

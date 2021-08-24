@@ -1,3 +1,4 @@
+
 import React, {useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
@@ -7,7 +8,7 @@ import doctorsChamber from '../../../images/doctorsChamber.jpg';
 import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
 import './Login.scss';
 
-const Register = () => {
+const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   // Usestate initialize for Modal handling
   const [errorModal, setErrorModal] = useState(false);
@@ -41,6 +42,7 @@ const Register = () => {
   };
 
   return (
+  
     <div className="login-container">
       {/* Error modal start */}
       <ErrorModal
@@ -123,4 +125,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
