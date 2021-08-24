@@ -1,10 +1,19 @@
 
+<<<<<<< HEAD
+import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
+import { Link, useLocation } from "react-router-dom";
+import { UserContext } from "../../../App";
+import doctorsChamber from "../../../images/doctorsChamber.jpg";
+=======
 import React, {useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import doctorsChamber from '../../../images/doctorsChamber.jpg';
+>>>>>>> cfbd91b536df02178713efabf7bac6d3c885ed5f
 import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
 import './Login.scss';
 
