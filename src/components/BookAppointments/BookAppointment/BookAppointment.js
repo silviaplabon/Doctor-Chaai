@@ -74,7 +74,7 @@ const BookAppointment = () => {
   // Form Data submit
   const onSubmit = (data) => {
     data.schedule = selectSchedule;
-    data.doctorDetails={name:doctorDetails.name,specialization:doctorDetails.specialization,doctorID:doctorDetails._id}
+    data.doctorDetails={name:doctorDetails.name,specialization:doctorDetails.specialization,email:doctorDetails.email,doctorID:doctorDetails._id}
     if (Object.keys(data.schedule).length !== 0) {
       console.log(data);
     }
