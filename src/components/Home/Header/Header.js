@@ -5,7 +5,9 @@ import banner from "../../../images/banner-img.png";
 import "./Header.scss";
 
 const Header = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+   console.log(loggedInUser);
+
     return (
         <section className="header-main d-flex align-items-center">
             <div className="header-main-container container d-flex align-items-center">

@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 
 import Login from "./components/Authentication/Login/Login";
-import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
 import Departments from "./components/BookAppointments/Departments/Departments";
@@ -16,6 +15,7 @@ import DoctorPrivateRoute from "./components/DoctorDashboard/DoctorPrivateRoute/
 import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
+import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
 import Message from "./components/Messenger/Message";
 import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
 
@@ -29,28 +29,31 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route  path="/home">
             <Home />
           </Route>
-          <Route path="/home">
-            <Home />
+          <Route  path="/login">
+          <Login/>
           </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/addDoctor">
+          <Route  path="/addDoctor">
             <AddDoctor></AddDoctor>
           </Route>
-          <PrivateRoute exact path="/allDoctorList">
+          <PrivateRoute  path="/allDoctorList">
             <AllDoctorsCollection></AllDoctorsCollection>
           </PrivateRoute>
-          <Route path="/register">
+          <Route  path="/register">
             <Register />
           </Route>
           <PrivateRoute path="/appointment">
             <BookAppointment />
           </PrivateRoute>
-          <Route path="/userdashboard">
+          <Route  path="/userdashboard">
             <UserDashboard />
+          </Route>
+          <Route  path="/doctordashboard">
+            <DoctorDashboard />
           </Route>
           <DoctorPrivateRoute path="/doctordashboard">
             <DoctorDashboard/>
@@ -58,7 +61,7 @@ function App() {
           <Route path="/covid19">
             <CovidTracker />
           </Route>
-          <Route exact path="/doctorDepartments">
+          <Route path="/doctorDepartments">
             <Departments />
           </Route>
           <Route path='/doctorDepartments/:department'>
