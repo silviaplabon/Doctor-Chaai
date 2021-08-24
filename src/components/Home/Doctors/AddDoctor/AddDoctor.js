@@ -9,7 +9,6 @@ import "./AddDoctor.scss";
 const AddDoctor = () => {
   const { register, handleSubmit } = useForm();
   const [imageURL, setImageURL] = useState(null);
-  const [passwordIsText, setPasswordIsText] = useState(false);
   const history = useHistory();
 
   const DepartmentsData = [

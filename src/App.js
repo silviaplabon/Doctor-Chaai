@@ -2,6 +2,10 @@ import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
+
+import DoctorLogin from "./components/Authentication/DoctorLogin/DoctorLogin";
+
+
 import Login from "./components/Authentication/Login/Login";
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
@@ -58,12 +62,13 @@ function App() {
           <Route  path="/userdashboard">
             <UserDashboard />
           </Route>
-          <Route  path="/doctordashboard">
+          <DoctorPrivateRoute path="/doctordashboard">
             <DoctorDashboard />
-          </Route>
+          </DoctorPrivateRoute>
           <PrivateRoute path="/doctordashboard">
             <DoctorDashboard/>
           </PrivateRoute>
+
           <Route path="/covid19">
             <CovidTracker />
           </Route>
@@ -78,6 +83,9 @@ function App() {
           </Route>
           <Route path='/message'>
             <Message />
+          </Route>
+          <Route path="/doctorLogin">
+            <DoctorLogin />
           </Route>
         </Switch>
       </Router>

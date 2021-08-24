@@ -16,7 +16,7 @@ const Message = () => {
 
     useEffect(
         () => {
-            socketRef.current = io.connect("http://localhost:4300/")
+            socketRef.current = io.connect("http://localhost:4300")
             socketRef.current.on("message", ({ name, message }) => {
                 setChat([...chat, { name, message }])
             })
