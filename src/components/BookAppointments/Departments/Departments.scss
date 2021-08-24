@@ -1,16 +1,21 @@
 .dept-card {
-    border: none;
-    // background-color: #050546;
-    border: 1px solid #050546;
-    border-radius: 40px;
+  border: none;
+  // background-color: #050546;
+  border: 3px solid #050546;
+  border-radius: 40px;
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: 0 0.5rem 1.3rem #05054645 !important;
+    transition: all 0.3s;
+  }
 }
 
 .link {
-    text-decoration: none;
-    color: #00cccc;
+  text-decoration: none;
+  color: #00cccc;
 }
 
 .link :hover {
-    text-decoration: none;
-    color: #00cccc;
+  text-decoration: none;
+  color: #00cccc;
 }

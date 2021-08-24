@@ -9,18 +9,20 @@
     padding: 2rem 0;
   }
   .appointmentBook {
-    background-color: #f4fcff;
     overflow: hidden;
     margin: 0.5rem 0 3rem 0;
     border-radius: 25px;
     //
   }
   .appointmentInput {
-    border: 1px solid #050546;
+    border: 3px solid #050546;
+    height: auto;
     background-color: white;
     font-size: 1.2rem;
     letter-spacing: 0.3px;
     color: #050546;
+    padding: 0.4rem 1rem;
+    font-weight: 500;
     &::placeholder {
       color: #050546;
     }
@@ -31,12 +33,41 @@
   .appointmentSubmit {
     text-align: center;
     font-weight: 500;
-    background-color: #050546;
+    background-color: #00cccc;
     color: white;
     outline: none;
     border: 0px;
     font-size: 1.3rem;
     padding: 10px 0;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #00b6b6;
+      transition: all 0.3s;
+    }
+  }
+  .form-check-input:checked {
+    background-color: #00cccc;
+    border-color: #00cccc;
+  }
+  .scheduleParent {
+    background: #e8e8e8;
+    border-radius: 20px;
+  }
+  .scheduleList {
+    background: #050545;
+    font-weight: 500;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    label,
+    input {
+      cursor: pointer;
+    }
+    &:hover {
+      background: #030346;
+      transform: scale(1.02);
+      transition: all 0.3s;
+    }
   }
 }
 

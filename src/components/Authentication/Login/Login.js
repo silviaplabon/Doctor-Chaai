@@ -8,7 +8,7 @@ import doctorsChamber from "../../../images/doctorsChamber.jpg";
 import ErrorModal from "../../Modal/ErrorModal/ErrorModal";
 import './Login.scss';
 
-const Register = () => {
+const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   // Usestate initialize for Modal handling
   const [errorModal, setErrorModal] = useState(false);
@@ -125,4 +125,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

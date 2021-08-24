@@ -17,6 +17,8 @@ import AddDoctor from "./components/Home/Doctors/AddDoctor/AddDoctor";
 import AllDoctorsCollection from "./components/Home/Doctors/AllDoctorsCollection/AllDoctorsCollection";
 import Home from "./components/Home/Home/Home";
 import PrivateRoute from "./components/Authentication/Login/PrivateRoute";
+
+import Message from "./components/Messenger/Message";
 import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
 import CurrentPatientInfo from './components/DoctorDashboard/CurrentPatientInfo/CurrentPatientInfo';
 import AllPatientSchedule from "./components/DoctorDashboard/AllPatientSchedule/AllPatientSchedule";
@@ -75,6 +77,9 @@ function App() {
           </Route>
           <Route path='/doctorDepartments/:department'>
             <SpecificDoctors />
+          </Route>
+          <Route path='/message'>
+            <Message />
           </Route>
         </Switch>
       </Router>

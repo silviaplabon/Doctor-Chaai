@@ -9,34 +9,105 @@ const Departments = () => {
   const DepartmentsData = [
     {
       id: 1,
-      name: 'Endocrinologist',
+      name: 'Allergists',
       img: departmentImg,
     },
     {
       id: 2,
-      name: 'Gynecologist',
+      name: 'Anesthesiologists',
       img: departmentImg,
     },
     {
       id: 3,
-      name: 'Neurologist',
-      img: departmentImg,
-    },
-    {
-      id: 4,
       name: 'Cardiologists',
       img: departmentImg,
     },
     {
+      id: 4,
+      name: 'Radiologists',
+      img: departmentImg,
+    },
+    {
       id: 5,
-      name: 'Neurologist',
+      name: 'Urologists',
       img: departmentImg,
     },
     {
       id: 6,
-      name: 'Endocrinologist',
+      name: 'Dermatologists',
       img: departmentImg,
     },
+    {
+      id: 7,
+      name: 'Endocrinologists',
+      img: departmentImg,
+    },
+    {
+      id: 8,
+      name: 'Psychiatrists',
+      img: departmentImg,
+    },
+    {
+      id: 9,
+      name: 'Physiatrists',
+      img: departmentImg,
+    },
+    {
+      id: 10,
+      name: 'Gastroenterologists',
+      img: departmentImg,
+    },
+    {
+      id: 11,
+      name: 'Pathologists',
+      img: departmentImg,
+    },
+    {
+      id: 12,
+      name: 'Hematologists',
+      img: departmentImg,
+    },
+    {
+      id: 13,
+      name: 'Internists',
+      img: departmentImg,
+    },
+    {
+      id: 14,
+      name: 'Medical Geneticists',
+      img: departmentImg,
+    },
+    {
+      id: 15,
+      name: 'Nephrologists',
+      img: departmentImg,
+    },
+    {
+      id: 16,
+      name: 'Neurologists',
+      img: departmentImg,
+    },
+    {
+      id: 17,
+      name: 'Gynecologists',
+      img: departmentImg,
+    },
+    {
+      id: 18,
+      name: 'Oncologists',
+      img: departmentImg,
+    },
+    {
+      id: 19,
+      name: 'Ophthalmologists',
+      img: departmentImg,
+    },
+    {
+      id: 20,
+      name: 'Medicine Specialists',
+      img: departmentImg,
+    },
+
   ];
 
   return (
