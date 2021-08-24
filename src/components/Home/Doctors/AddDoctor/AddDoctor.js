@@ -1,15 +1,17 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router-dom';
 import NavBar from '../../NavBar/NavBar';
 import './AddDoctor.scss'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faEye} from "@fortawesome/free-solid-svg-icons";
 
 const AddDoctor = () => {
 
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
+    const [passwordIsText,setPasswordIsText]=useState(false)
     const history = useHistory()
     const onSubmit = data => {
         const doctorData = {
@@ -22,7 +24,8 @@ const AddDoctor = () => {
             education: data.education,
             specialization: data.specialization,
             consultation: data.consultation,
-            email:data.email
+            email:data.email,
+            password:data.password
         };
 
         fetch(`https://whispering-reef-28119.herokuapp.com/doctor/addDoctor`, {
@@ -79,6 +82,15 @@ const AddDoctor = () => {
                         <div className="col-md-6  mt-2">
                             <label for="email" className="fw-bold">Email</label>
                             <input name="email" id="email" className="form-control formControlAddDoctor" defaultValue="" placeholder="Email" ref={register({ required: true })} />
+                        </div>
+                        <div className="col-md-6  mt-2 passwordField">
+                            <label for="password" className="fw-bold">Pasword</label>
+                            <FontAwesomeIcon icon={faEye} className="passwordEyeIcon" onClick={()=>setPasswordIsText(!passwordIsText)}></FontAwesomeIcon>
+                            {
+                                passwordIsText ?     <input name="password" id="password" className="form-control  formControlAddDoctor" type="text" defaultValue="" placeholder="password" ref={register({ required: true })} />:
+                                <input name="password" id="password" className="form-control  formControlAddDoctor" type="password" defaultValue="" placeholder="password" ref={register({ required: true })} />
+                            }
+                        
                         </div>
                     </div>
                     <div className="row d-flex  p-3 mt-5 pb-5 sectionDoctorBg shadow">

@@ -60,7 +60,7 @@ const UserAppointmentList = () => {
     
     return (
         <div className="w-100 SubParentDesign" >
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <div className="row row-cols-1 row-cols-md-1  row-cols-lg-2 row-cols-xxl-3">
                 {
                     appointmentData?.map(appointment => <UserAppoinmentListShow appointment={appointment} />)
                 }
