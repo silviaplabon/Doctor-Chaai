@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { db } from "../../../DataBase/FirebaseInitialize/firebase.config";
 import Footer from "../../Home/Footer/Footer";
@@ -11,9 +11,12 @@ import "./BookAppointment.scss";
 import ScheduleList from "./ScheduleList";
 
 const BookAppointment = () => {
+  const { id } = useParams();
+  console.log('doctor id',id);
   const [selectSchedule, setSelectSchedule] = useState({});
   const [isScheduleSelect, setIsScheduleSelect] = useState(false);
   const [allAvailableSchedule, setAllAvailableSchedule] = useState([]);
+  const [doctorDetails, setDoctorDetails] = useState({});
   
   const {
     register,
@@ -25,6 +28,12 @@ const BookAppointment = () => {
   const [errorModal, setErrorModal] = useState(false);
   // UseHistory for route changing
   let history = useHistory();
+
+  useEffect(()=>{
+    fetch(`https://whispering-reef-28119.herokuapp.com/doctor/allDoctors/${id}`)
+    .then(res=>res.json())
+    .then(data => setDoctorDetails(data.result[0]))
+  },[])
 
   useEffect(() => {
     if (Object.keys(selectSchedule).length !== 0) {
@@ -65,6 +74,7 @@ const BookAppointment = () => {
   // Form Data submit
   const onSubmit = (data) => {
     data.schedule = selectSchedule;
+    data.doctorDetails={name:doctorDetails.name,specialization:doctorDetails.specialization,doctorID:doctorDetails._id}
     if (Object.keys(data.schedule).length !== 0) {
       console.log(data);
     }

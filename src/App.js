@@ -1,9 +1,7 @@
 import React, { createContext, useState } from "react";
-
 import {
-  BrowserRouter as Router, Redirect, Route, Switch
+  BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
-
 import Login from "./components/Authentication/Login/Login";
 import Register from "./components/Authentication/Registration/Register";
 import BookAppointment from "./components/BookAppointments/BookAppointment/BookAppointment";
@@ -21,6 +19,8 @@ import Message from "./components/Messenger/Message";
 import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
 import CurrentPatientInfo from './components/DoctorDashboard/CurrentPatientInfo/CurrentPatientInfo';
 import AllPatientSchedule from "./components/DoctorDashboard/AllPatientSchedule/AllPatientSchedule";
+
+
 
 export const UserContext = createContext();
 
@@ -55,10 +55,6 @@ function App() {
           <Route  path="/register">
             <Register />
           </Route>
-          <PrivateRoute path="/appointment">
-            {/* <BookAppointment /> */}
-            <BookAppointmentUpdate></BookAppointmentUpdate>
-          </PrivateRoute>
           <Route  path="/userdashboard">
             <UserDashboard />
           </Route>
@@ -71,11 +67,14 @@ function App() {
           <Route path="/covid19">
             <CovidTracker />
           </Route>
-          <Route path="/doctorDepartments">
+          <Route exact path="/appointment">
             <Departments />
           </Route>
-          <Route path='/doctorDepartments/:department'>
+          <Route exact path='/appointment/:department'>
             <SpecificDoctors />
+          </Route>
+          <Route exact path='/appointment/:department/:id'>
+            <BookAppointment/>
           </Route>
           <Route path='/message'>
             <Message />

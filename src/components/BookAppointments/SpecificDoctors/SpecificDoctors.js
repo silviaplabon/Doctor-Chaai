@@ -1,9 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Footer from '../../Home/Footer/Footer';
-import NavBar from '../../Home/NavBar/NavBar';
-import SpecificDoctor from './SpecificDoctor';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Footer from "../../Home/Footer/Footer";
+import NavBar from "../../Home/NavBar/NavBar";
+import SpecificDoctor from "./SpecificDoctor";
+import "./SpecificDoctors.scss";
 
 const SpecificDoctors = () => {
   const { department } = useParams();
@@ -14,7 +15,7 @@ const SpecificDoctors = () => {
 
   useEffect(() => {
     axios
-      .get('https://whispering-reef-28119.herokuapp.com/doctor/allDoctors')
+      .get("https://whispering-reef-28119.herokuapp.com/doctor/allDoctors")
       .then(function (response) {
         console.log(response?.data?.result);
         setAllDept(response?.data?.result);
@@ -29,7 +30,7 @@ const SpecificDoctors = () => {
     const deptDoctor = allDept.filter(
       (dept) => dept.specialization === department
     );
-    console.log(deptDoctor, 'use');
+    console.log(deptDoctor, "use");
     setByDept(deptDoctor);
   }, [allDept]);
 
@@ -38,7 +39,10 @@ const SpecificDoctors = () => {
       <NavBar />
       <div className="container">
         <div className="row">
-          <div className="col-md-12 mt-5">
+          <div className="col-md-12 mt-3">
+            <h2 className="text-center mb-4" style={{ color: "#050545" }}>
+              Select One Doctor
+            </h2>
             <div className="row row-cols-1 row-cols-md-3 g-4">
               {byDept.map((dept) => (
                 <SpecificDoctor dept={dept} key={dept._id}></SpecificDoctor>

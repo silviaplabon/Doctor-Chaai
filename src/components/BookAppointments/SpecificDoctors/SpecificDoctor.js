@@ -1,13 +1,20 @@
-import React from 'react';
+import React from "react";
+import { useHistory } from "react-router-dom";
 const SpecificDoctor = ({ dept }) => {
   console.log(dept);
+  const history = useHistory();
   return (
-    <div className="mt-5 text-center">
-      <div className="col">
-        <div className="card mb-5">
+    <div className="mt-2 text-center">
+      <div className="col p-3">
+        <div
+          onClick={() =>
+            history.push(`/appointment/${dept.specialization}/${dept._id}`)
+          }
+          className="card h-100 p-3 doctorCard"
+        >
           <img
             src={dept.photo}
-            style={{ width: '20%' }}
+            style={{ width: "20%" }}
             className="rounded mx-auto"
             alt={dept._id}
           />
