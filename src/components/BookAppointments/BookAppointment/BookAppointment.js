@@ -12,12 +12,11 @@ import ScheduleList from "./ScheduleList";
 
 const BookAppointment = () => {
   const { id } = useParams();
-  console.log('doctor id',id);
   const [selectSchedule, setSelectSchedule] = useState({});
   const [isScheduleSelect, setIsScheduleSelect] = useState(false);
   const [allAvailableSchedule, setAllAvailableSchedule] = useState([]);
   const [doctorDetails, setDoctorDetails] = useState({});
-  
+
   const {
     register,
     handleSubmit,
@@ -29,11 +28,11 @@ const BookAppointment = () => {
   // UseHistory for route changing
   let history = useHistory();
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`https://whispering-reef-28119.herokuapp.com/doctor/allDoctors/${id}`)
-    .then(res=>res.json())
-    .then(data => setDoctorDetails(data.result[0]))
-  },[])
+      .then((res) => res.json())
+      .then((data) => setDoctorDetails(data.result[0]));
+  }, []);
 
   useEffect(() => {
     if (Object.keys(selectSchedule).length !== 0) {
@@ -44,63 +43,69 @@ const BookAppointment = () => {
   }, [selectSchedule]);
 
   const availableCollection = db.collection("availableSchedule");
-  const email = "test2@gmail.com";
+  let email = doctorDetails?.email || "";
 
   //Get Doctor Schedule
   const availableScheduleGet = async () => {
-    let doctorID;
-    const snapshot = await availableCollection
-      .where("email", "==", email)
-      .get();
-    // check the doctors finded or not find
-    if (!snapshot.empty) {
-      snapshot.forEach((doc) => {
-        doctorID = doc.id;
-      });
-    }
+    if (email !== "") {
+      let doctorID;
+      const snapshot = await availableCollection
+        .where("email", "==", email)
+        .get();
+      // check the doctors finded or not find
+      if (!snapshot.empty) {
+        snapshot.forEach((doc) => {
+          doctorID = doc.id;
+        });
+      }
 
-    const data = await availableCollection
-      .doc(doctorID)
-      .collection("schedule")
-      .get();
-    let tempAllSchedule = [];
-    data.forEach((doc) => {
-      tempAllSchedule.push(doc.data().scheduleData);
-    });
-    setAllAvailableSchedule(tempAllSchedule);
+      const data = await availableCollection
+        .doc(doctorID)
+        .collection("schedule")
+        .get();
+      let tempAllSchedule = [];
+      data.forEach((doc) => {
+        tempAllSchedule.push(doc.data().scheduleData);
+      });
+      setAllAvailableSchedule(tempAllSchedule);
+    }
   };
-  useEffect(() => availableScheduleGet(), []);
+  useEffect(() => availableScheduleGet(), [email]);
 
   // Form Data submit
   const onSubmit = (data) => {
     data.schedule = selectSchedule;
-    data.doctorDetails={name:doctorDetails.name,specialization:doctorDetails.specialization,email:doctorDetails.email,doctorID:doctorDetails._id}
+    data.doctorDetails = {
+      name: doctorDetails.name,
+      specialization: doctorDetails.specialization,
+      email: doctorDetails.email,
+      doctorID: doctorDetails._id,
+    };
     if (Object.keys(data.schedule).length !== 0) {
       console.log(data);
+      fetch(
+        "https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+          },
+          body: JSON.stringify(data),
+        }
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.status === true) {
+            setSuccessModal(true);
+            setTimeout(() => {
+              history.replace("/");
+            }, 3000);
+          } else if (result.status === false) {
+            setErrorModal(true);
+          }
+        });
     }
-    // fetch(
-    //   "https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
-    //     },
-    //     body: JSON.stringify(data),
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     console.log(result);
-    //     if (result.status === true) {
-    //       setSuccessModal(true);
-    //       setTimeout(() => {
-    //         history.replace("/");
-    //       }, 3000);
-    //     } else if (result.status === false) {
-    //       setErrorModal(true);
-    //     }
-    //   });
   };
 
   return (
@@ -177,7 +182,7 @@ const BookAppointment = () => {
                         type="email"
                         className="appointmentInput form-control rounded-pill w-100"
                         placeholder="Enter Your Email"
-                        name="email"
+                        name="userEmail"
                         ref={register({ required: true })}
                       />
                     </div>
@@ -195,16 +200,16 @@ const BookAppointment = () => {
                         type="text"
                         className="appointmentInput form-control rounded-pill w-100"
                         placeholder="Select Your Blood Group"
-                        name="bloodgroup"
+                        name="bloodGroup"
                         ref={register({ required: true })}
                       />
                     </div>
                     <div className="w-100">
                       {(errors.name ||
                         errors.phone ||
-                        errors.email ||
+                        errors.userEmail ||
                         errors.age ||
-                        errors.bloodgroup) && (
+                        errors.bloodGroup) && (
                         <p className="text-center text-danger mt-2 mb-0">
                           Please Provide Your Valid Data
                         </p>

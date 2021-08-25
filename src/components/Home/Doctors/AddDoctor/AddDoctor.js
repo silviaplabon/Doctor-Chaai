@@ -89,7 +89,7 @@ const AddDoctor = () => {
         .then((result) => {
           console.log(result.message);
           alert(result.message);
-          history.push("/home");
+          // history.push("/home");
         })
         .catch((err) => console.log(err));
     } else {
