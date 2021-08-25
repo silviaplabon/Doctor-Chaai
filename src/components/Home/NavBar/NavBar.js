@@ -56,8 +56,6 @@ const NavBar = () => {
     setLoggedInUser(localStorage.removeItem("Authorization"));
   };
 
-  //   const handleClick = (e) => {};
-
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
