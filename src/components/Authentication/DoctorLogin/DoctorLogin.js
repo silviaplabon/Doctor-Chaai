@@ -8,6 +8,7 @@ import doctorsChamber from '../../../images/doctorLogin.jpg';
 
 const DoctorLogin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    console.log(loggedInUser);
 
     const [errorModal, setErrorModal] = useState(false);
 
@@ -29,8 +30,9 @@ const DoctorLogin = () => {
         })
             .then(res => res.json())
             .then(result => {
-                setLoggedInUser({ result: result.status, userName: result.user, email: result.email })
-                if (result.status === true) {
+                console.log(result)
+                setLoggedInUser({ result: result.status, isDoctor: result.isDoctor, email: result.email })
+                if (result.status === true && result.isDoctor === true) {
                     history.replace(from);
                 } else if (result.status === false) {
                     setErrorModal(true);
@@ -102,7 +104,7 @@ const DoctorLogin = () => {
                 </div>
                 <div className="text-center toggle-container d-flex justify-content-center py-3">
                     <p>
-                        Not a doctor ?{' '}
+                        Not have an Account ?{' '}
                         <Link className="text-decoration-none" to="/addDoctor">
                             <span>Register here!</span>
                         </Link>

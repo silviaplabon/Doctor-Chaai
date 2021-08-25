@@ -36,39 +36,35 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home/>
-          </Route>
-          <Route exact path="/currentPatientDoctor">
-            <CurrentPatientInfo/>
-          </Route>
-          <Route exact path="/currentPatientUser">
-            <AllPatientSchedule/>
-          </Route>
-          <Route  path="/home">
             <Home />
           </Route>
-          <Route  path="/login">
-          <Login/>
+          <Route exact path="/currentPatientDoctor">
+            <CurrentPatientInfo />
           </Route>
-          <Route  path="/addDoctor">
+          <Route exact path="/currentPatientUser">
+            <AllPatientSchedule />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/addDoctor">
             <AddDoctor></AddDoctor>
           </Route>
-          <PrivateRoute  path="/allDoctorList">
+          <PrivateRoute path="/allDoctorList">
             <AllDoctorsCollection></AllDoctorsCollection>
           </PrivateRoute>
-          <Route  path="/register">
+          <Route path="/register">
             <Register />
           </Route>
-          <Route  path="/userdashboard">
+          <Route path="/userdashboard">
             <UserDashboard />
           </Route>
           <DoctorPrivateRoute path="/doctordashboard">
             <DoctorDashboard />
           </DoctorPrivateRoute>
-          <PrivateRoute path="/doctordashboard">
-            <DoctorDashboard/>
-          </PrivateRoute>
-
           <Route path="/covid19">
             <CovidTracker />
           </Route>
@@ -79,7 +75,7 @@ function App() {
             <SpecificDoctors />
           </Route>
           <Route exact path='/appointment/:department/:id'>
-            <BookAppointment/>
+            <BookAppointment />
           </Route>
           <Route path='/message'>
             <Message />
