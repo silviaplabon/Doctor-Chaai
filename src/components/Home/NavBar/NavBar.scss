@@ -5,13 +5,12 @@ $btn-color: #050546;
   width: 10rem;
   margin-top: 1rem;
 }
-.signUpBtn {
+.navbarBtn {
   background-color: #050546;
   transition: all 0.3s;
   color: $text-color !important;
-  padding: 10px 30px !important;
+  padding: 7px 12px !important;
   color: white;
-  padding: 8px 15px;
   text-decoration: none;
   &:hover {
     background-color: #212192;
@@ -41,7 +40,6 @@ $btn-color: #050546;
   text-decoration: none;
   margin-top: 25px !important;
   position: absolute;
-
 }
 .navbarItem a {
   position: relative;
