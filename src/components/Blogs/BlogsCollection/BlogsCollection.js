@@ -13,7 +13,7 @@ const BlogsCollection = () => {
       date: ' August 01, 2021',
       name: 'Vaccination',
       description:
-        'Hospital management System or HMS Software is mainly a system that',
+        'Hospital management System or HMS Software is mainly a system that ',
     },
     {
       date: ' August 01, 2021',
