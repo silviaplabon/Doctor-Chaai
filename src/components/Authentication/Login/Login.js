@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
   
-    <div className="login-container">
+    <div className="login-container" >
       {/* Error modal start */}
       <ErrorModal
         modalContent={[
@@ -53,7 +53,7 @@ const Login = () => {
         ]}
       />
       {/* Error modal end */}
-      <div className="container custom-container py-5">
+      <div className="container custom-container pageHeight py-5">
         <h3 className="text-center">OUR OLD USER? PLEASE LOG IN</h3>
         <div className="row row-cols-1 row-cols-md-2 login-container">
           <div className="col my-5 ">
@@ -107,15 +107,6 @@ const Login = () => {
           <p>
             Are you a new member ?{' '}
             <Link className="text-decoration-none" to="/register">
-              <span>Register here!</span>
-            </Link>
-          </p>
-          <span className="mx-5 " style={{ color: '#212729' }}>
-            Or
-          </span>
-          <p>
-            doctor ?{' '}
-            <Link className="text-decoration-none" to="/addDoctor">
               <span>Register here!</span>
             </Link>
           </p>
