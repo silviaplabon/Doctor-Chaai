@@ -113,7 +113,7 @@ const AddDoctor = () => {
       <>
     <NavBar></NavBar>
     <div className="addDoctorSection">
-      <div className="container mt-5 ">
+      <div className="container pt-5 ">
         <form onSubmit={handleSubmit(onSubmit)} className=" addDoctorFormStyle">
           <h2 className="">Basic Information</h2>
           <div className="row d-flex p-3  pb-5 sectionDoctorBg shadow">
@@ -270,7 +270,7 @@ const AddDoctor = () => {
           <div className="d-flex justify-content-end ">
             <input
               type="submit"
-              className="btn  text-white registerDoctorButton p-0"
+              className="btn  text-white registerDoctorButton p-0 mb-5"
               value="Register"
             />
           </div>

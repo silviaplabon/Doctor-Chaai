@@ -129,12 +129,12 @@ const NavBar = () => {
                       </Link>
                     </li>
                   ) : (
-                    <>
+                    <div className="navbarBtnParent">
                       <li className="nav-item">
                         <Link
-                          className="navbarBtn rounded-pill"
+                          className="navbarBtn userBtn rounded-pill"
                           aria-current="page"
-                          to="/register"
+                          to="/login"
                         >
                           For User
                         </Link>
@@ -143,12 +143,12 @@ const NavBar = () => {
                         <Link
                           className="navbarBtn rounded-pill"
                           aria-current="page"
-                          to="/register"
+                          to="/doctorLogin"
                         >
                           For Doctor
                         </Link>
                       </li>
-                      </>
+                      </div>
                   )}
                 </ul>
               </div>

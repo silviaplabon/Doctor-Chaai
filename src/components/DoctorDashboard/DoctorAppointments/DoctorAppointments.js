@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './DoctorAppointments.scss'
+import './DoctorAppointments.scss';
 
 const DoctorAppointments = () => {
     const [appointment, setAppointment] = useState([])
@@ -17,8 +17,8 @@ const DoctorAppointments = () => {
     })
 
     return (
-        <div className="container mt-3">
-            <div className="row">
+        <div className="w-100 SubParentDesign">
+            <div className="row px-xl-5">
                 <div className="col-md-10 appoint-header">
                     <h3>Doctor's Available Appointments</h3>
                 </div>
@@ -38,10 +38,10 @@ const DoctorAppointments = () => {
                                         <h5 className="card-title">{d.name}</h5>
                                     </div>
                                     <div className="text-center mt-2 w-25">
-                                        <p>{d.department}</p>
+                                        <p>{d.doctorDetails.specialization}</p>
                                     </div>
                                     <div className="text-center mt-2 w-25">
-                                        <p>{d.doctor}</p>
+                                        <p>{d.doctorDetails.name}</p>
                                     </div>
                                     <div className=" text-center mt-2 w-25">
                                         <p>{d.phone}</p>
