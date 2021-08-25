@@ -11,7 +11,6 @@ import "./NavBar.scss";
 const containerStyle = {
   width: "800px",
   height: "800px",
-  
 };
 const center = {
   lat: 23.810651,
@@ -57,8 +56,6 @@ const NavBar = () => {
     setLoggedInUser(localStorage.removeItem("Authorization"));
   };
 
-//   const handleClick = (e) => {};
-
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -87,7 +84,7 @@ const NavBar = () => {
                 </button>
               </div>
               <div
-                className="collapse navbar-collapse ms-lg-3"
+                className="collapse navbar-collapse ms-lg-3 d-lg-flex align-items-center"
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbarItem">
@@ -101,18 +98,10 @@ const NavBar = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/userdashboard">
-                      Profile
-                    </Link>
-                  </li>
-                  <li className="nav-item">
                     <Link className="nav-link" to="/" onClick={handleModal}>
                       Find Medical
                     </Link>
                   </li>
-                  {/* <li className="nav-item">
-                    <a className="anchor-class" href="https://doctor-chaai-help.netlify.app/" target="_blank" rel="noopener noreferrer">help</a>
-                  </li> */}
                   <li className="nav-item">
                     <Link className="nav-link" to="/covid19">
                       Covid Tracker
@@ -140,15 +129,26 @@ const NavBar = () => {
                       </Link>
                     </li>
                   ) : (
-                    <li className="nav-item mt-3 mt-lg-0">
-                      <Link
-                        className="signUpBtn rounded-pill"
-                        aria-current="page"
-                        to="/register"
-                      >
-                        SignUp
-                      </Link>
-                    </li>
+                    <>
+                      <li className="nav-item">
+                        <Link
+                          className="navbarBtn rounded-pill"
+                          aria-current="page"
+                          to="/register"
+                        >
+                          For User
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          className="navbarBtn rounded-pill"
+                          aria-current="page"
+                          to="/register"
+                        >
+                          For Doctor
+                        </Link>
+                      </li>
+                      </>
                   )}
                 </ul>
               </div>

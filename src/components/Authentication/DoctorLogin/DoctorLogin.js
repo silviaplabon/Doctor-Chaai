@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../App';
-import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
 import doctorsChamber from '../../../images/doctorLogin.jpg';
+import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
 
 
 const DoctorLogin = () => {
@@ -48,7 +48,7 @@ const DoctorLogin = () => {
                 modalContent={[
                     errorModal,
                     setErrorModal,
-                    'LogIn Error, Please Try Again',
+                    'You are not a Doctor',
                 ]}
             />
             {/* Error modal end */}

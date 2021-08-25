@@ -5,17 +5,15 @@ $btn-color: #050546;
   width: 10rem;
   margin-top: 1rem;
 }
-
-.signUpBtn {
+.navbarBtn {
   background-color: #050546;
   transition: all 0.3s;
   color: $text-color !important;
-  padding: 10px 30px !important;
+  padding: 12px 20px !important;
   color: white;
-  padding: 8px 15px;
   text-decoration: none;
   &:hover {
-    background-color: #212192;
+    background-color: #060663;
     color: white;
   }
 }
