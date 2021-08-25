@@ -20,11 +20,6 @@ import Home from "./components/Home/Home/Home";
 import Message from "./components/Messenger/Message";
 import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
 
-
-
-
-
-
 export const UserContext = createContext();
 
 function App() {
@@ -35,30 +30,30 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home/>
-          </Route>
-          <Route exact path="/currentPatientDoctor">
-            <CurrentPatientInfo/>
-          </Route>
-          <Route exact path="/currentPatientUser">
-            <AllPatientSchedule/>
-          </Route>
-          <Route  path="/home">
             <Home />
           </Route>
-          <Route  path="/login">
-          <Login/>
+          <Route exact path="/currentPatientDoctor">
+            <CurrentPatientInfo />
           </Route>
-          <Route  path="/addDoctor">
+          <Route exact path="/currentPatientUser">
+            <AllPatientSchedule />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/addDoctor">
             <AddDoctor></AddDoctor>
           </Route>
-          <PrivateRoute  path="/allDoctorList">
+          <PrivateRoute path="/allDoctorList">
             <AllDoctorsCollection></AllDoctorsCollection>
           </PrivateRoute>
-          <Route  path="/register">
+          <Route path="/register">
             <Register />
           </Route>
-          <Route  path="/userdashboard">
+          <Route path="/userdashboard">
             <UserDashboard />
           </Route>
           <DoctorPrivateRoute path="/doctordashboard">
