@@ -46,7 +46,7 @@ $btn-color: #050546;
     &:hover {
       transition: all 0.5s;
       background-color: #ffffff;
-      color: #050546;
+      color: #050546 !important;
     }
   }
 }
