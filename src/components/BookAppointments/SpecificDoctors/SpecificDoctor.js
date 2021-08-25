@@ -14,13 +14,13 @@ const SpecificDoctor = ({ dept }) => {
         >
           <img
             src={dept.photo}
-            style={{ width: "20%" }}
-            className="rounded mx-auto"
+            style={{ width: "6rem" }}
+            className="rounded-circle mx-auto mt-4"
             alt={dept._id}
           />
           <div className="card-body">
-            <h5 className="card-title">{dept.name}</h5>
-            <p className="card-text">{dept.experience}</p>
+            <h5 className="card-title m-0 p-0">{dept.name}</h5>
+            <p className="card-text m-0 p-1">{dept.experience}</p>
           </div>
         </div>
       </div>
