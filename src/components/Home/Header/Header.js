@@ -1,13 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../../App';
 import banner from "../../../images/banner-img.png";
 import "./Header.scss";
 
 const Header = () => {
-const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-   console.log(loggedInUser);
-
     return (
         <section className="header-main d-flex align-items-center">
             <div className="header-main-container container d-flex align-items-center">
@@ -17,10 +13,6 @@ const [loggedInUser, setLoggedInUser] = useContext(UserContext)
                             <h1>welcome to the hospital & <span className="life">life.</span></h1>
                             <p className="py-3">Hospital Management System or HMS Software is mainly a system that can help to maintain any hospital activities properly and easily. Moreover, the hospital management system can be used as clinical software. Also, it helps to keep records and monitor the activities of any hospital. </p>
                             <div className="d-flex">
-                                {
-                                    loggedInUser?.userName ? '' :
-                                    <Link to="/login"><button className="login-btn px-4 py-2 me-2 headerButton">log in</button></Link>
-                                }
                                 <Link to="/appointment">
                                     <button className="appoint-btn px-3 py-2 headerButton">appointment</button>
                                 </Link>

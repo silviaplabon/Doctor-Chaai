@@ -1,5 +1,15 @@
 .doctorCard {
-  border: 3px solid #050545;
+  border: 4px solid #050545;
   border-radius: 15px;
   cursor: pointer;
+  background: #f4ffff;
+  transition: all 0.3s;
+  &:hover {
+    transition: all 0.5s;
+    box-shadow: 0 0.5rem 1rem #00004359 !important;
+  }
+  img {
+    width: 6rem;
+    border: 5px solid #00cccc;
+  }
 }

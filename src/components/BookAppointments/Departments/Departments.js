@@ -27,87 +27,76 @@ const Departments = () => {
       img: departmentImg2,
     },
     {
-      id: 4,
+      id: 3,
       name: "Radiologists",
       img: departmentImg3,
     },
     {
-      id: 5,
+      id: 4,
       name: "Urologists",
       img: departmentImg1,
     },
     {
-      id: 6,
+      id: 5,
       name: "Dermatologists",
       img: departmentImg,
     },
     {
-      id: 7,
+      id: 6,
       name: "Endocrinologists",
       img: departmentImg1,
     },
     {
-      id: 8,
-      name: "Psychiatrists",
-      img: departmentImg2,
-    },
-    {
-      id: 9,
+      id: 7,
+
       name: "Physiatrists",
       img: departmentImg4,
     },
     {
-      id: 10,
+      id: 8,
       name: "Gastroenterologists",
       img: departmentImg2,
     },
     {
-      id: 11,
+      id: 9,
       name: "Pathologists",
       img: departmentImg1,
     },
     {
-      id: 12,
+      id: 10,
       name: "Hematologists",
       img: departmentImg1,
     },
     {
-      id: 13,
-      name: "Internists",
-      img: departmentImg2,
-    },
-    {
-      id: 14,
+      id: 11,
+
       name: "Medical Geneticists",
       img: departmentImg3,
     },
     {
+
       id: 15,
       name: "Nephrologists",
       img: departmentImg4,
     },
     {
-      id: 16,
+      id: 12,
+
       name: "Neurologists",
       img: departmentImg2,
     },
     {
-      id: 17,
+      id: 13,
       name: "Gynecologists",
       img: departmentImg1,
     },
     {
-      id: 18,
-      name: "Oncologists",
-      img: departmentImg,
-    },
-    {
-      id: 19,
+      id: 14,
       name: "Ophthalmologists",
       img: departmentImg3,
     },
     {
-      id: 20,
+      id: 15,
       name: "Medicine Specialists",
       img: departmentImg1,
     },

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
 import { db } from "../../../DataBase/FirebaseInitialize/firebase.config";
 import Footer from "../../Home/Footer/Footer";
 import NavBar from "../../Home/NavBar/NavBar";
@@ -12,12 +11,11 @@ import ScheduleList from "./ScheduleList";
 
 const BookAppointment = () => {
   const { id } = useParams();
-  console.log('doctor id',id);
   const [selectSchedule, setSelectSchedule] = useState({});
   const [isScheduleSelect, setIsScheduleSelect] = useState(false);
   const [allAvailableSchedule, setAllAvailableSchedule] = useState([]);
   const [doctorDetails, setDoctorDetails] = useState({});
-  
+
   const {
     register,
     handleSubmit,
@@ -29,11 +27,11 @@ const BookAppointment = () => {
   // UseHistory for route changing
   let history = useHistory();
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`https://whispering-reef-28119.herokuapp.com/doctor/allDoctors/${id}`)
-    .then(res=>res.json())
-    .then(data => setDoctorDetails(data.result[0]))
-  },[])
+      .then((res) => res.json())
+      .then((data) => setDoctorDetails(data.result[0]));
+  }, []);
 
   useEffect(() => {
     if (Object.keys(selectSchedule).length !== 0) {
@@ -44,63 +42,68 @@ const BookAppointment = () => {
   }, [selectSchedule]);
 
   const availableCollection = db.collection("availableSchedule");
-  const email = "test2@gmail.com";
+  let email = doctorDetails?.email || "";
 
   //Get Doctor Schedule
   const availableScheduleGet = async () => {
-    let doctorID;
-    const snapshot = await availableCollection
-      .where("email", "==", email)
-      .get();
-    // check the doctors finded or not find
-    if (!snapshot.empty) {
-      snapshot.forEach((doc) => {
-        doctorID = doc.id;
-      });
-    }
+    if (email !== "") {
+      let doctorID;
+      const snapshot = await availableCollection
+        .where("email", "==", email)
+        .get();
+      // check the doctors finded or not find
+      if (!snapshot.empty) {
+        snapshot.forEach((doc) => {
+          doctorID = doc.id;
+        });
+      }
 
-    const data = await availableCollection
-      .doc(doctorID)
-      .collection("schedule")
-      .get();
-    let tempAllSchedule = [];
-    data.forEach((doc) => {
-      tempAllSchedule.push(doc.data().scheduleData);
-    });
-    setAllAvailableSchedule(tempAllSchedule);
+      const data = await availableCollection
+        .doc(doctorID)
+        .collection("schedule")
+        .get();
+      let tempAllSchedule = [];
+      data.forEach((doc) => {
+        tempAllSchedule.push(doc.data().scheduleData);
+      });
+      setAllAvailableSchedule(tempAllSchedule);
+    }
   };
-  useEffect(() => availableScheduleGet(), []);
+  useEffect(() => availableScheduleGet(), [email]);
 
   // Form Data submit
   const onSubmit = (data) => {
     data.schedule = selectSchedule;
-    data.doctorDetails={name:doctorDetails.name,specialization:doctorDetails.specialization,doctorID:doctorDetails._id}
+    data.doctorDetails = {
+      name: doctorDetails.name,
+      specialization: doctorDetails.specialization,
+      email: doctorDetails.email,
+      doctorID: doctorDetails._id,
+    };
     if (Object.keys(data.schedule).length !== 0) {
-      console.log(data);
+      fetch(
+        "https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+          },
+          body: JSON.stringify(data),
+        }
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.status === true) {
+            setSuccessModal(true);
+            setTimeout(() => {
+              history.replace("/");
+            }, 3000);
+          } else if (result.status === false) {
+            setErrorModal(true);
+          }
+        });
     }
-    // fetch(
-    //   "https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
-    //     },
-    //     body: JSON.stringify(data),
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     console.log(result);
-    //     if (result.status === true) {
-    //       setSuccessModal(true);
-    //       setTimeout(() => {
-    //         history.replace("/");
-    //       }, 3000);
-    //     } else if (result.status === false) {
-    //       setErrorModal(true);
-    //     }
-    //   });
   };
 
   return (
@@ -126,9 +129,9 @@ const BookAppointment = () => {
               <div className="m-auto">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="d-flex p-0 px-5"
+                  className="d-lg-flex p-0 px-2 px-lg-5 px-xl-5"
                 >
-                  <div className="w-100 px-xl-5 py-4 m-3 scheduleParent">
+                  <div className="w-100 px-3 px-xl-5 py-4 mx-lg-3 my-3 scheduleParent">
                     <div>
                       <h2 className="pt-1 pb-0 mb-1">Available Schedule</h2>
                       <h5
@@ -137,9 +140,11 @@ const BookAppointment = () => {
                           color: `${isScheduleSelect ? "#dc3545" : "#00cccc"}`,
                         }}
                       >
-                        {isScheduleSelect
-                          ? "Please select one Schedule"
-                          : "You Selected One Schedule"}
+                        {allAvailableSchedule.length !== 0
+                          ? isScheduleSelect
+                            ? "Please select one Schedule"
+                            : "You Selected One Schedule"
+                          : "Schedule Not Available"}
                       </h5>
                       {allAvailableSchedule.map((data, index) => (
                         <ScheduleList
@@ -150,7 +155,7 @@ const BookAppointment = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="w-100 px-xl-5 m-3 scheduleParent">
+                  <div className="w-100 px-3 px-xl-5 mx-lg-3 my-3 scheduleParent">
                     <h2 className="pt-1 pb-0 mb-4 mt-4">
                       Please fill out the form
                     </h2>
@@ -177,7 +182,7 @@ const BookAppointment = () => {
                         type="email"
                         className="appointmentInput form-control rounded-pill w-100"
                         placeholder="Enter Your Email"
-                        name="email"
+                        name="userEmail"
                         ref={register({ required: true })}
                       />
                     </div>
@@ -195,16 +200,16 @@ const BookAppointment = () => {
                         type="text"
                         className="appointmentInput form-control rounded-pill w-100"
                         placeholder="Select Your Blood Group"
-                        name="bloodgroup"
+                        name="bloodGroup"
                         ref={register({ required: true })}
                       />
                     </div>
                     <div className="w-100">
                       {(errors.name ||
                         errors.phone ||
-                        errors.email ||
+                        errors.userEmail ||
                         errors.age ||
-                        errors.bloodgroup) && (
+                        errors.bloodGroup) && (
                         <p className="text-center text-danger mt-2 mb-0">
                           Please Provide Your Valid Data
                         </p>

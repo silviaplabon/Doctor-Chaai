@@ -12,9 +12,9 @@ const ScheduleList = ({data,schedule}) => {
           name="flexRadioDefault"
           id={`flexRadioDefault${index}`}
         />
-        <label class="form-check-label w-100 h-100 py-3 d-flex align-content-center justify-content-evenly" for={`flexRadioDefault${index}`}>
-          <span>{scheduleData.date}</span>
-          <span>{scheduleData.startTime} - {scheduleData.endTime}</span>
+        <label class="form-check-label w-100 h-100 py-3 d-sm-flex align-content-center justify-content-evenly" for={`flexRadioDefault${index}`}>
+          <p className="m-0">{scheduleData.date}</p>
+          <p className="m-0">{scheduleData.startTime} - {scheduleData.endTime}</p>
         </label>
       </div>
     </>

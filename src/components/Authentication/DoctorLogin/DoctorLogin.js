@@ -2,13 +2,12 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../App';
-import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
 import doctorsChamber from '../../../images/doctorLogin.jpg';
+import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
 
 
 const DoctorLogin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser);
 
     const [errorModal, setErrorModal] = useState(false);
 
@@ -48,11 +47,11 @@ const DoctorLogin = () => {
                 modalContent={[
                     errorModal,
                     setErrorModal,
-                    'LogIn Error, Please Try Again',
+                    'You are not a Doctor',
                 ]}
             />
             {/* Error modal end */}
-            <div className="container custom-container py-5">
+            <div className="container custom-container pageHeight py-5">
                 <h3 className="text-center">OUR OLD DOCTOR? PLEASE LOG IN</h3>
                 <div className="row row-cols-1 row-cols-md-2 login-container">
                     <div className="col my-5 ">
