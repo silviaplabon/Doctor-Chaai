@@ -7,7 +7,7 @@ const UserAppointmentList = () => {
     const [loggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        fetch('https:whispering-reef-28119.herokuapp.com/appointment', {
+        fetch('https://whispering-reef-28119.herokuapp.com/appointment', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('Authorization')}`
             }
@@ -16,7 +16,7 @@ const UserAppointmentList = () => {
             .then(data => {
                 setAppointmentList(data.result.filter(data=>data.userEmail === loggedInUser.email));
             })
-    }, [loggedInUser.email])
+    }, [loggedInUser.email]);
     
     return (
         <div className="w-100 SubParentDesign" >
