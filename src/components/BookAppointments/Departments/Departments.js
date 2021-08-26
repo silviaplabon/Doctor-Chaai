@@ -1,5 +1,9 @@
 import React from "react";
 import departmentImg from "../../../images/department.png";
+import departmentImg1 from "../../../images/department1.png";
+import departmentImg2 from "../../../images/department2.png";
+import departmentImg3 from "../../../images/department3.png";
+import departmentImg4 from "../../../images/department4.png";
 import Footer from "../../Home/Footer/Footer";
 import NavBar from "../../Home/NavBar/NavBar";
 import Department from "./Department";
@@ -14,18 +18,23 @@ const Departments = () => {
     },
     {
       id: 2,
+      name: "Anesthesiologists",
+      img: departmentImg1,
+    },
+    {
+      id: 3,
       name: "Cardiologists",
-      img: departmentImg,
+      img: departmentImg2,
     },
     {
       id: 3,
       name: "Radiologists",
-      img: departmentImg,
+      img: departmentImg3,
     },
     {
       id: 4,
       name: "Urologists",
-      img: departmentImg,
+      img: departmentImg1,
     },
     {
       id: 5,
@@ -35,52 +44,61 @@ const Departments = () => {
     {
       id: 6,
       name: "Endocrinologists",
-      img: departmentImg,
+      img: departmentImg1,
     },
     {
       id: 7,
+
       name: "Physiatrists",
-      img: departmentImg,
+      img: departmentImg4,
     },
     {
       id: 8,
       name: "Gastroenterologists",
-      img: departmentImg,
+      img: departmentImg2,
     },
     {
       id: 9,
       name: "Pathologists",
-      img: departmentImg,
+      img: departmentImg1,
     },
     {
       id: 10,
       name: "Hematologists",
-      img: departmentImg,
+      img: departmentImg1,
     },
     {
       id: 11,
+
       name: "Medical Geneticists",
-      img: departmentImg,
+      img: departmentImg3,
+    },
+    {
+
+      id: 15,
+      name: "Nephrologists",
+      img: departmentImg4,
     },
     {
       id: 12,
+
       name: "Neurologists",
-      img: departmentImg,
+      img: departmentImg2,
     },
     {
       id: 13,
       name: "Gynecologists",
-      img: departmentImg,
+      img: departmentImg1,
     },
     {
       id: 14,
       name: "Ophthalmologists",
-      img: departmentImg,
+      img: departmentImg3,
     },
     {
       id: 15,
       name: "Medicine Specialists",
-      img: departmentImg,
+      img: departmentImg1,
     },
   ];
 
