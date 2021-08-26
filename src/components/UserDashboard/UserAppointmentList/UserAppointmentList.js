@@ -1,49 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../../App";
 import UserAppoinmentListShow from './../UserAppointmentListShow/UserAppointmentListShow';
 
 const UserAppointmentList = () => {
-    const [appointmentList, setAppointmentList] = useState([])
-    if(appointmentList){
-        console.log(true);
-    }
-    const appointmentData = [
-        {
-            doctor: 'Dr. Ruby Perrin',
-            image: 'https:i.ibb.co/KFrGj1F/dr-male-75x85.jpg',
-            department: 'dental',
-            appDate: '14 Nov 2019',
-            bookingDate: '12 Nov 2019',
-            amount: '1000',
-            status: 'Confirm'
-        },
-        {
-            doctor: 'Dr. Ruby Perrin',
-            image: 'https:i.ibb.co/KFrGj1F/dr-male-75x85.jpg',
-            department: 'dental',
-            appDate: '14 Nov 2019',
-            bookingDate: '12 Nov 2019',
-            amount: '1000',
-            status: 'Confirm'
-        },
-        {
-            doctor: 'Dr. Ruby Perrin',
-            image: 'https:i.ibb.co/KFrGj1F/dr-male-75x85.jpg',
-            department: 'dental',
-            appDate: '14 Nov 2019',
-            bookingDate: '12 Nov 2019',
-            amount: '1000',
-            status: 'Confirm'
-        },
-        {
-            doctor: 'Dr. Ruby Perrin',
-            image: 'https:i.ibb.co/KFrGj1F/dr-male-75x85.jpg',
-            department: 'dental',
-            appDate: '14 Nov 2019',
-            bookingDate: '12 Nov 2019',
-            amount: '1000',
-            status: 'Confirm'
-        }
-    ]
+    const [appointmentList, setAppointmentList] = useState([]);
+    const [loggedInUser] = useContext(UserContext);
 
     useEffect(() => {
         fetch('https:whispering-reef-28119.herokuapp.com/appointment', {
@@ -53,16 +14,15 @@ const UserAppointmentList = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setAppointmentList(data.result);
-                console.log(data.result);
+                setAppointmentList(data.result.filter(data=>data.userEmail === loggedInUser.email));
             })
-    }, [])
+    }, [loggedInUser.email])
     
     return (
         <div className="w-100 SubParentDesign" >
             <div className="row row-cols-1 row-cols-md-1  row-cols-lg-2 row-cols-xxl-3">
                 {
-                    appointmentData?.map(appointment => <UserAppoinmentListShow appointment={appointment} />)
+                    appointmentList?.map(appointment => <UserAppoinmentListShow appointment={appointment} />)
                 }
             </div>
         </div>

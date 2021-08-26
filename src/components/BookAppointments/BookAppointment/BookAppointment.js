@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
 import { db } from "../../../DataBase/FirebaseInitialize/firebase.config";
@@ -41,10 +41,10 @@ const BookAppointment = () => {
     }
   }, [selectSchedule]);
 
-  const availableCollection = db.collection("availableSchedule");
   let email = doctorDetails?.email || "";
 
   useEffect(() => {
+    const availableCollection = db.collection("availableSchedule");
     //Get Doctor Schedule
     const availableScheduleGet = async () => {
       if (email !== "") {
@@ -71,7 +71,7 @@ const BookAppointment = () => {
       }
     };
     availableScheduleGet();
-  }, [email,availableCollection]);
+  }, [email]);
 
   // Form Data submit
   const onSubmit = (data) => {
@@ -81,6 +81,7 @@ const BookAppointment = () => {
       specialization: doctorDetails.specialization,
       email: doctorDetails.email,
       doctorID: doctorDetails._id,
+      image: doctorDetails.photo,
     };
     if (Object.keys(data.schedule).length !== 0) {
       fetch(
