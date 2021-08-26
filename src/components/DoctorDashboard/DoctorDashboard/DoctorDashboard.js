@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch, useHistory } from "react-router-dom";
 import { UserContext } from "../../../App";
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
@@ -18,6 +18,7 @@ import "./DoctorDashboard.scss";
 const DoctorDashboard = () => {
   const [expandDoctorSidebar, setExpandDoctorSidebar] = useState(false);
   const [loggedInUser] = useContext(UserContext);
+  const history = useHistory();
 
   return (
     <Router>
@@ -28,7 +29,7 @@ const DoctorDashboard = () => {
             expandDoctorSidebar && "doctorSideBarHide"
           }`}
         >
-          <div className="dashboardLogo">
+          <div style={{cursor:'pointer'}} onClick={()=>history.push('/home')} className="dashboardLogo">
             <img src="https://i.ibb.co/FzBKrr8/dcLogoWH.png" alt="logo" />
           </div>
           <div className="sidebarMenu">

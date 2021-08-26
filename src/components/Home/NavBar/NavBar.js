@@ -127,7 +127,7 @@ const NavBar = () => {
                         onClick={handleLogout}
                         className="navbarBtn rounded-pill"
                         aria-current="page"
-                        to="/login"
+                        to="/home"
                       >
                         Logout
                       </Link>
