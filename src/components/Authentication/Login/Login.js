@@ -30,7 +30,8 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(result => {
-        setLoggedInUser({ result: result.status, userName: result.user, email:result.email})
+        setLoggedInUser({ result: result.status, userName: result.user, email:result.email});
+        console.log(loggedInUser?.status === true);
         if (result.status === true) {
           history.replace(from);
         } else if (result.status === false) {

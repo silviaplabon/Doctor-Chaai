@@ -1,13 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router-dom';
-import './UserDashboardData.scss'
-import NavBar from './../../Home/NavBar/NavBar';
-
-
+import './UserDashboardData.scss';
 const UserDashboardData = () => {
-
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
     const history = useHistory()
