@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useContext } from "react";
-import { UserContext } from "../../../App";
 import UserAppoinmentListShow from './../UserAppointmentListShow/UserAppointmentListShow';
 
 const UserAppointmentList = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const [appointmentList, setAppointmentList] = useState([])
+    if(appointmentList){
+        console.log(true);
+    }
     const appointmentData = [
         {
             doctor: 'Dr. Ruby Perrin',

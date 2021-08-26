@@ -3,7 +3,7 @@ import { db } from "../../../DataBase/FirebaseInitialize/firebase.config.js";
 
 const ScheduleList = ({ doctor, schedule, updateList }) => {
   const [updatePendingList, setUpdatePendingList] = updateList;
-  const [oldDoctorId, setOldDoctorId] = useState(doctor.doctorID);
+  const [oldDoctorId] = useState(doctor.doctorID);
   
   // database collection reference
   const databaseCollection = db.collection("availableSchedule");

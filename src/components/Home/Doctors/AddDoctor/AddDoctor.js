@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 import Footer from "../../Footer/Footer";
 import NavBar from "../../NavBar/NavBar";
 import "./AddDoctor.scss";
@@ -9,7 +8,6 @@ import "./AddDoctor.scss";
 const AddDoctor = () => {
   const { register, handleSubmit } = useForm();
   const [imageURL, setImageURL] = useState(null);
-  const history = useHistory();
 
   const DepartmentsData = [
     {
@@ -107,7 +105,7 @@ const AddDoctor = () => {
         setImageURL(response.data.data.display_url);
         console.log(imageURL);
       })
-      .catch(function (error) {});
+      .catch((error)=>console.log(error));
   };
   return (
       <>

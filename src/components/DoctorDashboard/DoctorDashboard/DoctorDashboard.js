@@ -17,7 +17,7 @@ import "./DoctorDashboard.scss";
 
 const DoctorDashboard = () => {
   const [expandDoctorSidebar, setExpandDoctorSidebar] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [loggedInUser] = useContext(UserContext);
   console.log(loggedInUser);
 
   return (

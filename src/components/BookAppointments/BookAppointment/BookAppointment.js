@@ -32,7 +32,7 @@ const BookAppointment = () => {
     fetch(`https://whispering-reef-28119.herokuapp.com/doctor/allDoctors/${id}`)
       .then((res) => res.json())
       .then((data) => setDoctorDetails(data.result[0]));
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (Object.keys(selectSchedule).length !== 0) {
@@ -45,32 +45,34 @@ const BookAppointment = () => {
   const availableCollection = db.collection("availableSchedule");
   let email = doctorDetails?.email || "";
 
-  //Get Doctor Schedule
-  const availableScheduleGet = async () => {
-    if (email !== "") {
-      let doctorID;
-      const snapshot = await availableCollection
-        .where("email", "==", email)
-        .get();
-      // check the doctors finded or not find
-      if (!snapshot.empty) {
-        snapshot.forEach((doc) => {
-          doctorID = doc.id;
-        });
-      }
+  useEffect(() => {
+    //Get Doctor Schedule
+    const availableScheduleGet = async () => {
+      if (email !== "") {
+        let doctorID;
+        const snapshot = await availableCollection
+          .where("email", "==", email)
+          .get();
+        // check the doctors finded or not find
+        if (!snapshot.empty) {
+          snapshot.forEach((doc) => {
+            doctorID = doc.id;
+          });
+        }
 
-      const data = await availableCollection
-        .doc(doctorID)
-        .collection("schedule")
-        .get();
-      let tempAllSchedule = [];
-      data.forEach((doc) => {
-        tempAllSchedule.push(doc.data().scheduleData);
-      });
-      setAllAvailableSchedule(tempAllSchedule);
-    }
-  };
-  useEffect(() => availableScheduleGet(), [email]);
+        const data = await availableCollection
+          .doc(doctorID)
+          .collection("schedule")
+          .get();
+        let tempAllSchedule = [];
+        data.forEach((doc) => {
+          tempAllSchedule.push(doc.data().scheduleData);
+        });
+        setAllAvailableSchedule(tempAllSchedule);
+      }
+    };
+    availableScheduleGet();
+  }, [email,availableCollection]);
 
   // Form Data submit
   const onSubmit = (data) => {

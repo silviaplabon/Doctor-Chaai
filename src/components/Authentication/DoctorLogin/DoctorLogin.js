@@ -30,7 +30,8 @@ const DoctorLogin = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result)
-                setLoggedInUser({ result: result.status, isDoctor: result.isDoctor, email: result.email })
+                setLoggedInUser({ result: result.status, isDoctor: result.isDoctor, email: result.email });
+                console.log(loggedInUser?.status === true);
                 if (result.status === true && result.isDoctor === true) {
                     history.replace(from);
                 } else if (result.status === false) {

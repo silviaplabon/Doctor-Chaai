@@ -6,7 +6,7 @@ const AllPatientScheduleShow = ({patient}) => {
         <div className="card w-75 m-auto">
             <div className="row">
                 <div className="col-4">
-                      <img src={image}></img>
+                      <img src={image} alt="patient"></img>
                 </div>
                 <div className="col-4">
                 <p>{name}</p>
