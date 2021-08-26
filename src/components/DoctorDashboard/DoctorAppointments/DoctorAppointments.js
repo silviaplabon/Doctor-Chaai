@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import './DoctorAppointments.scss'
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../App';
+import './DoctorAppointments.scss';
 
 const DoctorAppointments = () => {
-    const [appointment, setAppointment] = useState([])
+    const [appointment, setAppointment] = useState([]);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
         fetch('https://whispering-reef-28119.herokuapp.com/appointment', {
@@ -12,13 +14,13 @@ const DoctorAppointments = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setAppointment(data.result)
+                setAppointment(data.result.filter(data=>data.doctorDetails.email === loggedInUser.email))
             })
-    })
+    },[])
 
     return (
-        <div className="container mt-3">
-            <div className="row">
+        <div className="w-100 SubParentDesign">
+            <div className="row px-xl-5">
                 <div className="col-md-10 appoint-header">
                     <h3>Doctor's Available Appointments</h3>
                 </div>
@@ -33,15 +35,15 @@ const DoctorAppointments = () => {
                     {
                         appointment.map((d) => {
                             return <div className="card text-white appointment-details mb-3">
-                                <div className=" w-100 d-xl-flex align-items-center justify-content-between">
+                                <div className=" w-100 d-sm-flex align-items-center justify-content-between">
                                     <div className="text-center w-25">
                                         <h5 className="card-title">{d.name}</h5>
                                     </div>
                                     <div className="text-center mt-2 w-25">
-                                        <p>{d.department}</p>
+                                        <p>{d.doctorDetails.specialization}</p>
                                     </div>
                                     <div className="text-center mt-2 w-25">
-                                        <p>{d.doctor}</p>
+                                        <p>{d.doctorDetails.name}</p>
                                     </div>
                                     <div className=" text-center mt-2 w-25">
                                         <p>{d.phone}</p>

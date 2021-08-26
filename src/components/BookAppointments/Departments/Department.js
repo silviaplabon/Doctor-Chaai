@@ -5,7 +5,7 @@ import './Departments.scss';
 const Department = ({ department }) => {
     return (
         <div className="dept-container">
-            <Link className="link" to={`/doctorDepartments/${department.name}`}>
+            <Link className="link" to={`/appointment/${department.name}`}>
                 <div className="col px-lg-3 px-xl-5 mb-3">
                     <div className="card dept-card h-100">
                         <div className="card-body text-center">
