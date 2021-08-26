@@ -1,7 +1,16 @@
-.appointmentStatusButton{
-    background-color:#050545!important;
-    border-radius:0.70rem!important
+.appointmentStatusButton {
+  background-color: #050545 !important;
+  border-radius: 0.7rem !important;
 }
-.doctorImageAppointment{
-    
+.userAppointmentCard {
+  border-radius: 15px;
+  color: #050545;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    width: 3rem;
+    margin-top: 10px;
+  }
 }

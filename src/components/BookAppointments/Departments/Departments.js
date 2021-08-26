@@ -18,11 +18,6 @@ const Departments = () => {
     },
     {
       id: 2,
-      name: "Anesthesiologists",
-      img: departmentImg1,
-    },
-    {
-      id: 3,
       name: "Cardiologists",
       img: departmentImg2,
     },
@@ -48,7 +43,6 @@ const Departments = () => {
     },
     {
       id: 7,
-
       name: "Physiatrists",
       img: departmentImg4,
     },
@@ -69,21 +63,13 @@ const Departments = () => {
     },
     {
       id: 11,
-
       name: "Medical Geneticists",
       img: departmentImg3,
     },
     {
-
-      id: 15,
-      name: "Nephrologists",
-      img: departmentImg4,
-    },
-    {
       id: 12,
-
       name: "Neurologists",
-      img: departmentImg2,
+      img: departmentImg4,
     },
     {
       id: 13,
