@@ -1,41 +1,104 @@
-import React from 'react';
-import departmentImg from '../../../images/department.png';
-import Footer from '../../Home/Footer/Footer';
-import NavBar from '../../Home/NavBar/NavBar';
-import Department from './Department';
-import './Departments.scss';
+import React from "react";
+import departmentImg from "../../../images/department.png";
+import departmentImg1 from "../../../images/department1.png";
+import departmentImg2 from "../../../images/department2.png";
+import departmentImg3 from "../../../images/department3.png";
+import departmentImg4 from "../../../images/department4.png";
+import Footer from "../../Home/Footer/Footer";
+import NavBar from "../../Home/NavBar/NavBar";
+import Department from "./Department";
+import "./Departments.scss";
 
 const Departments = () => {
   const DepartmentsData = [
     {
       id: 1,
-      name: 'Endocrinologist',
+      name: "Allergists",
       img: departmentImg,
     },
     {
       id: 2,
-      name: 'Gynecologist',
-      img: departmentImg,
+      name: "Anesthesiologists",
+      img: departmentImg1,
     },
     {
       id: 3,
-      name: 'Neurologist',
-      img: departmentImg,
+      name: "Cardiologists",
+      img: departmentImg2,
+    },
+    {
+      id: 3,
+      name: "Radiologists",
+      img: departmentImg3,
     },
     {
       id: 4,
-      name: 'Cardiologists',
-      img: departmentImg,
+      name: "Urologists",
+      img: departmentImg1,
     },
     {
       id: 5,
-      name: 'Neurologist',
+      name: "Dermatologists",
       img: departmentImg,
     },
     {
       id: 6,
-      name: 'Endocrinologist',
-      img: departmentImg,
+      name: "Endocrinologists",
+      img: departmentImg1,
+    },
+    {
+      id: 7,
+
+      name: "Physiatrists",
+      img: departmentImg4,
+    },
+    {
+      id: 8,
+      name: "Gastroenterologists",
+      img: departmentImg2,
+    },
+    {
+      id: 9,
+      name: "Pathologists",
+      img: departmentImg1,
+    },
+    {
+      id: 10,
+      name: "Hematologists",
+      img: departmentImg1,
+    },
+    {
+      id: 11,
+
+      name: "Medical Geneticists",
+      img: departmentImg3,
+    },
+    {
+
+      id: 15,
+      name: "Nephrologists",
+      img: departmentImg4,
+    },
+    {
+      id: 12,
+
+      name: "Neurologists",
+      img: departmentImg2,
+    },
+    {
+      id: 13,
+      name: "Gynecologists",
+      img: departmentImg1,
+    },
+    {
+      id: 14,
+      name: "Ophthalmologists",
+      img: departmentImg3,
+    },
+    {
+      id: 15,
+      name: "Medicine Specialists",
+      img: departmentImg1,
     },
   ];
 
@@ -43,8 +106,11 @@ const Departments = () => {
     <div>
       <NavBar />
       <div className="container">
-        <div className="row mt-5">
+        <div className="row mt-3">
           <div className="col-md-12 mb-5">
+            <h2 className="text-center mt-3 mb-5" style={{ color: "#050545" }}>
+              Select One Doctor
+            </h2>
             <div className="row row-cols-1 row-cols-md-3 g-4">
               {DepartmentsData.map((department) => (
                 <Department key={department.id} department={department} />

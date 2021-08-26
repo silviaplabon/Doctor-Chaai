@@ -1,17 +1,16 @@
 import { faGripLines, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import React, { useContext, useState } from "react";
+import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../App";
 import logo from "../../../images/doctor-logo.png";
 import "./NavBar.scss";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import Modal from "react-modal";
 
 const containerStyle = {
   width: "800px",
   height: "800px",
-  
 };
 const center = {
   lat: 23.810651,
@@ -57,8 +56,6 @@ const NavBar = () => {
     setLoggedInUser(localStorage.removeItem("Authorization"));
   };
 
-//   const handleClick = (e) => {};
-
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -87,7 +84,7 @@ const NavBar = () => {
                 </button>
               </div>
               <div
-                className="collapse navbar-collapse ms-lg-3"
+                className="collapse navbar-collapse ms-lg-3 d-lg-flex align-items-center"
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbarItem">
@@ -101,33 +98,30 @@ const NavBar = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                      Find Doctor
-                    </Link>
-                  </li>
-                  <li className="nav-item">
                     <Link className="nav-link" to="/" onClick={handleModal}>
                       Find Medical
                     </Link>
                   </li>
-                  {/* <li className="nav-item">
-                    <a className="anchor-class" href="https://doctor-chaai-help.netlify.app/" target="_blank" rel="noopener noreferrer">help</a>
-                  </li> */}
                   <li className="nav-item">
                     <Link className="nav-link" to="/covid19">
                       Covid Tracker
                     </Link>
                   </li>
+                  {loggedInUser?.email?<li className="nav-item">
+                    <Link className="nav-link" to={`${loggedInUser?.isDoctor === true ? "/doctorDashboard/dashboard":"/userdashboard"}`}>
+                      Dashboard
+                    </Link>
+                  </li>:''}
                 </ul>
                 <ul className="navbar-nav align-items-center ms-lg-auto mb-2 mb-lg-0 navbarBtnItem">
                   {/* <li className="nav-item ">
                                     <Link className="nav-link logInBtn" aria-current="page" to="/home">LogIn</Link>
                                 </li> */}
-                  {loggedInUser?.userName ? (
+                  {loggedInUser?.email ? (
                     <li className="nav-item mt-3 mt-lg-0">
                       <Link
                         onClick={handleLogout}
-                        className="signUpBtn rounded-pill"
+                        className="navbarBtn rounded-pill"
                         aria-current="page"
                         to="/login"
                       >
@@ -135,15 +129,26 @@ const NavBar = () => {
                       </Link>
                     </li>
                   ) : (
-                    <li className="nav-item mt-3 mt-lg-0">
-                      <Link
-                        className="signUpBtn rounded-pill"
-                        aria-current="page"
-                        to="/register"
-                      >
-                        SignUp
-                      </Link>
-                    </li>
+                    <div className="navbarBtnParent">
+                      <li className="nav-item">
+                        <Link
+                          className="navbarBtn userBtn rounded-pill"
+                          aria-current="page"
+                          to="/login"
+                        >
+                          For User
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          className="navbarBtn rounded-pill"
+                          aria-current="page"
+                          to="/doctorLogin"
+                        >
+                          For Doctor
+                        </Link>
+                      </li>
+                    </div>
                   )}
                 </ul>
               </div>

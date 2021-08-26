@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import { UserContext } from '../../../App';
 import doctorsChamber from '../../../images/doctorsChamber.jpg';
 import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
 import './Login.scss';
 
-const Register = () => {
+const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   // Usestate initialize for Modal handling
   const [errorModal, setErrorModal] = useState(false);
@@ -28,10 +28,9 @@ const Register = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     })
-      .then((res) => res.json())
-      .then((result) => {
-        setLoggedInUser({ result: result.status, userName: result.user });
-        console.log(result);
+      .then(res => res.json())
+      .then(result => {
+        setLoggedInUser({ result: result.status, userName: result.user, email:result.email})
         if (result.status === true) {
           history.replace(from);
         } else if (result.status === false) {
@@ -43,7 +42,8 @@ const Register = () => {
   };
 
   return (
-    <div className="login-container">
+  
+    <div className="login-container" >
       {/* Error modal start */}
       <ErrorModal
         modalContent={[
@@ -53,7 +53,7 @@ const Register = () => {
         ]}
       />
       {/* Error modal end */}
-      <div className="container custom-container py-5">
+      <div className="container custom-container pageHeight py-5">
         <h3 className="text-center">OUR OLD USER? PLEASE LOG IN</h3>
         <div className="row row-cols-1 row-cols-md-2 login-container">
           <div className="col my-5 ">
@@ -110,19 +110,10 @@ const Register = () => {
               <span>Register here!</span>
             </Link>
           </p>
-          <span className="mx-5 " style={{ color: '#212729' }}>
-            Or
-          </span>
-          <p>
-            doctor ?{' '}
-            <Link className="text-decoration-none" to="/addDoctor">
-              <span>Register here!</span>
-            </Link>
-          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Login;

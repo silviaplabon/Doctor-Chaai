@@ -5,7 +5,7 @@ import './Footer.scss';
 
 const Footer = () => {
     return (
-        <div className="footerParent">
+        <div className="footerParent mt-5">
             <div className="container-sm py-5 custom-container">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 footerContent pt-5">
                     <div className="col mt-3">

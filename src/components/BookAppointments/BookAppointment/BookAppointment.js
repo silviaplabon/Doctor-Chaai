@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
-import appointmentImg from '../../../images/appointment.png';
-import Footer from '../../Home/Footer/Footer';
-import NavBar from '../../Home/NavBar/NavBar';
-import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
-import SuccessModal from '../../Modal/SuccessModal/SuccessModal';
-import './BookAppointment.scss';
+import React, { useState,useEffect} from "react";
+import { useForm } from "react-hook-form";
+import { useHistory, useParams } from "react-router-dom";
+import { db } from "../../../DataBase/FirebaseInitialize/firebase.config";
+import Footer from "../../Home/Footer/Footer";
+import NavBar from "../../Home/NavBar/NavBar";
+import ErrorModal from "../../Modal/ErrorModal/ErrorModal";
+import SuccessModal from "../../Modal/SuccessModal/SuccessModal";
+import "./BookAppointment.scss";
+import ScheduleList from "./ScheduleList";
 
 const BookAppointment = () => {
-  // Store all Doctor Data
-  const [allDoctor, setAllDoctor] = useState([]);
+  const { id } = useParams();
+  const [selectSchedule, setSelectSchedule] = useState({});
+  const [isScheduleSelect, setIsScheduleSelect] = useState(false);
+  const [allAvailableSchedule, setAllAvailableSchedule] = useState([]);
+  const [doctorDetails, setDoctorDetails] = useState({});
 
   const {
     register,
@@ -22,47 +26,84 @@ const BookAppointment = () => {
   const [errorModal, setErrorModal] = useState(false);
   // UseHistory for route changing
   let history = useHistory();
-  //Load all Doctor
+
   useEffect(() => {
-    fetch('https://whispering-reef-28119.herokuapp.com/doctor', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('Authorization')}`,
-      },
-    })
+    fetch(`https://whispering-reef-28119.herokuapp.com/doctor/allDoctors/${id}`)
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setAllDoctor(data.result);
-      });
+      .then((data) => setDoctorDetails(data.result[0]));
   }, []);
-  console.log('Doctors', allDoctor);
+
+  useEffect(() => {
+    if (Object.keys(selectSchedule).length !== 0) {
+      setIsScheduleSelect(false);
+    } else {
+      setIsScheduleSelect(true);
+    }
+  }, [selectSchedule]);
+
+  const availableCollection = db.collection("availableSchedule");
+  let email = doctorDetails?.email || "";
+
+  //Get Doctor Schedule
+  const availableScheduleGet = async () => {
+    if (email !== "") {
+      let doctorID;
+      const snapshot = await availableCollection
+        .where("email", "==", email)
+        .get();
+      // check the doctors finded or not find
+      if (!snapshot.empty) {
+        snapshot.forEach((doc) => {
+          doctorID = doc.id;
+        });
+      }
+
+      const data = await availableCollection
+        .doc(doctorID)
+        .collection("schedule")
+        .get();
+      let tempAllSchedule = [];
+      data.forEach((doc) => {
+        tempAllSchedule.push(doc.data().scheduleData);
+      });
+      setAllAvailableSchedule(tempAllSchedule);
+    }
+  };
+  useEffect(() => availableScheduleGet(), [email]);
+
   // Form Data submit
   const onSubmit = (data) => {
-    fetch(
-      'https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('Authorization')}`,
-        },
-        body: JSON.stringify(data),
-      }
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        if (result.status === true) {
-          setSuccessModal(true);
-          setTimeout(() => {
-            history.replace('/');
-          }, 3000);
-        } else if (result.status === false) {
-          setErrorModal(true);
+    data.schedule = selectSchedule;
+    data.doctorDetails = {
+      name: doctorDetails.name,
+      specialization: doctorDetails.specialization,
+      email: doctorDetails.email,
+      doctorID: doctorDetails._id,
+    };
+    if (Object.keys(data.schedule).length !== 0) {
+      fetch(
+        "https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+          },
+          body: JSON.stringify(data),
         }
-      });
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.status === true) {
+            setSuccessModal(true);
+            setTimeout(() => {
+              history.replace("/");
+            }, 3000);
+          } else if (result.status === false) {
+            setErrorModal(true);
+          }
+        });
+    }
   };
 
   return (
@@ -72,11 +113,11 @@ const BookAppointment = () => {
         modalContent={[
           successModal,
           setSuccessModal,
-          'Appointment Booking Successfull',
+          "Appointment Booking Successfull",
         ]}
       />
       <ErrorModal
-        modalContent={[errorModal, setErrorModal, 'Email Already Used']}
+        modalContent={[errorModal, setErrorModal, "Email Already Used"]}
       />
       {/* Modal End */}
 
@@ -84,92 +125,104 @@ const BookAppointment = () => {
         <div className="appointmentChild">
           <h2 className="my-2">Book Your Appointment</h2>
           <div>
-            <div className="row px-sm-5 pt-5 appointmentBook">
-              <div className="col-sm-6 AppointmentImgCol px-lg-5 d-flex align-items-end">
-                <img className="w-100" src={appointmentImg} alt="appointment" />
-              </div>
-              <div className="col-md-6 d-flex align-items-center m-auto">
+            <div className="appointmentBook">
+              <div className="m-auto">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="row row-cols-lg-auto g-4 align-items-center"
+                  className="d-lg-flex p-0 px-2 px-lg-5 px-xl-5"
                 >
-                  <div className="col-12">
-                    <input
-                      type="text"
-                      className="appointmentInput form-control rounded-pill px-3 py-2"
-                      placeholder="Patient name..."
-                      name="name"
-                      ref={register({ required: true })}
-                    />
-                    {errors.name && (
-                      <p className="text-center text-danger mt-2 mb-0">
-                        Name is required.
-                      </p>
-                    )}
+                  <div className="w-100 px-3 px-xl-5 py-4 mx-lg-3 my-3 scheduleParent">
+                    <div>
+                      <h2 className="pt-1 pb-0 mb-1">Available Schedule</h2>
+                      <h5
+                        className="text-center mb-3 fw-bold"
+                        style={{
+                          color: `${isScheduleSelect ? "#dc3545" : "#00cccc"}`,
+                        }}
+                      >
+                        {allAvailableSchedule.length !== 0
+                          ? isScheduleSelect
+                            ? "Please select one Schedule"
+                            : "You Selected One Schedule"
+                          : "Schedule Not Available"}
+                      </h5>
+                      {allAvailableSchedule.map((data, index) => (
+                        <ScheduleList
+                          key={index}
+                          schedule={[selectSchedule, setSelectSchedule]}
+                          data={{ data, index }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <div className="col-12">
-                    <input
-                      type="text"
-                      className="appointmentInput form-control rounded-pill px-3 py-2"
-                      placeholder="Phone Number..."
-                      name="phone"
-                      ref={register({ required: true })}
-                    />
-                    {errors.phone && (
-                      <p className="text-center text-danger mt-2 mb-0">
-                        Phone Number is required.
-                      </p>
-                    )}
-                  </div>
-                  <div className="col-12">
-                    <select
-                      className="form-select appointmentInput rounded-pill px-3 py-2"
-                      name="department"
-                      ref={register({ required: true })}
-                    >
-                      <option value="" selected>
-                        Select department
-                      </option>
-                      <option value="Endocrinologist">Endocrinologist</option>
-                      <option value="Pediatrician">Pediatrician</option>
-                      <option value="Neurologist">Neurologist</option>
-                      <option value="Rheumatologist">Rheumatologist</option>
-                      <option value="Nephrologist">Nephrologist</option>
-                    </select>
-                    {errors.department && (
-                      <p className="text-center text-danger mt-2 mb-0">
-                        Please select the department.
-                      </p>
-                    )}
-                  </div>
-                  <div className="col-12">
-                    <select
-                      className="form-select appointmentInput rounded-pill px-3 py-2"
-                      name="doctor"
-                      ref={register({ required: true })}
-                    >
-                      <option value="" selected>
-                        Select doctor
-                      </option>
-                      <option value="Dr Pullen">Dr Pullen</option>
-                      <option value="Dr Fillmore">Dr Fillmore</option>
-                      <option value="Dr Ken Hurt">Dr Ken Hurt</option>
-                      <option value="Dr Hurt">Dr Hurt</option>
-                      <option value="Dr Borer">Dr Borer</option>
-                    </select>
-                    {errors.doctor && (
-                      <p className="text-center text-danger mt-2 mb-0">
-                        Please select the doctor.
-                      </p>
-                    )}
-                  </div>
-                  <div className="col-12 text-center">
-                    <button
-                      type="submit"
-                      className="my-4 appointmentSubmit rounded-pill px-4"
-                    >
-                      Send Booking
-                    </button>
+                  <div className="w-100 px-3 px-xl-5 mx-lg-3 my-3 scheduleParent">
+                    <h2 className="pt-1 pb-0 mb-4 mt-4">
+                      Please fill out the form
+                    </h2>
+                    <div>
+                      <input
+                        type="text"
+                        className="appointmentInput form-control rounded-pill w-100"
+                        placeholder="Enter Your Name"
+                        name="name"
+                        ref={register({ required: true })}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        className="appointmentInput form-control rounded-pill w-100"
+                        placeholder="Enter Your Phone Number"
+                        name="phone"
+                        ref={register({ required: true })}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        className="appointmentInput form-control rounded-pill w-100"
+                        placeholder="Enter Your Email"
+                        name="userEmail"
+                        ref={register({ required: true })}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="number"
+                        className="appointmentInput form-control rounded-pill w-100"
+                        placeholder="Enter Your Age"
+                        name="age"
+                        ref={register({ required: true })}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        className="appointmentInput form-control rounded-pill w-100"
+                        placeholder="Select Your Blood Group"
+                        name="bloodGroup"
+                        ref={register({ required: true })}
+                      />
+                    </div>
+                    <div className="w-100">
+                      {(errors.name ||
+                        errors.phone ||
+                        errors.userEmail ||
+                        errors.age ||
+                        errors.bloodGroup) && (
+                        <p className="text-center text-danger mt-2 mb-0">
+                          Please Provide Your Valid Data
+                        </p>
+                      )}
+                    </div>
+                    <div className="text-center">
+                      <button
+                        type="submit"
+                        className="my-4 appointmentSubmit rounded-pill px-4"
+                      >
+                        Send Booking
+                      </button>
+                    </div>
                   </div>
                 </form>
               </div>
