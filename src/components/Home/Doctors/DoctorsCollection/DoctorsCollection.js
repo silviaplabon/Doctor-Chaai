@@ -5,21 +5,6 @@ import axios from "axios";
 import './DoctorsCollection.scss'
 const Doctors = () => {
     const [data, setData] = useState([])
-    // useEffect(() => {
-    //     fetch('https://whispering-reef-28119.herokuapp.com/doctor/',
-    //         {
-    //             method: 'GET',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'status':``
-    //             }
-    //         }
-    //     )
-    //         .then(res => res.json())
-    //         .then(data => {
-                   
-    //         })
-    // }, [])
     useEffect(() => {
         axios
           .get("https://whispering-reef-28119.herokuapp.com/doctor/allDoctors",{

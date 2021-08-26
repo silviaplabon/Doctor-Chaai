@@ -56,13 +56,13 @@ const FindDoctor = () => {
             </p>
             <div className="d-flex align-items-center justify-content-between">
               <button
-                className="btn rounded-pill btnDesign1 mt-3"
+                className="btn rounded-pill btnDesign1 mt-3 px-3 py-2  buttonFindDoctor"
                 onClick={() => handleModal()}
               >
                 Find Doctor Now
               </button>
               <button
-                className="btnDesign2 mt-3 mx-5">
+                className="btnDesign2 mt-3 px-3 py-2 buttonFindDoctor" >
                 <a href="https://doctor-chaai-help.netlify.app/" target="_blank" rel="noopener noreferrer">
                 Lets chat
                 </a>

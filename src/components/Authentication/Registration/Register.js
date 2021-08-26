@@ -64,7 +64,7 @@ const Register = () => {
       />
       {/* Modal end*/}
       <div className="login-container">
-        <div className="container custom-container py-5">
+        <div className="container custom-container pageHeight py-5">
           <h3 className="text-center">NEW HERE? PLEASE SIGN UP</h3>
           <div className="row row-cols-1 row-cols-md-2 login-container">
             <div className="col my-5 ">

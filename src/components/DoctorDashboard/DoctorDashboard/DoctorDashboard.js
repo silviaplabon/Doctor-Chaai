@@ -5,17 +5,20 @@ import {
   faUserInjured
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import { UserContext } from "../../../App";
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
+import DoctorAppointments from "../DoctorAppointments/DoctorAppointments";
 import DoctorDashboardData from "../DoctorDashboardData/DoctorDashboardData";
 import DoctorSchedule from "../DoctorSchedule/DoctorSchedule";
 import "./DoctorDashboard.scss";
 
 const DoctorDashboard = () => {
   const [expandDoctorSidebar, setExpandDoctorSidebar] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  console.log(loggedInUser);
 
   return (
     <Router>
@@ -65,12 +68,10 @@ const DoctorDashboard = () => {
                 </div>
                 <div className="dashboardTopbarMenu d-flex align-items-center">
                   <FontAwesomeIcon className="topbarIcon" icon={faBell} />
-                  <img
-                    className="rounded-circle"
-                    src="https://i.ibb.co/jZnydgt/foto-sushi-6anudmp-ILw4-unsplash.jpg"
-                    alt="profile pic"
-                  />
-                  <h4>Md Rakib</h4>
+                  <div className="profileLogo rounded-circle">
+                  <span>{loggedInUser.email[0]}</span>
+                  </div>
+                  <h4>{loggedInUser.email}</h4>
                 </div>
               </div>
             </div>
@@ -84,6 +85,9 @@ const DoctorDashboard = () => {
             </Route>
             <Route path="/doctordashboard/schedule">
               <DoctorSchedule />
+            </Route>
+            <Route path="/doctordashboard/appointments">
+              <DoctorAppointments />
             </Route>
           </Switch>
         </div>
