@@ -1,19 +1,21 @@
 import {
-    faBell,
-    faChartPie,
-    faUserInjured
+  faBell,
+  faChartPie,
+  faUserInjured
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { UserContext } from "../../../App";
 import cancelBtn from "../../../images/cancelMenu.svg";
 import menuBtn from "../../../images/menu.svg";
-import UserDashboardData from "../UserDashboardData/UserDashboardData";
 import UserAppointmentList from '../UserAppointmentList/UserAppointmentList';
+import UserDashboardData from "../UserDashboardData/UserDashboardData";
 import "./UserDashboard.scss";
 
 const UserDashboard = () => {
   const [expandUserSidebar, setexpandUserSidebar] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   return (
     <Router>
@@ -59,12 +61,10 @@ const UserDashboard = () => {
                 </div>
                 <div className="dashboardTopbarMenu d-flex align-items-center">
                   <FontAwesomeIcon className="topbarIcon" icon={faBell} />
-                  <img
-                    className="rounded-circle"
-                    src="https://i.ibb.co/jZnydgt/foto-sushi-6anudmp-ILw4-unsplash.jpg"
-                    alt="profile pic"
-                  />
-                  <h4>Md Rakib</h4>
+                  <div className="profileLogo rounded-circle">
+                  <span>{loggedInUser?.email[0]}</span>
+                  </div>
+                  <h4>{loggedInUser?.email}</h4>
                 </div>
               </div>
             </div>

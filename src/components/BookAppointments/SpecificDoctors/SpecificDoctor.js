@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 const SpecificDoctor = ({ dept }) => {
-  console.log(dept);
   const history = useHistory();
   return (
     <div className="mt-2 text-center">

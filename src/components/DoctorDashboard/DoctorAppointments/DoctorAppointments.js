@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../App';
 import './DoctorAppointments.scss';
 
 const DoctorAppointments = () => {
-    const [appointment, setAppointment] = useState([])
+    const [appointment, setAppointment] = useState([]);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
         fetch('https://whispering-reef-28119.herokuapp.com/appointment', {
@@ -12,9 +14,9 @@ const DoctorAppointments = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setAppointment(data.result)
+                setAppointment(data.result.filter(data=>data.doctorDetails.email === loggedInUser.email))
             })
-    })
+    },[])
 
     return (
         <div className="w-100 SubParentDesign">
@@ -33,7 +35,7 @@ const DoctorAppointments = () => {
                     {
                         appointment.map((d) => {
                             return <div className="card text-white appointment-details mb-3">
-                                <div className=" w-100 d-xl-flex align-items-center justify-content-between">
+                                <div className=" w-100 d-sm-flex align-items-center justify-content-between">
                                     <div className="text-center w-25">
                                         <h5 className="card-title">{d.name}</h5>
                                     </div>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import BlogShow from '../BlogShow/BlogShow';
 import './BlogsCollection.scss';
 const BlogsCollection = () => {
@@ -10,7 +10,6 @@ const BlogsCollection = () => {
       .get('https://whispering-reef-28119.herokuapp.com/blog/getBlog')
       .then(function (response) {
         // handle success
-        console.log(response.data.result);
         setBlogs(response.data.result);
       })
       .catch(function (error) {

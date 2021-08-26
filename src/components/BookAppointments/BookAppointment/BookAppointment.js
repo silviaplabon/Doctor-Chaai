@@ -82,7 +82,6 @@ const BookAppointment = () => {
       doctorID: doctorDetails._id,
     };
     if (Object.keys(data.schedule).length !== 0) {
-      console.log(data);
       fetch(
         "https://whispering-reef-28119.herokuapp.com/appointment/doctorAppointment",
         {
@@ -131,9 +130,9 @@ const BookAppointment = () => {
               <div className="m-auto">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="d-flex p-0 px-5"
+                  className="d-lg-flex p-0 px-2 px-lg-5 px-xl-5"
                 >
-                  <div className="w-100 px-xl-5 py-4 m-3 scheduleParent">
+                  <div className="w-100 px-3 px-xl-5 py-4 mx-lg-3 my-3 scheduleParent">
                     <div>
                       <h2 className="pt-1 pb-0 mb-1">Available Schedule</h2>
                       <h5
@@ -142,9 +141,11 @@ const BookAppointment = () => {
                           color: `${isScheduleSelect ? "#dc3545" : "#00cccc"}`,
                         }}
                       >
-                        {isScheduleSelect
-                          ? "Please select one Schedule"
-                          : "You Selected One Schedule"}
+                        {allAvailableSchedule.length !== 0
+                          ? isScheduleSelect
+                            ? "Please select one Schedule"
+                            : "You Selected One Schedule"
+                          : "Schedule Not Available"}
                       </h5>
                       {allAvailableSchedule.map((data, index) => (
                         <ScheduleList
@@ -155,7 +156,7 @@ const BookAppointment = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="w-100 px-xl-5 m-3 scheduleParent">
+                  <div className="w-100 px-3 px-xl-5 mx-lg-3 my-3 scheduleParent">
                     <h2 className="pt-1 pb-0 mb-4 mt-4">
                       Please fill out the form
                     </h2>
