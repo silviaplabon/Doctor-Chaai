@@ -3,7 +3,6 @@ import './BlogShow.scss';
 
 const BlogShow = ({blog}) => {
   const {title, description, date, image} = blog;
-  console.log(blog);
   return (
     <div className="col mt-5">
       <div className="blogContainer">

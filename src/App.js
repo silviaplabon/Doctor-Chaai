@@ -53,9 +53,9 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/userdashboard">
+          <PrivateRoute path="/userdashboard">
             <UserDashboard />
-          </Route>
+          </PrivateRoute>
           <DoctorPrivateRoute path="/doctordashboard">
             <DoctorDashboard />
           </DoctorPrivateRoute>

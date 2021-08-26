@@ -107,21 +107,21 @@ const NavBar = () => {
                       Covid Tracker
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/doctorDashboard/dashboard">
+                  {loggedInUser?.email?<li className="nav-item">
+                    <Link className="nav-link" to={`${loggedInUser?.isDoctor === true ? "/doctorDashboard/dashboard":"/userdashboard"}`}>
                       Dashboard
                     </Link>
-                  </li>
+                  </li>:''}
                 </ul>
                 <ul className="navbar-nav align-items-center ms-lg-auto mb-2 mb-lg-0 navbarBtnItem">
                   {/* <li className="nav-item ">
                                     <Link className="nav-link logInBtn" aria-current="page" to="/home">LogIn</Link>
                                 </li> */}
-                  {loggedInUser?.userName ? (
+                  {loggedInUser?.email ? (
                     <li className="nav-item mt-3 mt-lg-0">
                       <Link
                         onClick={handleLogout}
-                        className="signUpBtn rounded-pill"
+                        className="navbarBtn rounded-pill"
                         aria-current="page"
                         to="/login"
                       >
@@ -148,7 +148,7 @@ const NavBar = () => {
                           For Doctor
                         </Link>
                       </li>
-                      </div>
+                    </div>
                   )}
                 </ul>
               </div>

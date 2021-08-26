@@ -8,7 +8,6 @@ import ErrorModal from '../../Modal/ErrorModal/ErrorModal';
 
 const DoctorLogin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser);
 
     const [errorModal, setErrorModal] = useState(false);
 
