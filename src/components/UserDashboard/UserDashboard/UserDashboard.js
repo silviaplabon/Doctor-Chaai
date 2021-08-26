@@ -15,7 +15,7 @@ import "./UserDashboard.scss";
 
 const UserDashboard = () => {
   const [expandUserSidebar, setexpandUserSidebar] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [loggedInUser] = useContext(UserContext);
 
   return (
     <Router>

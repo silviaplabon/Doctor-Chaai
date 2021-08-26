@@ -38,6 +38,10 @@ const NavBar = () => {
   });
 
   const [map, setMap] = React.useState(null);
+  
+  if(isLoaded){
+    console.log(isLoaded,map);
+  }
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds();

@@ -4,7 +4,7 @@ import './DoctorAppointments.scss';
 
 const DoctorAppointments = () => {
     const [appointment, setAppointment] = useState([]);
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
 
     useEffect(() => {
         fetch('https://whispering-reef-28119.herokuapp.com/appointment', {
@@ -16,7 +16,7 @@ const DoctorAppointments = () => {
             .then(data => {
                 setAppointment(data.result.filter(data=>data.doctorDetails.email === loggedInUser.email))
             })
-    },[])
+    },[loggedInUser.email])
 
     return (
         <div className="w-100 SubParentDesign">

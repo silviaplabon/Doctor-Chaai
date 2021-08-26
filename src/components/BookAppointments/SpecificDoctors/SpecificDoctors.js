@@ -29,7 +29,7 @@ const SpecificDoctors = () => {
       (dept) => dept.specialization === department
     );
     setByDept(deptDoctor);
-  }, [allDept]);
+  }, [allDept,department]);
 
   return (
     <div>

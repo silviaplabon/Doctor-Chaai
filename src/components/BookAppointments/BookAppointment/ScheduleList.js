@@ -2,6 +2,7 @@ import React from "react";
 
 const ScheduleList = ({data,schedule}) => {
     const [selectSchedule, setSelectSchedule] = schedule;
+    console.log(selectSchedule.length === 0);
     const {data:scheduleData,index} = data;
   return (
     <>

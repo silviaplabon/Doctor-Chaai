@@ -14,7 +14,7 @@ import ScheduleList from "../ScheduleList/ScheduleList";
 import "./DoctorSchedule.scss";
 
 const DoctorSchedule = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [loggedInUser] = useContext(UserContext);
   const [scheduleDate, setScheduleDate] = useState(new Date());
   const [startTime, setStartTime] = useState(moment());
   const [endTime, setEndTime] = useState(moment());
@@ -42,22 +42,25 @@ const DoctorSchedule = () => {
   //Email for test check
   const email = loggedInUser.email;
 
-  // Find the doctor in pendingSchedule
-  const findDoctorPending = async () => {
-    // Find the doctor with email
-    const snapshot = await pendingCollection.where("email", "==", email).get();
-    // check the doctors finded or not find
-    if (!snapshot.empty) {
-      let docId;
-      snapshot.forEach((doc) => {
-        docId = doc.id;
-        setDoctorId(docId);
-      });
-    }
-  };
-
   // Call The function for find doctor from pendingSchedule
-  useEffect(() => findDoctorPending(), [findDoctor]);
+  useEffect(() => {
+    // Find the doctor in pendingSchedule
+    const findDoctorPending = async () => {
+      // Find the doctor with email
+      const snapshot = await pendingCollection
+        .where("email", "==", email)
+        .get();
+      // check the doctors finded or not find
+      if (!snapshot.empty) {
+        let docId;
+        snapshot.forEach((doc) => {
+          docId = doc.id;
+          setDoctorId(docId);
+        });
+      }
+    };
+    findDoctorPending();
+  }, [findDoctor, email, pendingCollection]);
 
   //Find the doctor if is available then add pending schedul otherwise add doctor with pending schedul
   const pendingScheduleAdd = async () => {
@@ -79,51 +82,67 @@ const DoctorSchedule = () => {
     }
   };
 
-  //Get the schedul from availableSchedule
-  const pendingScheduleGet = async () => {
-    const data = await pendingCollection
-      .doc(doctorID)
-      .collection("schedule")
-      .get();
-    let tempAllSchedule = [];
-    let tempScheduleObj;
-    data.forEach((doc) => {
-      tempScheduleObj = {
-        id: doc.id,
-        ...doc.data().scheduleData,
-      };
-      tempAllSchedule.push(tempScheduleObj);
-    });
-    setAllPendingSchedule(tempAllSchedule);
-  };
-
-  // Get the all schedul from availableSchedule
-  const availableScheduleGet = async () => {
-    const data = await availableCollection
-      .doc(doctorID)
-      .collection("schedule")
-      .get();
-    let tempAllSchedule = [];
-    let tempScheduleObj;
-    data.forEach((doc) => {
-      tempScheduleObj = {
-        id: doc.id,
-        ...doc.data().scheduleData,
-      };
-      tempAllSchedule.push(tempScheduleObj);
-    });
-    setAllAvailableSchedule(tempAllSchedule);
-  };
-
   // Call The function for get pending schedule from pendingSchedule
-  useEffect(
-    () => doctorID?.length ? pendingScheduleGet():setFindDoctor(!findDoctor),
-    [addNewPending, updatePendingList, doctorID]
-  );
-  useEffect(
-    () => doctorID?.length ? availableScheduleGet():setFindDoctor(!findDoctor),
-    [updatePendingList, updateAvaliableList, doctorID]
-  );
+  useEffect(() => {
+    if (doctorID?.length) {
+      //Get the schedul from availableSchedule
+      const pendingScheduleGet = async () => {
+        const data = await pendingCollection
+          .doc(doctorID)
+          .collection("schedule")
+          .get();
+        let tempAllSchedule = [];
+        let tempScheduleObj;
+        data.forEach((doc) => {
+          tempScheduleObj = {
+            id: doc.id,
+            ...doc.data().scheduleData,
+          };
+          tempAllSchedule.push(tempScheduleObj);
+        });
+        setAllPendingSchedule(tempAllSchedule);
+      };
+      pendingScheduleGet();
+    } else {
+      setFindDoctor(!findDoctor);
+    }
+  }, [
+    addNewPending,
+    updatePendingList,
+    doctorID,
+    findDoctor,
+    pendingCollection,
+  ]);
+  useEffect(() => {
+    if (doctorID?.length) {
+      // Get the all schedul from availableSchedule
+      const availableScheduleGet = async () => {
+        const data = await availableCollection
+          .doc(doctorID)
+          .collection("schedule")
+          .get();
+        let tempAllSchedule = [];
+        let tempScheduleObj;
+        data.forEach((doc) => {
+          tempScheduleObj = {
+            id: doc.id,
+            ...doc.data().scheduleData,
+          };
+          tempAllSchedule.push(tempScheduleObj);
+        });
+        setAllAvailableSchedule(tempAllSchedule);
+      };
+      availableScheduleGet();
+    } else {
+      setFindDoctor(!findDoctor);
+    }
+  }, [
+    updatePendingList,
+    updateAvaliableList,
+    doctorID,
+    availableCollection,
+    findDoctor,
+  ]);
 
   return (
     <div className="doctorDashboardData w-100 SubParentDesign">
