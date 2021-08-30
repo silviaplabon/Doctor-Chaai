@@ -6,7 +6,18 @@
   padding: 20px 12px;
   float: left;
   transition: all 0.3s;
-
+  .menuBtn {
+    width: 2.5rem;
+    padding: 3px;
+    overflow: hidden;
+    outline: none;
+    border-radius: 6px;
+    transition: all 0.3s;
+    background-color: #00cccc;
+  }
+  .sidebarCancelBtn {
+    display: none;
+  }
   .dashboardLogo {
     width: 100%;
     overflow: hidden;
@@ -64,4 +75,15 @@
 .userSideBarHide {
   margin-left: -15rem;
   transition: all 0.3s;
+}
+
+@media (max-width: 840px) {
+  .sidebarCancelBtn {
+    display: block !important;
+  }
+  .userSideBar {
+    position: absolute;
+    z-index: 111;
+    height: 100% !important;
+  }
 }
