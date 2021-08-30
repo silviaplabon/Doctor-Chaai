@@ -1,8 +1,10 @@
 input {
     height: 60px;
-    width: 300px;
+    width: 260px;
     margin-top: 20px;
     border-radius: 40px;
     padding-bottom: 5px;
-    
+}
+input::placeholder{
+    padding-left:20px;
 }

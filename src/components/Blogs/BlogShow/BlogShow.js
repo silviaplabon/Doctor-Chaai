@@ -5,7 +5,6 @@ const BlogShow = ({ blog }) => {
     return (
         <div className="col mt-5">
             <div className="blogContainer">
-           
             <div className="card shadow">
                 <div className="blogDateContainer">
                     <h6 className="text-white ps-4 py-1">{date}</h6>
