@@ -69,6 +69,9 @@
   }
 }
 @media (max-width: 576px) {
+  .serviceCard {
+    margin: 1.8rem 2rem !important;
+  }
   .serviceChild {
     h2 {
       font-size: 1.7rem !important;
@@ -78,11 +81,11 @@
 @media (max-width: 992px) {
   .serviceCard {
     padding: 2.5rem 1.3rem !important;
-    margin: 1rem 3rem !important;
+    margin: 1rem 3rem;
   }
 }
 @media (max-width: 1400px) {
   .serviceCard {
-    margin: 1.5rem 3.5rem !important;
+    margin: 1.5rem 3.5rem;
   }
 }
