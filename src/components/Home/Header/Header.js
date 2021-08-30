@@ -19,7 +19,7 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-5 ">
+                    <div className="col-0 col-md-5 d-none d-md-block">
                         <img src={banner} alt="banner" className="img-fluid"/>
                     </div>
                 </div>
