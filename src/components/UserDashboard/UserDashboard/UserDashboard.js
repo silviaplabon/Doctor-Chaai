@@ -5,11 +5,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
-import { BrowserRouter as Router, Link, Route, Switch, useHistory } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  useHistory
+} from "react-router-dom";
 import { UserContext } from "../../../App";
 import cancelBtn from "../../../images/cancelMenu.svg";
+import leftArrow from "../../../images/leftArrow.svg";
 import menuBtn from "../../../images/menu.svg";
-import UserAppointmentList from '../UserAppointmentList/UserAppointmentList';
+import UserAppointmentList from "../UserAppointmentList/UserAppointmentList";
 import UserDashboardData from "../UserDashboardData/UserDashboardData";
 import "./UserDashboard.scss";
 
@@ -20,14 +27,26 @@ const UserDashboard = () => {
 
   return (
     <Router>
-      <div className="d-flex">
+      <div className="d-flex position-relative">
         {/* Dashboard sidBar Start */}
         <div
           className={`userSideBar min-vh-100 ${
             expandUserSidebar && "doctorSideBarHide"
           }`}
         >
-          <div style={{cursor:'pointer'}} onClick={()=>history.push('/home')} className="dashboardLogo">
+          <div className="text-end mb-2 sidebarCancelBtn">
+            <button
+              onClick={() => setexpandUserSidebar(!expandUserSidebar)}
+              className="btn menuBtn"
+            >
+              <img src={leftArrow} alt="menu button" />
+            </button>
+          </div>
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => history.push("/home")}
+            className="dashboardLogo"
+          >
             <img src="https://i.ibb.co/FzBKrr8/dcLogoWH.png" alt="logo" />
           </div>
           <div className="sidebarMenu">
@@ -63,7 +82,7 @@ const UserDashboard = () => {
                 <div className="dashboardTopbarMenu d-flex align-items-center">
                   <FontAwesomeIcon className="topbarIcon" icon={faBell} />
                   <div className="profileLogo rounded-circle">
-                  <span>{loggedInUser?.email[0]}</span>
+                    <span>{loggedInUser?.email[0]}</span>
                   </div>
                   <h4>{loggedInUser?.email}</h4>
                 </div>
@@ -78,7 +97,7 @@ const UserDashboard = () => {
               <UserDashboardData />
             </Route>
             <Route exact path="/userdashboard/appointment">
-             <UserAppointmentList></UserAppointmentList>
+              <UserAppointmentList></UserAppointmentList>
             </Route>
           </Switch>
         </div>
@@ -87,6 +106,5 @@ const UserDashboard = () => {
     </Router>
   );
 };
-
 
 export default UserDashboard;

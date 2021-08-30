@@ -1,10 +1,10 @@
 import React from 'react';
-import './DoctorShow.scss'
+import './DoctorShow.scss';
 const DoctorShow = ({ doctor }) => {
     const { name, photo,specialization,experience} = doctor;
     return (
         <div className="col mt-4">
-            <div className="doctorShowContainer  mt-4">
+            <div className="doctorShowContainer pb-5 mt-4">
                 <div className="card shadow cardContainerDoctors">
                     <div className="doctorProfileImageContainer d-flex justify-content-center align-items-center">
                         <img src={photo} className="card-img-top doctorProfileImage" alt="..." />
