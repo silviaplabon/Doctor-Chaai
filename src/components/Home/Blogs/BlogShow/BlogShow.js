@@ -1,5 +1,7 @@
+import moment from "moment";
 import React from 'react';
 import './BlogShow.scss';
+
 
 const BlogShow = ({ blog }) => {
   const { title, description, date, image } = blog;
@@ -11,7 +13,7 @@ const BlogShow = ({ blog }) => {
       <div className="blogContainer">
         <div className="card shadow blogRadiusContainer">
           <div className="blogDateContainer">
-            <h6 className="text-white ps-4 py-1">{date}</h6>
+            <h6 className="text-white ps-4 pt-3 pb-2">{moment(date).format("MMM Do YY hh:mm a")}</h6>
           </div>
           <div className="blogImageContainer">
             <img src={image} alt="profile" className="w-100 blogImage" />
