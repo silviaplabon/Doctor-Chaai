@@ -1,9 +1,25 @@
 .blogDateContainer{
    background-color: #1d1d48!important;
+   border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
 }
+.blogRadiusContainer{
+   border-radius: 0.75rem;
+}
+
 .blogImageContainer{
     height:35%!important;
 }
+
+.blogDetailsContainer{
+    height:50%!important;
+}
+
+.blogDetailTitle{
+    height:3rem!important;
+}
+
+
 .blogImage{
     height:180px;
 }
@@ -21,4 +37,7 @@
     height: 180px;
     display: flex;
     align-items: center;
+}
+.blogCard{
+    border-radius: 0.70rem!important;
 }
