@@ -1,27 +1,28 @@
 import React from 'react';
 import './BlogShow.scss';
 
-const BlogShow = ({blog}) => {
-  const {title, description, date, image} = blog;
+const BlogShow = ({ blog }) => {
+  const { title, description, date, image } = blog;
+  const maxLength = 94;
+  let trimmedString = description.substr(0, maxLength);
+  trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
   return (
     <div className="col mt-5">
       <div className="blogContainer">
-        <div className="card shadow">
+        <div className="card shadow blogRadiusContainer">
           <div className="blogDateContainer">
             <h6 className="text-white ps-4 py-1">{date}</h6>
           </div>
-          <div className=" blogImageContainer">
+          <div className="blogImageContainer">
             <img src={image} alt="profile" className="w-100 blogImage" />
           </div>
-
-          <div className="text-center">
-            <h5 className="mt-3" style={{color: '#1dc0bf'}}>
+          <div className="text-center blogDetailsContainer">
+            <h5 className="mt-3 mx-3 blogDetailTitle " style={{ color: '#1dc0bf' }}>
               {title}
             </h5>
-            <p className="mx-3" style={{color: '#0e0d3f'}}>
-              {description.slice(0, 66) + ' ..'}
+            <p className="mx-3 blogDetailDescription" style={{ color: '#0e0d3f' }}>
+              {trimmedString}......
             </p>
-            {/* <button className="btn mb-4 readMoreBlogButton" data-toggle="modal" data-target="#exampleModalLong" >Read More</button> */}
             <button
               type="button"
               className="btn mb-4 readMoreBlogButton"
@@ -51,7 +52,7 @@ const BlogShow = ({blog}) => {
               <div className="col-12 mx-auto">
                 <h4
                   className="modal-title mt-2 text-center"
-                  style={{color: '#1dc0bf'}}
+                  style={{ color: '#1dc0bf' }}
                   id="exampleModalLabel"
                 >
                   {title}
@@ -63,7 +64,7 @@ const BlogShow = ({blog}) => {
                     className="w-75 mt-2 mx-auto d-block"
                   />
                 </div>
-                <p className="mx-3 mt-3" style={{color: '#0e0d3f'}}>
+                <p className="mx-3 mt-3" style={{ color: '#0e0d3f' }}>
                   {description}
                 </p>
               </div>
